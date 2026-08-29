@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "femit_sexuality_hero": {
+      "type": "femit-menopause-hero",
+      "settings": {
+        "heading": "<p>היכרות מחודשת עם <em>הגוף שלך</em>.</p>",
+        "subheading": "מיניות היא חלק מהבריאות שלנו בכל גיל. מוצרים איכותיים וידע פתוח, בלי בושה.",
+        "image": "shopify://shop_images/smiling-senior-in-yellow-ball-pit.jpg",
+        "button_label": "",
+        "button_link": "#femit_sexuality_products",
+        "padding_top": 40,
+        "padding_bottom": 24
+      }
+    },
+    "femit_sexuality_products": {
+      "type": "femit-product-showcase",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "satisfyer-pro-2",
+            "custom_title": "",
+            "custom_description": ""
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "vibrating-wearable-app-controlled-satisfyer",
+            "custom_title": "",
+            "custom_description": ""
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "חומר-סיכוך-id-pleasure-130-מל",
+            "custom_title": "",
+            "custom_description": ""
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "id-glide-water-based-lubricant",
+            "custom_title": "",
+            "custom_description": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "room_of_ones_own",
+            "custom_title": "",
+            "custom_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "heading": "המוצרים שלנו",
+        "subheading": "נבחרו בקפידה לתמיכה בהנאה, בריאות ובחיבור לעצמך.",
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "femit_sexuality_articles": {
+      "type": "femit-article-bento",
+      "blocks": {
+        "side_1": {
+          "type": "side_article",
+          "settings": {
+            "article": "news/בריאות-רצפת-האגן-מדריך-מלא",
+            "tag_label": "בריאות האישה",
+            "icon": "heart"
+          }
+        }
+      },
+      "block_order": [
+        "side_1"
+      ],
+      "settings": {
+        "heading": "תובנות וידע",
+        "subheading": "מאמרים על מיניות, אינטימיות ובריאות האישה בכל גיל.",
+        "view_all_label": "צפו בכל המאמרים",
+        "view_all_link": "shopify://blogs/articles",
+        "main_article": "articles/clitoris",
+        "main_article_tag": "מיניות",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "femit_sexuality_hero",
+    "femit_sexuality_products",
+    "femit_sexuality_articles"
+  ]
+}

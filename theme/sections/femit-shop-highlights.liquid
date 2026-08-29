@@ -1,0 +1,423 @@
+{%- style -%}
+  .femit-shop-highlights-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-shop-highlights-{{ section.id }} femit-section">
+  <div class="femit-shop-highlights__header">
+    <div>
+      {%- if section.settings.heading != blank -%}
+        <h2 class="femit-shop-highlights__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="femit-shop-highlights__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.view_all_label != blank -%}
+      <a href="{{ section.settings.view_all_link | default: '#' }}" class="femit-shop-highlights__view-all">
+        {{ section.settings.view_all_label }}
+        {% render 'femit-icon', icon: 'arrow' %}
+      </a>
+    {%- endif -%}
+  </div>
+
+  <div class="femit-shop-highlights__grid">
+    {%- for block in section.blocks -%}
+      <a
+        href="{{ block.settings.link | default: '#' }}"
+        class="femit-shop-highlights__cell femit-shop-highlights__cell--{{ block.type }} femit-ambient-shadow"
+        {{ block.shopify_attributes }}
+      >
+        {%- case block.type -%}
+          {%- when 'featured' -%}
+            {%- if block.settings.image != blank -%}
+              <img
+                class="femit-shop-highlights__cell-bg"
+                src="{{ block.settings.image | image_url: width: 900 }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                alt="{{ block.settings.title | escape }}"
+              >
+            {%- else -%}
+              <img class="femit-shop-highlights__cell-bg" src="{{ 'femit-img-shop-featured-kit.jpg' | asset_url }}" loading="lazy" width="512" height="279" alt="{{ block.settings.title | escape }}">
+            {%- endif -%}
+            <div class="femit-shop-highlights__cell-overlay"></div>
+            <div class="femit-shop-highlights__cell-content femit-shop-highlights__cell-content--on-image">
+              {%- if block.settings.badge != blank -%}
+                <span class="femit-shop-highlights__badge">{{ block.settings.badge }}</span>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h3 class="femit-shop-highlights__cell-title femit-shop-highlights__cell-title--on-image">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.subtitle != blank -%}
+                <p class="femit-shop-highlights__cell-subtitle femit-shop-highlights__cell-subtitle--on-image">{{ block.settings.subtitle }}</p>
+              {%- endif -%}
+            </div>
+
+          {%- when 'split' -%}
+            <div class="femit-shop-highlights__cell-text">
+              {%- if block.settings.title != blank -%}
+                <h3 class="femit-shop-highlights__cell-title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.subtitle != blank -%}
+                <p class="femit-shop-highlights__cell-subtitle">{{ block.settings.subtitle }}</p>
+              {%- endif -%}
+              {%- if block.settings.link_label != blank -%}
+                <span class="femit-shop-highlights__cell-link">{{ block.settings.link_label }} {% render 'femit-icon', icon: 'arrow' %}</span>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.image != blank -%}
+              <img
+                class="femit-shop-highlights__cell-image"
+                src="{{ block.settings.image | image_url: width: 500 }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                alt="{{ block.settings.title | escape }}"
+              >
+            {%- else -%}
+              <img class="femit-shop-highlights__cell-image" src="{{ 'femit-img-shop-split-books.jpg' | asset_url }}" loading="lazy" width="512" height="279" alt="{{ block.settings.title | escape }}">
+            {%- endif -%}
+
+          {%- when 'icon' -%}
+            <div class="femit-icon-circle femit-shop-highlights__cell-icon" style="background: {{ block.settings.icon_background | default: '#efeded' }}; color: {{ block.settings.icon_color | default: '#00657b' }};">
+              {% render 'femit-icon', icon: block.settings.icon %}
+            </div>
+            {%- if block.settings.title != blank -%}
+              <h3 class="femit-shop-highlights__cell-title femit-shop-highlights__cell-title--small">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.subtitle != blank -%}
+              <p class="femit-shop-highlights__cell-subtitle femit-shop-highlights__cell-subtitle--small">{{ block.settings.subtitle }}</p>
+            {%- endif -%}
+        {%- endcase -%}
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-shop-highlights__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .femit-shop-highlights__heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--femit-primary);
+    margin: 0 0 4px;
+  }
+
+  .femit-shop-highlights__subheading {
+    font-size: 16px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+
+  .femit-shop-highlights__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--femit-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .femit-shop-highlights__view-all:hover {
+    text-decoration: underline;
+  }
+
+  .femit-shop-highlights__view-all svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .femit-shop-highlights__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-shop-highlights__grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 250px;
+    }
+
+    .femit-shop-highlights__cell--featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .femit-shop-highlights__cell--split {
+      grid-column: span 2;
+    }
+
+    .femit-shop-highlights__cell--icon {
+      grid-column: span 1;
+    }
+  }
+
+  .femit-shop-highlights__cell {
+    position: relative;
+    display: block;
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .femit-shop-highlights__cell-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .femit-shop-highlights__cell--featured:hover .femit-shop-highlights__cell-bg {
+    transform: scale(1.05);
+  }
+
+  .femit-shop-highlights__cell-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 103, 127, 0.8), transparent);
+  }
+
+  .femit-shop-highlights__cell-content--on-image {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 24px;
+    color: #fff;
+  }
+
+  .femit-shop-highlights__badge {
+    display: inline-block;
+    background: var(--femit-secondary-container);
+    color: var(--femit-on-secondary-container);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--femit-radius-full);
+    margin-bottom: 8px;
+  }
+
+  .femit-shop-highlights__cell-title--on-image {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #fff;
+  }
+
+  .femit-shop-highlights__cell-subtitle--on-image {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+    color: #fff;
+  }
+
+  .femit-shop-highlights__cell--split {
+    background: var(--femit-surface-container-high);
+    display: flex;
+  }
+
+  .femit-shop-highlights__cell-text {
+    width: 50%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .femit-shop-highlights__cell-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    margin: 0 0 4px;
+  }
+
+  .femit-shop-highlights__cell-subtitle {
+    font-size: 13px;
+    color: var(--femit-on-surface-variant);
+    margin: 0 0 12px;
+  }
+
+  .femit-shop-highlights__cell-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--femit-primary);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .femit-shop-highlights__cell-link svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .femit-shop-highlights__cell-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .femit-shop-highlights__cell--icon {
+    background: var(--femit-surface-container);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .femit-shop-highlights__cell-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .femit-shop-highlights__cell-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .femit-shop-highlights__cell-title--small {
+    font-size: 14px;
+  }
+
+  .femit-shop-highlights__cell-subtitle--small {
+    font-size: 12px;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Shop Highlights",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "החנות שלנו"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "המוצרים הנבחרים ביותר שיעשו לך טוב"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "לכל המוצרים"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured",
+      "name": "Large featured item",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "badge", "label": "Badge text" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    },
+    {
+      "type": "split",
+      "name": "Split image + text item",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "text", "id": "link_label", "label": "Link label" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Small icon item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "book", "label": "Book" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "spa", "label": "Spa" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "community", "label": "Community" }
+          ],
+          "default": "droplet"
+        },
+        { "type": "color", "id": "icon_background", "label": "Icon background", "default": "#efeded" },
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#00657b" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Shop Highlights",
+      "blocks": [
+        { "type": "featured", "settings": { "badge": "מארז החודש", "title": "ערכת טיפוח והקשבה", "subtitle": "הכלים המושלמים לזמן שהוא רק שלך" } },
+        { "type": "split", "settings": { "title": "ספרים מומלצים", "subtitle": "ידע זה כוח. הספרייה המקצועית שלנו.", "link_label": "גלי עוד" } },
+        { "type": "icon", "settings": { "icon": "droplet", "title": "היגיינה נשית", "subtitle": "מוצרים טבעיים ונושמים" } },
+        { "type": "icon", "settings": { "icon": "spa", "title": "תוספי תזונה", "subtitle": "מותאמים במיוחד עבורך" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

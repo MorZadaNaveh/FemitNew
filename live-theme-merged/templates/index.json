@@ -1,0 +1,181 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "femit_hero": {
+      "type": "femit-hero",
+      "settings": {
+        "heading": "סוף סוף, מישהי שרואה אותך",
+        "subheading": "<p>הבית שלך לבריאות, לחוויות ולאינטימיות בגיל 40+. אנחנו כאן כדי ללוות אותך בכל שלב, עם מידע אמין, מוצרים איכותיים ומרחב תומך.</p>",
+        "image": "shopify://shop_images/ChatGPT_Image_Aug_18_2026_01_36_51_PM.png",
+        "primary_button_label": "התחילי כאן",
+        "primary_button_link": "/pages/resource-hub",
+        "secondary_button_label": "לחנות",
+        "secondary_button_link": "/collections/all",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "femit_feature_grid": {
+      "type": "femit-feature-grid",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "fan",
+            "icon_background": "#fbdbde",
+            "icon_color": "#6e5659",
+            "title": "גיל המעבר",
+            "description": "בריאות פיזית, תזונה מותאמת, וחיזוק הכוח לשנים הבאות.",
+            "link": "/pages/menopause"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "hiking",
+            "icon_background": "#ffdf90",
+            "icon_color": "#755b00",
+            "title": "Femit בטבע",
+            "description": "טיולים, הרצאות חוץ, וחיבור לטבע ולקהילה (כולל פתרונות נוחים כמו ZipHers).",
+            "link": "/pages/travel"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "icon_background": "#b6ebff",
+            "icon_color": "#00657b",
+            "title": "אינטימיות וחיבור",
+            "description": "העמקת מיניות, מערכות יחסים, והיכרות מחודשת עם הגוף שלך.",
+            "link": "/pages/sexuality"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
+      "settings": {
+        "heading": "שלושת המפתחות של Femit",
+        "subheading": "כל מה שאת צריכה כדי לפרוח בשלב הזה של החיים.",
+        "background_color": "#f5f3f3",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "femit_doctor_cta": {
+      "type": "femit-cta-banner",
+      "settings": {
+        "heading": "מחפשת הכוונה רפואית?",
+        "subheading": "מאגר המומחיות שלנו כולל רופאות מובילות המתמחות בגיל המעבר ורפואת נשים מותאמת אישית.",
+        "button_label": "חיפוש רופאות גיל המעבר",
+        "button_link": "/pages/menopause",
+        "background_color": "#00657b",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "femit_shop_highlights": {
+      "type": "femit-shop-highlights",
+      "blocks": {
+        "featured_1": {
+          "type": "featured",
+          "settings": {
+            "image": "shopify://shop_images/gpt-image-2-1_769b779f-28fb-49ef-b2f5-e32f4f571460.png",
+            "badge": "לכל שלב בחיים",
+            "title": "תמיכה בגיל המעבר ובפוריות",
+            "subtitle": "מוצרים ומידע לנשים 35+, איפה שלא תהיו בדרך",
+            "link": "shopify://collections/menopause"
+          }
+        },
+        "split_1": {
+          "type": "split",
+          "settings": {
+            "image": "shopify://shop_images/fanned-out-book-pages-against-a-pink-background.jpg",
+            "title": "ספרים מומלצים",
+            "subtitle": "ידע זה כוח. הספרייה המקצועית שלנו.",
+            "link_label": "גלי עוד",
+            "link": "shopify://collections/books"
+          }
+        },
+        "icon_1": {
+          "type": "icon",
+          "settings": {
+            "icon": "droplet",
+            "icon_background": "#efeded",
+            "icon_color": "#00657b",
+            "title": "מוצרי וסת",
+            "subtitle": "פתרונות נוחים ובני-קיימא",
+            "link": "shopify://collections/period"
+          }
+        },
+        "icon_2": {
+          "type": "icon",
+          "settings": {
+            "icon": "hiking",
+            "icon_background": "#efeded",
+            "icon_color": "#00657b",
+            "title": "ציוד לטיולים",
+            "subtitle": "יוצאות לדרך בראש שקט",
+            "link": "shopify://collections/ziphers"
+          }
+        }
+      },
+      "block_order": [
+        "featured_1",
+        "split_1",
+        "icon_1",
+        "icon_2"
+      ],
+      "settings": {
+        "heading": "החנות שלנו",
+        "subheading": "המוצרים הנבחרים ביותר שיעשו לך טוב",
+        "view_all_label": "לכל המוצרים",
+        "view_all_link": "/collections/all",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "femit_community_cta": {
+      "type": "femit-cta-banner",
+      "settings": {
+        "heading": "הצטרפי לקהילת נשימדע",
+        "subheading": "קבוצת פייסבוק לנשים שרוצות ללמוד, לשתף ולתמוך אחת בשנייה בנושאי בריאות האישה.",
+        "button_label": "להצטרפות לקבוצה",
+        "button_link": "https://www.facebook.com/groups/2413673982377380",
+        "background_color": "#00657b",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "femit_founder_quote": {
+      "type": "femit-founder-quote",
+      "settings": {
+        "image": "shopify://shop_images/0.21.jpg",
+        "quote": "<p>הקמתי את פמית כי הרגשתי שחסר לנו מרחב שבו באמת רואים אותנו. כל פעם שגיליתי במקרה על מוצר  שלא הכרתי (ידעת שיש דיסק וסת?) או על מחקר חדש ומרתק - תהיתי איך אין מקום אחד שמרכז את זה. Femit הוא בית לבריאות נשים, מקום שמזכיר לנו לדאוג לבריאות שלנו, לרווחה הנפשית שלנו, ומחבק את השינויים שאנחנו עוברות, עם ידע מקצועי וקהילה עוטפת.</p>",
+        "name": "מור זאדה נווה",
+        "role": "מייסדת Femit",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "femit_hero",
+    "femit_feature_grid",
+    "femit_doctor_cta",
+    "femit_shop_highlights",
+    "femit_community_cta",
+    "femit_founder_quote"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "femit_topic_index": {
+      "type": "femit-topic-index",
+      "blocks": {
+        "topic_menopause": {
+          "type": "topic",
+          "settings": {
+            "title": "גיל המעבר",
+            "description": "מידע, מוצרים ותמיכה למסע שלך דרך טרום גיל המעבר ומעבר לו.",
+            "link_label": "כניסה",
+            "link": "/pages/menopause",
+            "background_color": "#00657b",
+            "icon": "fan"
+          }
+        },
+        "topic_travel": {
+          "type": "topic",
+          "settings": {
+            "title": "טיולים",
+            "description": "ציוד וידע לצאת לדרך בביטחון, בכל גיל.",
+            "link_label": "כניסה",
+            "link": "/pages/travel",
+            "background_color": "#fccc38",
+            "icon": "hiking"
+          }
+        },
+        "topic_sexuality": {
+          "type": "topic",
+          "settings": {
+            "title": "מיניות",
+            "description": "היכרות מחודשת עם הגוף שלך, בלי בושה.",
+            "link_label": "כניסה",
+            "link": "/pages/sexuality",
+            "background_color": "#fbdbde",
+            "icon": "heart"
+          }
+        },
+        "topic_safe_space": {
+          "type": "topic",
+          "settings": {
+            "title": "מרחב בטוח",
+            "description": "ספרים וכלים לנשים החוות אלימות או שליטה בזוגיות. את לא לבד.",
+            "link_label": "כניסה",
+            "link": "/collections/מרחב-בטוח",
+            "background_color": "#eae8e7",
+            "icon": "stop-hand"
+          }
+        },
+        "topic_books": {
+          "type": "topic",
+          "settings": {
+            "title": "ספרים מומלצים",
+            "description": "ידע זה כוח. הספרייה המקצועית שלנו.",
+            "link_label": "כניסה",
+            "link": "/collections/ספרים-מומלצים",
+            "background_color": "#007f9b",
+            "icon": "book-open"
+          }
+        }
+      },
+      "block_order": ["topic_menopause", "topic_travel", "topic_sexuality", "topic_safe_space", "topic_books"],
+      "settings": {
+        "heading": "ספריית תכנים",
+        "subheading": "כל מה שאת צריכה, מאורגן לפי מה שמעניין אותך עכשיו.",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": ["femit_topic_index"]
+}

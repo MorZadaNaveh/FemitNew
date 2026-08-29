@@ -1,0 +1,226 @@
+{%- style -%}
+  .femit-feature-grid-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color | default: '#f5f3f3' }};
+  }
+{%- endstyle -%}
+
+<div class="femit-feature-grid-{{ section.id }}">
+  <div class="femit-section femit-feature-grid__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="femit-feature-grid__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="femit-feature-grid__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="femit-feature-grid__cards">
+        {%- for block in section.blocks -%}
+          <{% if block.settings.link != blank %}a href="{{ block.settings.link }}"{% else %}div{% endif %} class="femit-feature-grid__card femit-ambient-shadow" {{ block.shopify_attributes }}>
+            <div class="femit-icon-circle femit-feature-grid__icon" style="background: {{ block.settings.icon_background | default: '#fbdbde' }}; color: {{ block.settings.icon_color | default: '#6e5659' }};">
+              {% render 'femit-icon', icon: block.settings.icon %}
+            </div>
+            {%- if block.settings.title != blank -%}
+              <h3 class="femit-feature-grid__card-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <p class="femit-feature-grid__card-description">{{ block.settings.description }}</p>
+            {%- endif -%}
+          </{% if block.settings.link != blank %}a{% else %}div{% endif %}>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-feature-grid__inner {
+    text-align: center;
+  }
+
+  .femit-feature-grid__heading {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    color: var(--femit-primary);
+    margin: 0 0 8px;
+  }
+
+  .femit-feature-grid__subheading {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--femit-on-surface-variant);
+    max-width: 42rem;
+    margin: 0 auto 32px;
+  }
+
+  .femit-feature-grid__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-feature-grid__cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .femit-feature-grid__card {
+    background: var(--femit-surface);
+    border-radius: var(--femit-radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .femit-feature-grid__icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+  }
+
+  .femit-feature-grid__card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+    margin: 0 0 8px;
+  }
+
+  .femit-feature-grid__card-description {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Feature Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "מרכז גיל המעבר"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "כל הידע, התמיכה והכלים שאת צריכה כדי לנווט את השינויים בביטחון ובשמחה."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f3f3"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "book", "label": "Book" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "spa", "label": "Spa" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "community", "label": "Community" },
+            { "value": "medical", "label": "Medical" },
+            { "value": "hiking", "label": "Hiking" }
+          ],
+          "default": "book"
+        },
+        {
+          "type": "color",
+          "id": "icon_background",
+          "label": "Icon background",
+          "default": "#fbdbde"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#6e5659"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "מאמרים מקצועיים"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "מידע רפואי מהימן, מונגש ומדויק בגובה העיניים."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Feature Grid",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": { "icon": "book", "title": "מאמרים מקצועיים", "description": "מידע רפואי מהימן, מונגש ומדויק בגובה העיניים.", "icon_background": "#fbdbde", "icon_color": "#6e5659" }
+        },
+        {
+          "type": "feature",
+          "settings": { "icon": "chat", "title": "קהילה תומכת", "description": "מרחב בטוח לשאול, לשתף ולהתייעץ עם נשים כמוך.", "icon_background": "#ffdf90", "icon_color": "#755b00" }
+        },
+        {
+          "type": "feature",
+          "settings": { "icon": "calendar", "title": "סדנאות ומפגשים", "description": "הצטרפי למפגשים חיים עם מומחיות לבריאות האישה.", "icon_background": "#b6ebff", "icon_color": "#00657b" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

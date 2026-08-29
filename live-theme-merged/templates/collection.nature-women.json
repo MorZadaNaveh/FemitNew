@@ -1,0 +1,459 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": false,
+        "filter_type": "vertical",
+        "enable_sorting": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_xH4UXV": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/2_c94a5a9b-f8a3-41d5-81c7-6bb6e97f420e.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_k36fbR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EBVVMx": {
+          "type": "heading",
+          "settings": {
+            "heading": "נשים בטבע",
+            "heading_size": "h1"
+          }
+        },
+        "heading_mbNAxY": {
+          "type": "heading",
+          "settings": {
+            "heading": "פתרונות ייחודים לנשים מטיילות",
+            "heading_size": "h2"
+          }
+        },
+        "text_DqE8j9": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><strong>פתרונות ייחודיים לנשים מטיילות</strong></p>"
+          }
+        },
+        "text_WNeXXJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>מכירה את זה שאת בטיול בטבע, צריכה להתפנות ואז מחפשת ומחפשת מקום להתחבא או פשוט מתאפקת?</p><p>בדיוק בשביל זה מכנסי ZipHers כאן! <br/>עם רוכסן נסתר באזור המפשעה שמאפשר לך להתפנות בנוחות, בפשטות ובקלילות.<br/>בואי לנסות ולהנות מחווית טיול אחרת</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EBVVMx",
+        "heading_mbNAxY",
+        "text_DqE8j9",
+        "text_WNeXXJ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_93L7Lm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nCNiAB": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>ראי איך זה עובד</strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nCNiAB"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-bcdb400d-77d1-4686-91d3-d4c7f695f9c6",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 28
+      }
+    },
+    "video_9E9Tjg": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/How Does Zip Hers Work.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-bcdb400d-77d1-4686-91d3-d4c7f695f9c6",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_Vga8Mp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7Nb4ij": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>למה ZipHers?</strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7Nb4ij"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_YCULcY": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ttQY3J": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot2026-04-16at15.23.58.png",
+            "title": "רוכסן לפתיחה נוחה מקדימה",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_8JBVcN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot2026-04-16at15.24.32.png",
+            "title": "הרוכסן נפתח גם מאחור",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UTejhC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/12_83f1775d-f2f9-4fcc-8350-6e039da959a5.png",
+            "title": "תחתונים תואמים לנוחות מירבית",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_izKCyf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-04-28_at_1.52.12.png",
+            "title": "קלילות ופשטות כשאת צריכה להתפנות",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_ttQY3J",
+        "column_8JBVcN",
+        "column_UTejhC",
+        "column_izKCyf"
+      ],
+      "custom_css": [
+        ".multicolumn .multicolumn-card__info {text-align: center;}",
+        ".multicolumn .multicolumn-card__info h3,.multicolumn .multicolumn-card__info p {text-align: center;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "177736606900ae567b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_818d934_ejTMhW": {
+          "type": "ai_gen_block_818d934",
+          "settings": {
+            "advantage_1_icon": "shopify://shop_images/2_c66606dc-c442-4065-98bc-719c71a14596.png",
+            "advantage_1_text": "הגנת SPF-40",
+            "advantage_2_icon": "shopify://shop_images/3_8d4c629c-a198-47fe-b109-fedf94e2232a.png",
+            "advantage_2_text": "כיסים עמוקים ונוחים",
+            "advantage_3_icon": "shopify://shop_images/5_ce6dba80-2a6d-4774-9908-bd804847ad32.png",
+            "advantage_3_text": "בד נושם",
+            "advantage_4_icon": "shopify://shop_images/4_59593434-165f-44f0-8cd0-94d23db9ad7e.png",
+            "advantage_4_text": "מותן גבוה",
+            "advantage_5_icon": "shopify://shop_images/1_d64fd03e-0350-4078-ba04-51b995cc16f1.png",
+            "advantage_5_text": "ידידותי לסביבה",
+            "advantage_6_icon": "shopify://shop_images/6_796fad5c-843c-4ecd-a920-6244b2a9a6e5.png",
+            "advantage_6_text": "80% ניילון 20% ספנדקס",
+            "top_padding": 40,
+            "bottom_padding": 40,
+            "desktop_padding": 70,
+            "mobile_padding": 15,
+            "gap": 30,
+            "icon_text_gap": 15,
+            "background_color": "#ffffff",
+            "icon_size": 40,
+            "icon_color": "#166e84",
+            "text_size": 14,
+            "text_color": "#121212"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_818d934_ejTMhW"
+      ],
+      "settings": {}
+    },
+    "featured_collection_NBcbci": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".card {background: #eeeeee; border-radius: 10px; padding: 16px;}",
+        ".card__media {background: #fff; border-radius: 6px;}",
+        ".card__media:after,.global-media-settings:after {display: none !important;}",
+        ".product-grid,.collection .grid {justify-content: center;}",
+        ".title {text-align: center;}",
+        ".title-wrapper-with-link,.title-wrapper {text-align: center;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "{{ collection }}",
+        "products_to_show": 20,
+        "title": "<strong>הקולקציה</strong>",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-41e1fa33-70e3-4516-a3c2-34d32c9ccf0f",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "collapsible_content_YVH9ax": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_dtTQhJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "איך הרוכסן עובד?",
+            "icon": "check_mark",
+            "row_content": "<p>סופר פשוט! יש רוכסן קטן ודיסקרטי באזור המפשעה שנפתח במשיכה אחת. משלבים אותו עם תחתוני ZipHers שיש בהם פתח תואם, או עם המשתנון הנייד - ותוך כמה שניות סיימת, בלי להוריד שום דבר.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_iDNp9A": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "איזו מידה מתאימה לי?",
+            "icon": "check_mark",
+            "row_content": "<p>יש לנו מידות מ-XS עד W3X. הבד גמיש ונמתח לארבעה כיוונים, אז הוא יושב על הגוף בדיוק כמו שצריך. בין שתי מידות? תמיד עדיף לקחת את הגדולה. יש טבלת מידות מפורטת בעמוד כל מוצר, שווה להציץ.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_PFWJYP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "מאיזה חומר הם עשויים?",
+            "icon": "check_mark",
+            "row_content": "<p>מכנסי הטייץ עשויים 80% ניילון ו-20% ספנדקס - בד קליל שנושם ולא נדבק, עם הגנת שמש SPF40 מובנית. <br/>מכנסי השטח עשויים 95% ניילון ו- 5% ספנדקס. מבפנים יש רשת נושמת שמונעת הזעה. <br/>התחתונים עשויים מניילון ולייקרה, עם אזור מפשעה מבמבוק 100% - רך וטבעי על העור.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qy9WKd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "אפשר לכבס במכונה?",
+            "icon": "check_mark",
+            "row_content": "<p>בטח! פשוט לשים על תוכנית עדינה ב-30 מעלות ולייבש באוויר. הרוכסן עמיד ולא נפגע מכביסות חוזרות, אז אין מה לדאוג.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_9z66e3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "תוך כמה זמן זה יגיע אליי?",
+            "icon": "check_mark",
+            "row_content": "<p>יש לנו משלוחים לנקודת איסוף קרובה לבית או עד הבית לבחירתך. חלק מהמידות והדגמים הם בהזמנה מראש ויישלחו עד 30 ימי עסקים, תוכלי לראות את זה לפני ההזמנה בדגם שתבחרי. כל השאר - מיומיים ועד 10 ימים.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_eTwgqH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "מה אם זה לא מתאים לי?",
+            "icon": "check_mark",
+            "row_content": "<p>קורה! אם מסיבה כלשהי זה לא עובד, אפשר להחזיר תוך 14 יום מרגע שקיבלת - לזיכוי או להחלפה. רק שהמוצר יהיה חדש עם התגיות.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_dtTQhJ",
+        "collapsible_row_iDNp9A",
+        "collapsible_row_PFWJYP",
+        "collapsible_row_qy9WKd",
+        "collapsible_row_9z66e3",
+        "collapsible_row_eTwgqH"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "<strong>שאלות נפוצות</strong>",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_FGMFFf": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dJ4mhn": {
+          "type": "heading",
+          "settings": {
+            "heading": "מתכננת טיול עם חברה?",
+            "heading_size": "h1"
+          }
+        },
+        "text_tP8cgG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ניהול פשוט של הוצאות משותפות עם <a href=\"https://triple-budget.netlify.app/\" target=\"_blank\" title=\"Triple Budget Planner\">Triple Budget Planner</a></p>"
+          }
+        },
+        "button_Ap8whm": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dJ4mhn",
+        "text_tP8cgG",
+        "button_Ap8whm"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-bcdb400d-77d1-4686-91d3-d4c7f695f9c6",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "image_banner_xH4UXV",
+    "rich_text_k36fbR",
+    "rich_text_93L7Lm",
+    "video_9E9Tjg",
+    "rich_text_Vga8Mp",
+    "multicolumn_YCULcY",
+    "177736606900ae567b",
+    "featured_collection_NBcbci",
+    "collapsible_content_YVH9ax",
+    "rich_text_FGMFFf"
+  ]
+}

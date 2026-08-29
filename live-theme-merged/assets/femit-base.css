@@ -1,0 +1,103 @@
+/* Femit brand design tokens — derived from the Ahuva/Radiant Health Stitch design system.
+   Shared across all femit-*.liquid sections. */
+:root {
+  --femit-primary: #00657b;
+  --femit-primary-container: #007f9b;
+  --femit-on-primary: #ffffff;
+  --femit-secondary: #755b00;
+  --femit-secondary-container: #fccc38;
+  --femit-on-secondary-container: #6f5600;
+  --femit-tertiary: #6e5659;
+  --femit-tertiary-fixed: #fbdbde;
+  --femit-surface: #fbf9f8;
+  --femit-surface-container-lowest: #ffffff;
+  --femit-surface-container-low: #f5f3f3;
+  --femit-surface-container: #efeded;
+  --femit-surface-container-high: #eae8e7;
+  --femit-on-surface: #1b1c1c;
+  --femit-on-surface-variant: #3e484d;
+  --femit-outline-variant: #bec8cd;
+
+  --femit-radius-sm: 0.5rem;
+  --femit-radius-md: 0.75rem;
+  --femit-radius-lg: 1rem;
+  --femit-radius-xl: 1.5rem;
+  --femit-radius-full: 9999px;
+
+  --femit-shadow-ambient: 0 4px 20px rgba(18, 135, 164, 0.05);
+  --femit-shadow-ambient-hover: 0 8px 30px rgba(18, 135, 164, 0.1);
+
+  --femit-space-sm: 8px;
+  --femit-space-md: 16px;
+  --femit-space-lg: 32px;
+  --femit-container-max: 1200px;
+}
+
+.femit-section {
+  max-width: var(--femit-container-max);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media screen and (min-width: 750px) {
+  .femit-section {
+    padding-inline: 48px;
+  }
+}
+
+.femit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 24px;
+  border-radius: var(--femit-radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.femit-btn--primary {
+  background: var(--femit-primary);
+  color: var(--femit-on-primary);
+}
+
+.femit-btn--primary:hover {
+  background: var(--femit-primary-container);
+}
+
+.femit-btn--secondary {
+  background: transparent;
+  color: var(--femit-primary);
+  border-color: var(--femit-primary);
+}
+
+.femit-btn--secondary:hover {
+  background: var(--femit-tertiary-fixed);
+}
+
+.femit-ambient-shadow {
+  box-shadow: var(--femit-shadow-ambient);
+  transition: box-shadow 0.3s ease;
+}
+
+.femit-ambient-shadow:hover {
+  box-shadow: var(--femit-shadow-ambient-hover);
+}
+
+.femit-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--femit-radius-full);
+  flex-shrink: 0;
+}
+
+.femit-icon-circle svg {
+  width: 28px;
+  height: 28px;
+}

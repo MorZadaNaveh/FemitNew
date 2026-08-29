@@ -1,0 +1,8 @@
+.env
+node_modules/
+.DS_Store
+.playwright-mcp/
+.claude/scheduled_tasks.lock
+live-theme/
+live-theme-merged/sections/doctors-reviews.liquid
+live-theme-merged/sections/doctors_reviews_add_review.liquid

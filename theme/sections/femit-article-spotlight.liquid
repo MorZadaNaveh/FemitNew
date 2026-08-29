@@ -1,0 +1,239 @@
+{%- style -%}
+  .femit-article-spotlight-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-article-spotlight-{{ section.id }} femit-section">
+  <div class="femit-article-spotlight__header">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="femit-article-spotlight__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.view_all_link != blank -%}
+      <a href="{{ section.settings.view_all_link }}" class="femit-article-spotlight__view-all">כל המאמרים {% render 'femit-icon', icon: 'arrow' %}</a>
+    {%- endif -%}
+  </div>
+
+  <div class="femit-article-spotlight__grid">
+    {%- if section.settings.main_article != blank -%}
+      {%- assign article = section.settings.main_article -%}
+      <a href="{{ article.url }}" class="femit-article-spotlight__main femit-ambient-shadow">
+        {%- if article.image != blank -%}
+          <img
+            class="femit-article-spotlight__main-image"
+            src="{{ article.image | image_url: width: 900 }}"
+            loading="lazy"
+            width="{{ article.image.width }}"
+            height="{{ article.image.height }}"
+            alt="{{ article.title | escape }}"
+          >
+        {%- else -%}
+          <img class="femit-article-spotlight__main-image" src="{{ 'femit-img-article-spotlight-big.jpg' | asset_url }}" loading="lazy" width="512" height="279" alt="{{ article.title | escape }}">
+        {%- endif -%}
+        <div class="femit-article-spotlight__main-overlay"></div>
+        <div class="femit-article-spotlight__main-content">
+          <span class="femit-article-spotlight__badge">מדריך מקיף</span>
+          <h3 class="femit-article-spotlight__main-title">{{ article.title }}</h3>
+          {%- if article.excerpt != blank -%}
+            <p class="femit-article-spotlight__main-excerpt">{{ article.excerpt | strip_html | truncate: 140 }}</p>
+          {%- endif -%}
+        </div>
+      </a>
+    {%- endif -%}
+
+    <div class="femit-article-spotlight__side">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.article != blank -%}
+          {%- assign side_article = block.settings.article -%}
+          <a href="{{ side_article.url }}" class="femit-article-spotlight__side-card femit-ambient-shadow" {{ block.shopify_attributes }}>
+            {%- if side_article.image != blank -%}
+              <img
+                class="femit-article-spotlight__side-image"
+                src="{{ side_article.image | image_url: width: 300 }}"
+                loading="lazy"
+                width="{{ side_article.image.width }}"
+                height="{{ side_article.image.height }}"
+                alt="{{ side_article.title | escape }}"
+              >
+            {%- else -%}
+              <img class="femit-article-spotlight__side-image" src="{{ 'femit-img-article-spotlight-small.jpg' | asset_url }}" loading="lazy" width="512" height="279" alt="{{ side_article.title | escape }}">
+            {%- endif -%}
+            <div class="femit-article-spotlight__side-content">
+              <span class="femit-article-spotlight__side-tag">{{ side_article.tags.first | default: 'מאמר' }}</span>
+              <h4 class="femit-article-spotlight__side-title">{{ side_article.title }}</h4>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-article-spotlight__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .femit-article-spotlight__heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    margin: 0;
+  }
+
+  .femit-article-spotlight__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--femit-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .femit-article-spotlight__view-all svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .femit-article-spotlight__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-article-spotlight__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .femit-article-spotlight__main {
+    position: relative;
+    display: block;
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    min-height: 320px;
+  }
+
+  .femit-article-spotlight__main-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .femit-article-spotlight__main-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), transparent 60%);
+  }
+
+  .femit-article-spotlight__main-content {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 24px;
+    color: #fff;
+  }
+
+  .femit-article-spotlight__badge {
+    display: inline-block;
+    background: var(--femit-secondary-container);
+    color: var(--femit-on-secondary-container);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--femit-radius-full);
+    margin-bottom: 8px;
+  }
+
+  .femit-article-spotlight__main-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #fff;
+  }
+
+  .femit-article-spotlight__main-excerpt {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+    color: #fff;
+  }
+
+  .femit-article-spotlight__side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .femit-article-spotlight__side-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--femit-surface);
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    flex: 1;
+  }
+
+  .femit-article-spotlight__side-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .femit-article-spotlight__side-content {
+    padding: 16px;
+  }
+
+  .femit-article-spotlight__side-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--femit-primary);
+  }
+
+  .femit-article-spotlight__side-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+    margin: 4px 0 0;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Article Spotlight",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "מאמרים נבחרים" },
+    { "type": "url", "id": "view_all_link", "label": "View all articles link" },
+    { "type": "article", "id": "main_article", "label": "Main featured article" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "side_article",
+      "name": "Side article",
+      "settings": [
+        { "type": "article", "id": "article", "label": "Article" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Article Spotlight",
+      "blocks": [{ "type": "side_article" }, { "type": "side_article" }]
+    }
+  ]
+}
+{% endschema %}

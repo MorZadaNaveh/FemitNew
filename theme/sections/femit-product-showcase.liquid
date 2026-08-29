@@ -1,0 +1,278 @@
+{%- style -%}
+  .femit-product-showcase-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+
+  .femit-product-showcase-{{ section.id }} .femit-product-showcase__grid,
+  .femit-product-showcase-{{ section.id }} .femit-product-showcase__collection-grid {
+    grid-template-columns: repeat({{ section.settings.products_per_row_mobile }}, 1fr);
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-product-showcase-{{ section.id }} .femit-product-showcase__grid,
+    .femit-product-showcase-{{ section.id }} .femit-product-showcase__collection-grid {
+      grid-template-columns: repeat({{ section.settings.products_per_row_desktop }}, 1fr);
+    }
+  }
+{%- endstyle -%}
+
+<div class="femit-product-showcase-{{ section.id }} femit-section">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="femit-product-showcase__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  {%- if section.settings.subheading != blank -%}
+    <p class="femit-product-showcase__subheading">{{ section.settings.subheading }}</p>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="femit-product-showcase__grid">
+      {%- for block in section.blocks limit: section.settings.max_products -%}
+        {%- case block.type -%}
+          {%- when 'product' -%}
+            {%- assign p = block.settings.product -%}
+            {%- if p != blank -%}
+              {%- if p.price == 0 -%}
+                <article class="femit-product-showcase__card femit-ambient-shadow" {{ block.shopify_attributes }}>
+                  <a href="{{ p.url }}" class="femit-product-showcase__media">
+                    {%- if p.featured_image != blank -%}
+                      <img
+                        class="femit-product-showcase__image"
+                        src="{{ p.featured_image | image_url: width: 600 }}"
+                        loading="lazy"
+                        width="{{ p.featured_image.width }}"
+                        height="{{ p.featured_image.height }}"
+                        alt="{{ p.title | escape }}"
+                      >
+                    {%- endif -%}
+                    <span class="femit-product-showcase__badge">שיתוף פעולה</span>
+                  </a>
+                  <div class="femit-product-showcase__body">
+                    <a href="{{ p.url }}" class="femit-product-showcase__title-link">
+                      <h3 class="femit-product-showcase__title">{{ block.settings.custom_title | default: p.title }}</h3>
+                    </a>
+                    {%- if block.settings.custom_description != blank -%}
+                      <p class="femit-product-showcase__description">{{ block.settings.custom_description }}</p>
+                    {%- elsif p.description != blank -%}
+                      <p class="femit-product-showcase__description">{{ p.description | strip_html | truncate: 100 }}</p>
+                    {%- endif -%}
+                    <a href="{{ p.url }}" class="femit-btn femit-btn--secondary femit-product-showcase__button">
+                      למידע נוסף
+                    </a>
+                  </div>
+                </article>
+              {%- else -%}
+                {% render 'femit-product-card', card_product: p %}
+              {%- endif -%}
+            {%- endif -%}
+          {%- when 'collection' -%}
+            {%- assign c = block.settings.collection -%}
+            {%- if c != blank -%}
+              <div class="femit-product-showcase__collection-group" {{ block.shopify_attributes }}>
+                {%- if block.settings.title != blank -%}
+                  <h3 class="femit-product-showcase__collection-title">{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="femit-product-showcase__collection-text">{{ block.settings.text }}</p>
+                {%- endif -%}
+                <div class="femit-product-showcase__collection-grid">
+                  {%- for cp in c.products limit: block.settings.limit -%}
+                    {% render 'femit-product-card', card_product: cp %}
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- stylesheet -%}
+  .femit-product-showcase__heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0 0 4px;
+    text-align: center;
+  }
+
+  .femit-product-showcase__subheading {
+    font-size: 15px;
+    color: var(--femit-on-surface-variant);
+    max-width: 36rem;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  .femit-product-showcase__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-product-showcase__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 32px;
+    }
+  }
+
+  .femit-product-showcase__card {
+    background: var(--femit-surface-container-lowest, #fff);
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .femit-product-showcase__media {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1;
+    background: var(--femit-surface-container-low);
+  }
+
+  .femit-product-showcase__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .femit-product-showcase__badge {
+    position: absolute;
+    top: 8px;
+    inset-inline-end: 8px;
+    background: var(--femit-secondary-container);
+    color: var(--femit-on-secondary-container);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--femit-radius-full);
+  }
+
+  .femit-product-showcase__body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+  }
+
+  .femit-product-showcase__title-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .femit-product-showcase__title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+    margin: 0;
+  }
+
+  .femit-product-showcase__description {
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+    flex: 1;
+  }
+
+  .femit-product-showcase__button {
+    align-self: flex-start;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .femit-product-showcase__collection-group {
+    grid-column: 1 / -1;
+  }
+
+  .femit-product-showcase__collection-group + .femit-product-showcase__collection-group {
+    margin-top: 16px;
+  }
+
+  .femit-product-showcase__collection-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0 0 4px;
+  }
+
+  .femit-product-showcase__collection-text {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--femit-on-surface-variant);
+    max-width: 720px;
+    margin: 0 0 16px;
+  }
+
+  .femit-product-showcase__collection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-product-showcase__collection-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 32px;
+    }
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Product Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "products_per_row_desktop", "min": 2, "max": 5, "step": 1, "label": "Products per row (desktop)", "default": 3 },
+    {
+      "type": "select",
+      "id": "products_per_row_mobile",
+      "label": "Products per row (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    { "type": "range", "id": "max_products", "min": 1, "max": 24, "step": 1, "label": "Maximum products to show", "default": 24 },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "custom_title", "label": "Custom title (optional)" },
+        { "type": "textarea", "id": "custom_description", "label": "Custom description (optional, for ₪0 partner items)" }
+      ]
+    },
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" },
+        { "type": "range", "id": "limit", "min": 2, "max": 12, "step": 1, "label": "Max products to show", "default": 6 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Product Showcase",
+      "blocks": [{ "type": "product" }, { "type": "product" }, { "type": "product" }]
+    }
+  ]
+}
+{% endschema %}

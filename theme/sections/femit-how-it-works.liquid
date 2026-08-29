@@ -1,0 +1,145 @@
+{%- style -%}
+  .femit-how-it-works-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-how-it-works-{{ section.id }} femit-section">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="femit-how-it-works__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  {%- if section.blocks.size > 0 -%}
+    <div class="femit-how-it-works__grid">
+      {%- for block in section.blocks -%}
+        <div class="femit-how-it-works__card femit-ambient-shadow" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img
+              class="femit-how-it-works__image"
+              src="{{ block.settings.image | image_url: width: 600 }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+              alt="{{ block.settings.caption | escape }}"
+            >
+          {%- else -%}
+            {%- liquid
+              assign fallback_images = 'femit-img-ziphers-step1.jpg,femit-img-ziphers-step2.jpg,femit-img-ziphers-step3.jpg' | split: ','
+              assign fallback_widths = '512,503,497' | split: ','
+              assign fallback_heights = '444,473,475' | split: ','
+              assign fallback_index = forloop.index0 | modulo: fallback_images.size
+              assign fallback_image = fallback_images[fallback_index]
+              assign fallback_width = fallback_widths[fallback_index]
+              assign fallback_height = fallback_heights[fallback_index]
+            -%}
+            <img class="femit-how-it-works__image" src="{{ fallback_image | asset_url }}" loading="lazy" width="{{ fallback_width }}" height="{{ fallback_height }}" alt="{{ block.settings.caption | escape }}">
+          {%- endif -%}
+          <div class="femit-how-it-works__caption-wrap">
+            <span class="femit-how-it-works__step">{{ forloop.index }}</span>
+            <p class="femit-how-it-works__caption">{{ block.settings.caption }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- stylesheet -%}
+  .femit-how-it-works__heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    text-align: center;
+    margin: 0 0 32px;
+  }
+
+  .femit-how-it-works__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-how-it-works__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .femit-how-it-works__card {
+    background: var(--femit-surface-container-lowest, #fff);
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .femit-how-it-works__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .femit-how-it-works__caption-wrap {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .femit-how-it-works__step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--femit-primary);
+    color: var(--femit-on-primary);
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .femit-how-it-works__caption {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+    margin: 0;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit How It Works",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "ראי איך זה עובד" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 8 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "caption", "label": "Caption" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit How It Works",
+      "blocks": [
+        { "type": "step", "settings": { "caption": "רוכסן לפתיחה נוחה מקדימה" } },
+        { "type": "step", "settings": { "caption": "הרוכסן נפתח גם מאחור" } },
+        { "type": "step", "settings": { "caption": "תחתונים תואמים לנוחות מירבית" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

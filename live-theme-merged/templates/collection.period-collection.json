@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-2"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "background-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_PgbcNA": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_VadxkB": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "תחתוני-מחזור"
+          }
+        },
+        "featured_collection_8hgFHm": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "יישומים"
+          }
+        },
+        "featured_collection_D9UMAR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "גביעוניות"
+          }
+        },
+        "featured_collection_MArq3b": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "דיסק"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_VadxkB",
+        "featured_collection_8hgFHm",
+        "featured_collection_D9UMAR",
+        "featured_collection_MArq3b"
+      ],
+      "settings": {
+        "title": "וסת",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "color_scheme": "background-2",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multirow_fxiPm6": {
+      "type": "multirow",
+      "blocks": {
+        "row_VmR4zX": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pexels-sora-shimazaki-5938422_38890678-2729-4454-8853-1c37e25e2e2b.jpg",
+            "caption": "",
+            "heading": "תחתוני מחזור",
+            "text": "<p>כל חברות תחתוני המחזור בארץ</p>",
+            "button_label": "לצפייה",
+            "button_link": "shopify://collections/תחתוני-מחזור"
+          }
+        },
+        "row_VetRNR": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_3yRw68": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_VmR4zX",
+        "row_VetRNR",
+        "row_3yRw68"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "collection_list_PgbcNA",
+    "multirow_fxiPm6"
+  ]
+}

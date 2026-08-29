@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "femit_sexuality_hero": {
+      "type": "femit-menopause-hero",
+      "settings": {
+        "heading": "<p>היכרות מחודשת עם <em>הגוף שלך</em>.</p>",
+        "subheading": "מיניות היא חלק מהבריאות שלנו בכל גיל. מוצרים איכותיים וידע פתוח, בלי בושה.",
+        "button_label": "לכל המוצרים",
+        "button_link": "#femit_sexuality_products",
+        "padding_top": 40,
+        "padding_bottom": 24
+      }
+    },
+    "femit_sexuality_products": {
+      "type": "femit-product-showcase",
+      "blocks": {
+        "p1": { "type": "product", "settings": { "product": "ויברטור-יונק-סטיספייר-פרו-2-דור-2" } },
+        "p2": { "type": "product", "settings": { "product": "ויברטור-רוטט-חיצוני-מתלבש-עם-אפליקציה-סטיספייר" } },
+        "p3": { "type": "product", "settings": { "product": "חומר-סיכוך-id-pleasure-130-מל" } },
+        "p4": { "type": "product", "settings": { "product": "id-glide-גל-סיכוך-על-בסיס-מים" } },
+        "p5": { "type": "product", "settings": { "product": "חדר-משלך-וירג-יניה-וולף" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "settings": {
+        "heading": "המוצרים שלנו",
+        "subheading": "נבחרו בקפידה לתמיכה בהנאה, בריאות ובחיבור לעצמך.",
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "femit_sexuality_articles": {
+      "type": "femit-article-bento",
+      "blocks": {
+        "side_1": {
+          "type": "side_article",
+          "settings": {
+            "article": "news/בריאות-רצפת-האגן-מדריך-מלא",
+            "tag_label": "בריאות האישה",
+            "icon": "heart"
+          }
+        }
+      },
+      "block_order": ["side_1"],
+      "settings": {
+        "heading": "תובנות וידע",
+        "subheading": "מאמרים על מיניות, אינטימיות ובריאות האישה בכל גיל.",
+        "view_all_label": "צפו בכל המאמרים",
+        "view_all_link": "/blogs/news",
+        "main_article": "news/מיניות-ואינטימיות-בגיל-40-מה-באמת-משתנה",
+        "main_article_tag": "מיניות",
+        "padding_top": 8,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": ["femit_sexuality_hero", "femit_sexuality_products", "femit_sexuality_articles"]
+}

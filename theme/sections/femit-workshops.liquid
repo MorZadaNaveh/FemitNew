@@ -1,0 +1,369 @@
+{%- style -%}
+  .femit-workshops-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-workshops-{{ section.id }} femit-section">
+  <div class="femit-workshops__header">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="femit-workshops__heading">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="femit-workshops__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="femit-workshops__grid">
+      {%- for block in section.blocks -%}
+        <div class="femit-workshops__card femit-ambient-shadow" {{ block.shopify_attributes }}>
+          <div class="femit-workshops__image-wrap">
+            {%- if block.settings.image != blank -%}
+              <img
+                class="femit-workshops__image"
+                src="{{ block.settings.image | image_url: width: 700 }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                alt="{{ block.settings.title | escape }}"
+              >
+            {%- else -%}
+              {%- liquid
+                assign fallback_images = 'femit-img-workshop-art.jpg,femit-img-workshop-nutrition.jpg,femit-img-workshop-yoga-park.jpg' | split: ','
+                assign fallback_index = forloop.index0 | modulo: fallback_images.size
+                assign fallback_image = fallback_images[fallback_index]
+              -%}
+              <img class="femit-workshops__image" src="{{ fallback_image | asset_url }}" loading="lazy" width="512" height="279" alt="{{ block.settings.title | escape }}">
+            {%- endif -%}
+            {%- if block.settings.badge_label != blank -%}
+              <span class="femit-workshops__badge femit-workshops__badge--{{ block.settings.badge_style }}">{{ block.settings.badge_label }}</span>
+            {%- endif -%}
+          </div>
+          <div class="femit-workshops__content">
+            {%- if block.settings.title != blank -%}
+              <h3 class="femit-workshops__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.host != blank -%}
+              <div class="femit-workshops__host">בהנחיית {{ block.settings.host }}</div>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <p class="femit-workshops__description">{{ block.settings.description }}</p>
+            {%- endif -%}
+            {%- if block.settings.coupon_code != blank -%}
+              <div class="femit-workshops__coupon">
+                <span class="femit-workshops__coupon-label">קוד קופון:</span>
+                <span class="femit-workshops__coupon-code">{{ block.settings.coupon_code }}</span>
+              </div>
+            {%- endif -%}
+            {%- if block.settings.button_label != blank -%}
+              <a
+                {% if block.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.button_link }}"{% endif %}
+                class="femit-btn femit-btn--primary femit-workshops__button"
+              >{{ block.settings.button_label | escape }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- stylesheet -%}
+  .femit-workshops__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .femit-workshops__heading {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    margin: 0 0 12px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-workshops__heading {
+      font-size: 36px;
+      line-height: 42px;
+    }
+  }
+
+  .femit-workshops__subheading {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--femit-on-surface-variant);
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .femit-workshops__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-workshops__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .femit-workshops__card {
+    background: var(--femit-surface);
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .femit-workshops__image-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+  }
+
+  .femit-workshops__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .femit-workshops__image--placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .femit-workshops__badge {
+    position: absolute;
+    top: 12px;
+    inset-inline-end: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--femit-radius-full);
+  }
+
+  .femit-workshops__badge--physical {
+    background: var(--femit-secondary-container);
+    color: var(--femit-on-secondary-container);
+  }
+
+  .femit-workshops__badge--online {
+    background: var(--femit-tertiary-fixed);
+    color: var(--femit-tertiary);
+  }
+
+  .femit-workshops__content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .femit-workshops__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0 0 4px;
+  }
+
+  .femit-workshops__host {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--femit-primary);
+    margin-bottom: 12px;
+  }
+
+  .femit-workshops__description {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--femit-on-surface-variant);
+    margin: 0 0 16px;
+    flex: 1;
+  }
+
+  .femit-workshops__coupon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--femit-surface-container);
+    border-radius: var(--femit-radius-sm);
+    padding: 10px 16px;
+    margin-bottom: 16px;
+  }
+
+  .femit-workshops__coupon-label {
+    font-size: 13px;
+    color: var(--femit-on-surface-variant);
+  }
+
+  .femit-workshops__coupon-code {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .femit-workshops__button {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) {
+      grid-template-columns: 1fr;
+    }
+
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) .femit-workshops__card {
+      flex-direction: row;
+    }
+
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) .femit-workshops__image-wrap {
+      flex: 0 0 45%;
+      aspect-ratio: auto;
+      min-height: 320px;
+    }
+
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) .femit-workshops__content {
+      flex: 1;
+      padding: 40px;
+      justify-content: center;
+    }
+
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) .femit-workshops__title {
+      font-size: 28px;
+    }
+
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) .femit-workshops__host {
+      font-size: 16px;
+    }
+
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) .femit-workshops__description {
+      font-size: 16px;
+      line-height: 26px;
+    }
+
+    .femit-workshops__grid:has(> .femit-workshops__card:only-child) .femit-workshops__button {
+      width: auto;
+      align-self: flex-start;
+      padding-inline: 40px;
+    }
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Workshops",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "סדנאות והרצאות לקהילה שלנו"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "הזדמנויות ללמידה, צמיחה וחיבור מחדש. מצאו את הסדנה או ההרצאה הבאה שלכן וקבלו את ההטבה המיוחדת לחברות הקהילה."
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "workshop",
+      "name": "Workshop / Lecture",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        {
+          "type": "select",
+          "id": "badge_style",
+          "label": "Badge type",
+          "options": [
+            { "value": "physical", "label": "In-person (סדנה פיזית)" },
+            { "value": "online", "label": "Online (הרצאה אונליין)" }
+          ],
+          "default": "physical"
+        },
+        { "type": "text", "id": "badge_label", "label": "Badge label", "default": "סדנה פיזית" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "host", "label": "Host name" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "text", "id": "coupon_code", "label": "Coupon code" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "הרשמה אצל המנחה" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Workshops",
+      "blocks": [
+        {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "physical",
+            "badge_label": "סדנה פיזית",
+            "title": "אמנות השחרור המנטלי",
+            "host": "דורית שרון",
+            "description": "סדנת יצירה והבעה רגשית המיועדת להבעה רגשית המיוחדת להורדת עומס קוגניטיבי וחיבור לשמחה הפנימית.",
+            "coupon_code": "FREE25",
+            "button_label": "הרשמה אצל המנחה"
+          }
+        },
+        {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "online",
+            "badge_label": "הרצאה אונליין",
+            "title": "תזונה תומכת אנרגיה",
+            "host": "יעל כהן, תזונאית קלינית",
+            "description": "איך לאכול כדי להרגיש חיוניות לאורך כל היום, במיוחד בשנים של שינויים הורמונליים.",
+            "coupon_code": "ENERGY15",
+            "button_label": "הרשמה אצל המנחה"
+          }
+        },
+        {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "physical",
+            "badge_label": "סדנה פיזית",
+            "title": "תנועה מודעת ביומיום",
+            "host": "ד\"ר מיכל לוי",
+            "description": "סדנה מעשית לשילוב תנועה טבעית ומרעננת בתוך סדר היום העמוס שלנו, ללא צורך בחדר כושר.",
+            "coupon_code": "AHUVA20",
+            "button_label": "הרשמה אצל המנחה"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

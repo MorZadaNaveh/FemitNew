@@ -1,0 +1,462 @@
+{%- style -%}
+  .femit-shop-header-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-shop-header-{{ section.id }} femit-section">
+  <div class="femit-shop-header__top">
+    <div class="femit-shop-header__pills-wrap">
+      <div class="femit-shop-header__pills femit-shop-header__pills--{{ section.settings.pill_style }}">
+      {%- if section.settings.show_all_pill -%}
+        {%- if section.settings.pill_style == 'icon' -%}
+          <a
+            href="/collections/all"
+            data-filter-collection="all"
+            data-filter-title="{{ section.settings.all_label }}"
+            class="femit-shop-header__icon-pill femit-ambient-shadow{% if collection.handle == 'all' or collection.handle == blank %} femit-shop-header__icon-pill--active{% endif %}"
+          >
+            <span class="femit-icon-circle femit-shop-header__icon-circle">{% render 'femit-icon', icon: 'sun' %}</span>
+            <span class="femit-shop-header__icon-label">{{ section.settings.all_label }}</span>
+          </a>
+        {%- else -%}
+          <a
+            href="/collections/all"
+            data-filter-collection="all"
+            data-filter-title="{{ section.settings.all_label }}"
+            class="femit-shop-header__pill{% if collection.handle == 'all' or collection.handle == blank %} femit-shop-header__pill--active{% endif %}"
+          >{{ section.settings.all_label }}</a>
+        {%- endif -%}
+      {%- endif -%}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.collection != blank -%}
+          {%- if section.settings.pill_style == 'icon' -%}
+            <a
+              href="{{ block.settings.collection.url }}"
+              data-filter-collection="{{ block.settings.collection.handle }}"
+              data-filter-title="{{ block.settings.label | default: block.settings.collection.title }}"
+              class="femit-shop-header__icon-pill femit-ambient-shadow{% if collection.handle == block.settings.collection.handle %} femit-shop-header__icon-pill--active{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              <span class="femit-icon-circle femit-shop-header__icon-circle">{% render 'femit-icon', icon: block.settings.icon %}</span>
+              <span class="femit-shop-header__icon-label">{{ block.settings.label | default: block.settings.collection.title }}</span>
+            </a>
+          {%- else -%}
+            <a
+              href="{{ block.settings.collection.url }}"
+              data-filter-collection="{{ block.settings.collection.handle }}"
+              data-filter-title="{{ block.settings.label | default: block.settings.collection.title }}"
+              class="femit-shop-header__pill{% if collection.handle == block.settings.collection.handle %} femit-shop-header__pill--active{% endif %}"
+              {{ block.shopify_attributes }}
+            >{{ block.settings.label | default: block.settings.collection.title }}</a>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if section.settings.show_filters and collection.filters != empty -%}
+        <details class="femit-shop-header__filters">
+          <summary class="femit-shop-header__pill femit-shop-header__filters-toggle">
+            {% render 'femit-icon', icon: 'filter' %}
+            {{ section.settings.filters_label }}
+          </summary>
+          <form method="get" action="{{ collection.url }}" class="femit-shop-header__filters-panel">
+            {%- for filter in collection.filters -%}
+              {%- if filter.type == 'price_range' -%}
+                <div class="femit-shop-header__filter-group">
+                  <span class="femit-shop-header__filter-label">{{ filter.label }}</span>
+                  <div class="femit-shop-header__price-inputs">
+                    <input
+                      type="number"
+                      name="{{ filter.min_value.param_name }}"
+                      value="{{ filter.min_value.value }}"
+                      placeholder="{{ 0 | money_without_currency }}"
+                      class="femit-shop-header__price-input"
+                    >
+                    <span>—</span>
+                    <input
+                      type="number"
+                      name="{{ filter.max_value.param_name }}"
+                      value="{{ filter.max_value.value }}"
+                      placeholder="{{ filter.range_max | money_without_currency }}"
+                      class="femit-shop-header__price-input"
+                    >
+                  </div>
+                </div>
+              {%- else -%}
+                <div class="femit-shop-header__filter-group">
+                  <span class="femit-shop-header__filter-label">{{ filter.label }}</span>
+                  <div class="femit-shop-header__filter-options">
+                    {%- for value in filter.values -%}
+                      {%- if value.count > 0 or value.active -%}
+                        <label class="femit-shop-header__filter-option">
+                          <input
+                            type="checkbox"
+                            name="{{ value.param_name }}"
+                            value="{{ value.value }}"
+                            {% if value.active %}checked{% endif %}
+                          >
+                          <span>{{ value.label }} ({{ value.count }})</span>
+                        </label>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+            <div class="femit-shop-header__filter-actions">
+              <button type="submit" class="femit-btn femit-btn--primary">{{ section.settings.apply_label }}</button>
+              <a href="{{ collection.url }}" class="femit-shop-header__filter-clear">{{ section.settings.clear_label }}</a>
+            </div>
+          </form>
+        </details>
+      {%- endif -%}
+      </div>
+    </div>
+    <div class="femit-shop-header__titles">
+      {%- if section.settings.heading != blank -%}
+        <h1 class="femit-shop-header__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="femit-shop-header__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-shop-header__top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-shop-header__top {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .femit-shop-header__titles {
+    text-align: right;
+  }
+
+  .femit-shop-header__heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0 0 8px;
+  }
+
+  .femit-shop-header__subheading {
+    font-size: 15px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+
+  .femit-shop-header__pills-wrap {
+    width: 100%;
+  }
+
+  .femit-shop-header__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .femit-shop-header__pills {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .femit-shop-header__pill {
+      width: 100%;
+    }
+  }
+
+  .femit-shop-header__pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    border-radius: var(--femit-radius-full);
+    background: var(--femit-surface-container);
+    color: var(--femit-on-surface);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .femit-shop-header__pill:hover {
+    background: var(--femit-surface-container-high);
+  }
+
+  .femit-shop-header__pill--active {
+    background: var(--femit-primary);
+    color: var(--femit-on-primary);
+  }
+
+  .femit-shop-header__pill--active:hover {
+    background: var(--femit-primary);
+  }
+
+  .femit-shop-header__pills--icon {
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  @media screen and (max-width: 749px) {
+    .femit-shop-header__pills--icon {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .femit-shop-header__pills--icon .femit-shop-header__icon-pill {
+      width: auto;
+    }
+  }
+
+  .femit-shop-header__icon-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 76px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .femit-shop-header__icon-pill:hover {
+    transform: translateY(-3px);
+  }
+
+  .femit-shop-header__icon-circle {
+    width: 56px;
+    height: 56px;
+    background: var(--femit-surface-container-lowest, #fff);
+    color: var(--femit-primary);
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .femit-shop-header__icon-circle svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .femit-shop-header__icon-circle .femit-icon-img {
+    height: 34px;
+    width: auto;
+  }
+
+  .femit-shop-header__icon-circle .femit-icon-img--active {
+    display: none;
+  }
+
+  .femit-shop-header__icon-pill--active .femit-shop-header__icon-circle .femit-icon-img--default {
+    display: none;
+  }
+
+  .femit-shop-header__icon-pill--active .femit-shop-header__icon-circle .femit-icon-img--active {
+    display: block;
+  }
+
+  .femit-shop-header__icon-pill:hover .femit-shop-header__icon-circle {
+    border-color: var(--femit-outline-variant);
+  }
+
+  .femit-shop-header__icon-pill--active .femit-shop-header__icon-circle {
+    background: var(--femit-primary);
+    color: var(--femit-on-primary);
+    border-color: var(--femit-primary);
+  }
+
+  .femit-shop-header__icon-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .femit-shop-header__icon-pill--active .femit-shop-header__icon-label {
+    color: var(--femit-primary);
+  }
+
+  .femit-shop-header__filters {
+    position: relative;
+  }
+
+  .femit-shop-header__filters-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .femit-shop-header__filters-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .femit-shop-header__filters-toggle svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .femit-shop-header__filters[open] .femit-shop-header__filters-toggle {
+    background: var(--femit-surface-container-high);
+  }
+
+  .femit-shop-header__filters-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    inset-inline-start: 0;
+    z-index: 20;
+    background: var(--femit-surface-container-lowest, #fff);
+    border-radius: var(--femit-radius-lg);
+    box-shadow: var(--femit-shadow-ambient-hover);
+    padding: 20px;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .femit-shop-header__filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .femit-shop-header__filter-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+  }
+
+  .femit-shop-header__filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .femit-shop-header__filter-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--femit-on-surface-variant);
+    cursor: pointer;
+  }
+
+  .femit-shop-header__price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .femit-shop-header__price-input {
+    width: 80px;
+    padding: 6px 10px;
+    border-radius: var(--femit-radius-sm);
+    border: 1px solid var(--femit-outline-variant);
+    font-size: 13px;
+  }
+
+  .femit-shop-header__filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 4px;
+    border-top: 1px solid var(--femit-surface-container-high);
+  }
+
+  .femit-shop-header__filter-actions .femit-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+
+  .femit-shop-header__filter-clear {
+    font-size: 13px;
+    color: var(--femit-on-surface-variant);
+    text-decoration: underline;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Shop Header",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "חנות" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "כלים וציוד תומכים לנשים, נבחרו בקפידה." },
+    { "type": "checkbox", "id": "show_all_pill", "label": "Show \"All\" pill", "default": true },
+    { "type": "text", "id": "all_label", "label": "\"All\" pill label", "default": "הכל" },
+    {
+      "type": "select",
+      "id": "pill_style",
+      "label": "Pill style",
+      "options": [
+        { "value": "text", "label": "Text pills (current)" },
+        { "value": "icon", "label": "Icon circles" }
+      ],
+      "default": "text"
+    },
+    { "type": "header", "content": "Filters" },
+    { "type": "checkbox", "id": "show_filters", "label": "Show filter button", "default": true },
+    { "type": "text", "id": "filters_label", "label": "Filters button label", "default": "סינון" },
+    { "type": "text", "id": "apply_label", "label": "Apply button label", "default": "החל סינון" },
+    { "type": "text", "id": "clear_label", "label": "Clear label", "default": "נקה הכל" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 32 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 24 }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category pill",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "label", "label": "Custom label (optional, defaults to collection title)" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon (used when Pill style is Icon circles)",
+          "options": [
+            { "value": "book", "label": "Book" },
+            { "value": "book-open", "label": "Open book" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "spa", "label": "Spa" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "community", "label": "Community" },
+            { "value": "medical", "label": "Medical" },
+            { "value": "hiking", "label": "Hiking" },
+            { "value": "ziphers", "label": "ZipHers (traveler illustration)" },
+            { "value": "accessibility", "label": "Accessibility" },
+            { "value": "fan", "label": "Fan" },
+            { "value": "stop-hand", "label": "Stop hand" }
+          ],
+          "default": "community"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Shop Header"
+    }
+  ]
+}
+{% endschema %}

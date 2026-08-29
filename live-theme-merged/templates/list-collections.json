@@ -1,0 +1,130 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "settings": {
+        "title": "כל הקטגוריות",
+        "sort": "alphabetical",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "columns_mobile": "2"
+      }
+    },
+    "collection_list_AU6xq3": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_QgzKrc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "menopause"
+          }
+        },
+        "featured_collection_Cg4M4P": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sexuality"
+          }
+        },
+        "featured_collection_WtEqCy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "ziphers"
+          }
+        },
+        "featured_collection_aef7Vn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "period"
+          }
+        },
+        "featured_collection_4FNTDX": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pregnancy-and-birth"
+          }
+        },
+        "featured_collection_dRcKfE": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "books"
+          }
+        },
+        "featured_collection_h9wgf9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "lectures"
+          }
+        },
+        "featured_collection_mX9phK": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "מרחב-בטוח"
+          }
+        },
+        "featured_collection_gCYwCA": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "fertility"
+          }
+        },
+        "featured_collection_wVxLmG": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "finance"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_QgzKrc",
+        "featured_collection_Cg4M4P",
+        "featured_collection_WtEqCy",
+        "featured_collection_aef7Vn",
+        "featured_collection_4FNTDX",
+        "featured_collection_dRcKfE",
+        "featured_collection_h9wgf9",
+        "featured_collection_mX9phK",
+        "featured_collection_gCYwCA",
+        "featured_collection_wVxLmG"
+      ],
+      "custom_css": [
+        ".slider-counter {display: none;}",
+        ".slider-buttons {display: none;}",
+        ".full-unstyled-link {text-align: center;}",
+        ".icon-wrap {display: none;}",
+        ".collection-list-wrapper .title-wrapper-with-link {justify-content: center;}",
+        ".collection-list-title {color: #202020;}",
+        ".grid {justify-content: center;}",
+        ".collection-list__item .card__heading {font-weight: 600;}"
+      ],
+      "settings": {
+        "title": "כל הקטגוריות",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "color_scheme": "inverse",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collection_list_AU6xq3"
+  ]
+}

@@ -1,0 +1,174 @@
+{%- style -%}
+  .femit-video-picks-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-video-picks-{{ section.id }} femit-section">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="femit-video-picks__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="femit-video-picks__grid">
+      {%- for block in section.blocks -%}
+        <a
+          href="{{ block.settings.video_link | default: '#' }}"
+          class="femit-video-picks__card"
+          {{ block.shopify_attributes }}
+        >
+          <div class="femit-video-picks__thumb-wrap">
+            {%- if block.settings.image != blank -%}
+              <img
+                class="femit-video-picks__thumb"
+                src="{{ block.settings.image | image_url: width: 500 }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                alt="{{ block.settings.title | escape }}"
+              >
+            {%- else -%}
+              {%- liquid
+                assign fallback_images = 'femit-img-video-presenter-nutrition.jpg,femit-img-video-presenter-doctor.jpg' | split: ','
+                assign fallback_index = forloop.index0 | modulo: fallback_images.size
+                assign fallback_image = fallback_images[fallback_index]
+              -%}
+              <img class="femit-video-picks__thumb" src="{{ fallback_image | asset_url }}" loading="lazy" width="512" height="279" alt="{{ block.settings.title | escape }}">
+            {%- endif -%}
+            <span class="femit-video-picks__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            {%- if block.settings.duration != blank -%}
+              <span class="femit-video-picks__duration">{{ block.settings.duration }}</span>
+            {%- endif -%}
+          </div>
+          <div class="femit-video-picks__content">
+            {%- if block.settings.title != blank -%}
+              <h3 class="femit-video-picks__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.presenter != blank -%}
+              <p class="femit-video-picks__presenter">{{ block.settings.presenter }}</p>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- stylesheet -%}
+  .femit-video-picks__heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    margin: 0 0 20px;
+  }
+
+  .femit-video-picks__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .femit-video-picks__card {
+    display: block;
+    text-decoration: none;
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    background: var(--femit-surface);
+  }
+
+  .femit-video-picks__thumb-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+  }
+
+  .femit-video-picks__thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .femit-video-picks__play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .femit-video-picks__play svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .femit-video-picks__duration {
+    position: absolute;
+    bottom: 8px;
+    inset-inline-end: 8px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .femit-video-picks__content {
+    padding: 12px;
+  }
+
+  .femit-video-picks__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+    margin: 0 0 4px;
+  }
+
+  .femit-video-picks__presenter {
+    font-size: 12px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Video Picks",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "הרצאות מומחים" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Thumbnail" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "presenter", "label": "Presenter" },
+        { "type": "text", "id": "duration", "label": "Duration (e.g. 08:20)" },
+        { "type": "url", "id": "video_link", "label": "Video link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Video Picks",
+      "blocks": [
+        { "type": "video", "settings": { "title": "תזונה תומכת לגיל המעבר", "presenter": "שירה אהרוני, דיאטנית קלינית", "duration": "08:20" } },
+        { "type": "video", "settings": { "title": "טיפול הורמונלי חלופי (HRT)", "presenter": "ד\"ר מיכל לוי, גינקולוגית", "duration": "12:45" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

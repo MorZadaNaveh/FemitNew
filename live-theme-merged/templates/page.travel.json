@@ -1,0 +1,226 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "femit_ziphers_hero": {
+      "type": "femit-fullbleed-hero",
+      "settings": {
+        "height": 560,
+        "heading": "נשים בטבע: פתרונות ייחודיים לנשים מטיילות",
+        "subheading": "מכירה את זה שאת בטיול בטבע, צריכה להתפנות ואז מחפשת מקום להתחבא או פשוט מתאפקת? בדיוק בשביל זה מכנסי ZipHers כאן. עם רוכסן נסתר באזור המפשעה שמאפשר לך להתפנות בנוחות, בפשטות ובקלילות.",
+        "button_label": "בואי לנסות",
+        "button_link": "#femit_ziphers_products"
+      }
+    },
+    "femit_ziphers_how": {
+      "type": "femit-how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "caption": "רוכסן לפתיחה נוחה מקדימה"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "caption": "הרוכסן נפתח גם מאחור"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "caption": "תחתונים תואמים לנוחות מירבית"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "ראי איך זה עובד",
+        "padding_top": 40,
+        "padding_bottom": 8
+      }
+    },
+    "femit_ziphers_video": {
+      "type": "femit-video-showcase",
+      "settings": {
+        "heading": "ZipHers בפעולה",
+        "video_url": "https://femit.co/cdn/shop/videos/c/vp/001233af99d24e598c99b4a8f3f6cb9a/001233af99d24e598c99b4a8f3f6cb9a.SD-480p-0.9Mbps-81164195.mp4",
+        "padding_top": 40,
+        "padding_bottom": 8
+      }
+    },
+    "femit_ziphers_why": {
+      "type": "femit-icon-reasons",
+      "blocks": {
+        "r1": {
+          "type": "reason",
+          "settings": {
+            "icon": "sun",
+            "label": "הגנת SPF-40"
+          }
+        },
+        "r2": {
+          "type": "reason",
+          "settings": {
+            "icon": "bag",
+            "label": "כיסים עמוקים ונוחים"
+          }
+        },
+        "r3": {
+          "type": "reason",
+          "settings": {
+            "icon": "wind",
+            "label": "בד נושם"
+          }
+        },
+        "r4": {
+          "type": "reason",
+          "settings": {
+            "icon": "accessibility",
+            "label": "מותן גבוה"
+          }
+        },
+        "r5": {
+          "type": "reason",
+          "settings": {
+            "icon": "eco",
+            "label": "ידידותי לסביבה"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
+      "settings": {
+        "heading": "למה ZipHers?",
+        "subheading": "קלילות ופשטות כשאת צריכה להתפנות, יחד עם חומרים איכותיים לטיולים ארוכים.",
+        "background_color": "#f5f3f3",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "femit_ziphers_products": {
+      "type": "femit-product-showcase",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-שטח-ארוכים-ziphers"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-שטח-קצרים-של-ziphers"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-טייץ-ארוכים-ziphers"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-טייץ-קצרים-ziphers"
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "תחתוני-ziphers"
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "משפך-להטלת-שתן-בעמידה-לנשים"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "settings": {
+        "heading": "הקולקציה",
+        "subheading": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "femit_ziphers_faq": {
+      "type": "femit-faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "איך הרוכסן עובד?",
+            "answer": "סופר פשוט! יש רוכסן קטן ודיסקרטי באזור המפשעה שנפתח במשיכה אחת. משלבים אותו עם תחתוני ZipHers שיש בהם פתח תואם, או עם המשתנון הנייד - ותוך כמה שניות סיימת, בלי להוריד שום דבר."
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "איזו מידה מתאימה לי?",
+            "answer": "יש לנו מידות מ-XS עד W3X. הבד גמיש ונמתח לארבעה כיוונים, אז הוא יושב על הגוף בדיוק כמו שצריך. בין שתי מידות? תמיד עדיף לקחת את הגדולה. יש טבלת מידות מפורטת בעמוד כל מוצר, שווה להציץ."
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "מאיזה חומר הם עשויים?",
+            "answer": "מכנסי הטייץ עשויים 80% ניילון ו-20% ספנדקס - בד קליל שנושם ולא נדבק, עם הגנת שמש SPF40 מובנית. מכנסי השטח עשויים 95% ניילון ו-5% ספנדקס, עם רשת נושמת מבפנים שמונעת הזעה. התחתונים עשויים מניילון ולייקרה, עם אזור מפשעה מבמבוק 100% - רך וטבעי על העור."
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "אפשר לכבס במכונה?",
+            "answer": "בטח! פשוט לשים על תוכנית עדינה ב-30 מעלות ולייבש באוויר. הרוכסן עמיד ולא נפגע מכביסות חוזרות, אז אין מה לדאוג."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "heading": "שאלות נפוצות",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "femit_ziphers_hero",
+    "femit_ziphers_how",
+    "femit_ziphers_video",
+    "femit_ziphers_why",
+    "femit_ziphers_products",
+    "femit_ziphers_faq"
+  ]
+}

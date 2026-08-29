@@ -1,0 +1,726 @@
+{% comment %} ZipHers Landing Page — Conversion-optimized for Facebook Ads {% endcomment %}
+
+<style>
+/* ===== BASE ===== */
+.zl { direction: rtl; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #2c2c2c; }
+.zl * { box-sizing: border-box; margin: 0; padding: 0; }
+.zl-wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.zl a { text-decoration: none; color: inherit; }
+a.zl-btn { color: #fff; }
+a.zl-btn.zl-btn-secondary { color: #7b5ea7; }
+
+/* ===== HERO ===== */
+.zl-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #1287a4;
+  overflow: hidden;
+}
+.zl-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('{{ section.settings.hero_image | image_url: width: 1920 }}') center/cover no-repeat;
+  opacity: {{ section.settings.hero_image | default: nil | size | at_most: 1 }};
+}
+.zl-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.zl-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 20px;
+  max-width: 800px;
+}
+.zl-hero h1 {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+.zl-hero p {
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.zl-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: #1287a4;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.zl-btn:hover { background: #0e6d87; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(18,135,164,0.4); }
+.zl-btn-secondary {
+  background: #fff;
+  color: #7b5ea7;
+}
+.zl-btn-secondary:hover { background: #f0f0f0; color: #7b5ea7; }
+
+/* ===== VIDEO ===== */
+.zl-video {
+  padding: 60px 0;
+  background: #f8fafb;
+  text-align: center;
+}
+.zl-video-container {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.zl-video-container iframe {
+  width: 100%;
+  aspect-ratio: 9/16;
+  display: block;
+  border: none;
+}
+
+/* ===== PROBLEM/SOLUTION ===== */
+.zl-problems {
+  padding: 70px 0;
+  background: #fff;
+}
+.zl-section-title {
+  text-align: center;
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: #1a1a1a;
+}
+.zl-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.zl-card {
+  background: #f8fafb;
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  border: 1px solid #e8eef1;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.zl-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+.zl-card-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+.zl-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #1287a4;
+}
+.zl-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ===== HOW IT WORKS ===== */
+.zl-how {
+  padding: 70px 0;
+  background: #f8fafb;
+}
+.zl-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  counter-reset: step;
+}
+.zl-step {
+  text-align: center;
+  position: relative;
+  counter-increment: step;
+}
+.zl-step-num {
+  width: 56px;
+  height: 56px;
+  background: #1287a4;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 auto 20px;
+}
+.zl-step h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.zl-step p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+.zl-badge {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 28px;
+  background: #fff;
+  border: 2px solid #1287a4;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1287a4;
+}
+
+/* ===== PRODUCTS ===== */
+.zl-products {
+  padding: 70px 0;
+  background: #fff;
+}
+.zl-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.zl-product {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e8eef1;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.zl-product:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+.zl-product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #e74c3c;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 2;
+}
+.zl-product-badge--preorder {
+  background: #f39c12;
+}
+.zl-product-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+.zl-product-info {
+  padding: 16px;
+}
+.zl-product-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.zl-product-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1287a4;
+  margin-bottom: 14px;
+}
+.zl-product .zl-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* ===== FEATURES ===== */
+.zl-features {
+  padding: 50px 0;
+  background: #1287a4;
+  color: #fff;
+}
+.zl-features-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+.zl-feature {
+  padding: 16px 8px;
+}
+.zl-feature-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.zl-feature p {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ===== TRUST ===== */
+.zl-trust {
+  padding: 70px 0;
+  background: #f8fafb;
+}
+.zl-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.zl-trust-item {
+  text-align: center;
+  padding: 28px 16px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e8eef1;
+}
+.zl-trust-icon {
+  font-size: 40px;
+  margin-bottom: 14px;
+}
+.zl-trust-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1287a4;
+  margin-bottom: 8px;
+}
+.zl-trust-item p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===== FAQ ===== */
+.zl-faq {
+  padding: 70px 0;
+  background: #fff;
+}
+.zl-faq-list {
+  max-width: 750px;
+  margin: 0 auto;
+}
+.zl-faq-item {
+  border-bottom: 1px solid #e8eef1;
+}
+.zl-faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: right;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1a1a1a;
+  font-family: inherit;
+}
+.zl-faq-q::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: 300;
+  color: #1287a4;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+.zl-faq-item.open .zl-faq-q::after {
+  transform: rotate(45deg);
+}
+.zl-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.zl-faq-a p {
+  padding: 0 0 20px;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ===== FINAL CTA ===== */
+.zl-final-cta {
+  padding: 80px 0;
+  background: #7b5ea7;
+  text-align: center;
+  color: #fff;
+}
+.zl-final-cta h2 {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+.zl-final-cta p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+
+/* ===== STICKY MOBILE CTA ===== */
+.zl-sticky {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 12px 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+  z-index: 999;
+  text-align: center;
+}
+.zl-sticky .zl-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .zl-cards,
+  .zl-steps,
+  .zl-trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .zl-features-grid { grid-template-columns: repeat(3, 1fr); }
+  .zl-product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .zl-hero { min-height: 70vh; }
+  .zl-sticky { display: block; }
+  .zl-products, .zl-problems, .zl-how, .zl-testimonials, .zl-faq { padding: 50px 0; }
+  .zl-final-cta { padding-bottom: 100px; }
+}
+@media (max-width: 480px) {
+  .zl-product-grid { grid-template-columns: 1fr; }
+  .zl-features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<div class="zl">
+
+  <!-- ===== HERO ===== -->
+  <section class="zl-hero" id="zl-top">
+    <div class="zl-hero-content">
+      <h1>הבעיה שכולנו מכירות בטיולים — נפתרה</h1>
+      <p>מכנסי טיול עם רוכסן נסתר שמאפשר לך להתפנות בקלות, בלי להוריד את המכנסיים</p>
+      <a href="#zl-products" class="zl-btn">גלי את הקולקציה</a>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO ===== -->
+  <section class="zl-video">
+    <div class="zl-wrap">
+      <h2 class="zl-section-title">ראי איך זה עובד</h2>
+      <div class="zl-video-container">
+        <iframe
+          src="https://www.youtube.com/embed/JWOUVsrzuDs"
+          title="ZipHers - איך זה עובד"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM / SOLUTION ===== -->
+  <section class="zl-problems">
+    <div class="zl-wrap">
+      <h2 class="zl-section-title">למה ZipHers?</h2>
+      <div class="zl-cards">
+        <div class="zl-card">
+          <div class="zl-card-icon">😰</div>
+          <h3>הבעיה</h3>
+          <p>כל מטיילת מכירה את הרגע: צריך להתפנות, אין שירותים בנמצא, וצריך להוריד הכל מול כולם</p>
+        </div>
+        <div class="zl-card">
+          <div class="zl-card-icon">🔓</div>
+          <h3>הפתרון</h3>
+          <p>רוכסן נסתר באזור המפשעה שנפתח בשנייה — דיסקרטי לחלוטין, בלי שאף אחד שם לב</p>
+        </div>
+        <div class="zl-card">
+          <div class="zl-card-icon">🏔️</div>
+          <h3>התוצאה</h3>
+          <p>חופש אמיתי בטיול. בלי לחץ, בלי מבוכה, בלי לעצור את כל הקבוצה</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="zl-how">
+    <div class="zl-wrap">
+      <h2 class="zl-section-title">איך זה עובד?</h2>
+      <div class="zl-steps">
+        <div class="zl-step">
+          <div class="zl-step-num">1</div>
+          <h3>פתחי את הרוכסן הנסתר</h3>
+          <p>רוכסן דיסקרטי שלא נראה מבחוץ, ממוקם בדיוק במקום הנכון</p>
+        </div>
+        <div class="zl-step">
+          <div class="zl-step-num">2</div>
+          <h3>השתמשי בתחתוני ZipHers או במשתנון</h3>
+          <p>התחתונים המיוחדים עם פתח תואם, או המשתנון הנייד — לבחירתך</p>
+        </div>
+        <div class="zl-step">
+          <div class="zl-step-num">3</div>
+          <h3>סגרי — ואף אחד לא ידע</h3>
+          <p>הכל נסגר חזרה בשנייה. פשוט, מהיר, דיסקרטי</p>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <span class="zl-badge">⚡ הכל לוקח פחות מ-10 שניות</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="zl-products" id="zl-products">
+    <div class="zl-wrap">
+      <h2 class="zl-section-title">הקולקציה</h2>
+      <div class="zl-product-grid">
+        {%- assign collection = collections['trips'] -%}
+        {%- if collection -%}
+          {%- for product in collection.products -%}
+            <div class="zl-product">
+              {%- if product.title contains 'Short' or product.title contains 'קצר' or product.title contains 'Pre-Order' -%}
+                <span class="zl-product-badge zl-product-badge--preorder">הזמנה מוקדמת — משלוח תוך 30 יום</span>
+              {%- elsif product.title contains 'Long' or product.title contains 'טייץ ארוך' -%}
+                <span class="zl-product-badge">הכי נמכר</span>
+              {%- endif -%}
+              <a href="{{ product.url }}">
+                {%- if product.featured_image -%}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 600 }}"
+                    alt="{{ product.title | escape }}"
+                    class="zl-product-img"
+                    loading="lazy"
+                    width="600"
+                    height="600"
+                  >
+                {%- else -%}
+                  <div class="zl-product-img" style="background:#e8eef1;display:flex;align-items:center;justify-content:center;font-size:14px;color:#999;">{{ product.title }}</div>
+                {%- endif -%}
+              </a>
+              <div class="zl-product-info">
+                <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+                <div class="zl-product-price">{{ product.price | money }}</div>
+                {%- if product.variants.size > 1 -%}
+                  <a href="{{ product.url }}" class="zl-btn">בחרי אפשרויות</a>
+                {%- else -%}
+                  {%- form 'product', product -%}
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <button type="submit" class="zl-btn">הוסיפי לסל</button>
+                  {%- endform -%}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <p style="text-align:center;grid-column:1/-1;color:#999;">הקולקציה תתעדכן בקרוב</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES BAR ===== -->
+  <section class="zl-features">
+    <div class="zl-wrap">
+      <div class="zl-features-grid">
+        <div class="zl-feature">
+          <div class="zl-feature-icon">☀️</div>
+          <p>הגנת<br>SPF40</p>
+        </div>
+        <div class="zl-feature">
+          <div class="zl-feature-icon">📱</div>
+          <p>כיסים<br>עמוקים</p>
+        </div>
+        <div class="zl-feature">
+          <div class="zl-feature-icon">🌿</div>
+          <p>ידידותי<br>לסביבה</p>
+        </div>
+        <div class="zl-feature">
+          <div class="zl-feature-icon">⬆️</div>
+          <p>מותן<br>גבוה</p>
+        </div>
+        <div class="zl-feature">
+          <div class="zl-feature-icon">🌬️</div>
+          <p>רשת פנימית<br>נושמת</p>
+        </div>
+        <div class="zl-feature">
+          <div class="zl-feature-icon">🧵</div>
+          <p>80% ניילון<br>20% ספנדקס</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST ===== -->
+  <section class="zl-trust">
+    <div class="zl-wrap">
+      <h2 class="zl-section-title">למה לקנות אצלנו?</h2>
+      <div class="zl-trust-grid">
+        <div class="zl-trust-item">
+          <div class="zl-trust-icon">🔒</div>
+          <h3>תשלום מאובטח</h3>
+          <p>כל העסקאות מוצפנות ומאובטחות</p>
+        </div>
+        <div class="zl-trust-item">
+          <div class="zl-trust-icon">🚚</div>
+          <h3>משלוח לכל הארץ</h3>
+          <p>משלוח מהיר לכל כתובת בישראל</p>
+        </div>
+        <div class="zl-trust-item">
+          <div class="zl-trust-icon">↩️</div>
+          <h3>החזרה תוך 14 יום</h3>
+          <p>לא מרוצה? מחזירים בקלות</p>
+        </div>
+        <div class="zl-trust-item">
+          <div class="zl-trust-icon">🌍</div>
+          <h3>מותג בינלאומי</h3>
+          <p>ZipHers — מותג אמריקאי מוביל לביגוד טיולים לנשים</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="zl-faq">
+    <div class="zl-wrap">
+      <h2 class="zl-section-title">שאלות נפוצות</h2>
+      <div class="zl-faq-list">
+
+        <div class="zl-faq-item">
+          <button class="zl-faq-q">איך הרוכסן עובד?</button>
+          <div class="zl-faq-a">
+            <p>סופר פשוט! יש רוכסן קטן ודיסקרטי באזור המפשעה שנפתח במשיכה אחת. משלבים אותו עם תחתוני ZipHers שיש בהם פתח תואם, או עם המשתנון הנייד — ותוך כמה שניות סיימת, בלי להוריד שום דבר. אף אחד לא ישים לב.</p>
+          </div>
+        </div>
+
+        <div class="zl-faq-item">
+          <button class="zl-faq-q">איזה מידה מתאימה לי?</button>
+          <div class="zl-faq-a">
+            <p>יש לנו מידות מ-XS עד W3X. הבד גמיש ונמתח לארבעה כיוונים, אז הוא מתחבק על הגוף בדיוק כמו שצריך. בין שתי מידות? תמיד עדיף לקחת את הגדולה. יש טבלת מידות מפורטת בעמוד כל מוצר, שווה להציץ.</p>
+          </div>
+        </div>
+
+        <div class="zl-faq-item">
+          <button class="zl-faq-q">מאיזה חומר הם עשויים?</button>
+          <div class="zl-faq-a">
+            <p>80% ניילון ו-20% ספנדקס — בד קליל שנושם ולא נדבק, עם הגנת שמש SPF40 מובנית. מבפנים יש רשת נושמת שמונעת הזעה. התחתונים עשויים מניילון ולייקרה, עם אזור מפשעה מבמבוק 100% — רך וטבעי על העור.</p>
+          </div>
+        </div>
+
+        <div class="zl-faq-item">
+          <button class="zl-faq-q">אפשר לכבס במכונה?</button>
+          <div class="zl-faq-a">
+            <p>בטח! פשוט שמים על תוכנית עדינה ב-30 מעלות ומייבשים באוויר. הרוכסן עמיד ולא נפגע מכביסות חוזרות, אז אין מה לדאוג.</p>
+          </div>
+        </div>
+
+        <div class="zl-faq-item">
+          <button class="zl-faq-q">מה אם זה לא מתאים לי?</button>
+          <div class="zl-faq-a">
+            <p>קורה! אם מסיבה כלשהי זה לא עובד, אפשר להחזיר תוך 14 יום מרגע שקיבלת — לזיכוי או להחלפה. רק שהמוצר יהיה חדש עם התגיות. בלי דרמות.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="zl-final-cta">
+    <div class="zl-wrap">
+      <h2>מוכנה לטייל בחופשיות?</h2>
+      <p>הצטרפי לאלפי נשים שכבר גילו את הדרך החכמה לטייל</p>
+      <a href="#zl-products" class="zl-btn zl-btn-secondary">קנו עכשיו</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER SEPARATOR ===== -->
+  <div style="height:60px;background:#f7f3eb;"></div>
+
+  <!-- ===== STICKY MOBILE CTA ===== -->
+  <div class="zl-sticky" id="zl-sticky">
+    <a href="#zl-products" class="zl-btn">קנו עכשיו</a>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  // Smooth scroll for anchor links
+  document.querySelectorAll('.zl a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // FAQ toggle
+  document.querySelectorAll('.zl-faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.parentElement;
+      var answer = item.querySelector('.zl-faq-a');
+      var isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.zl-faq-item.open').forEach(function(openItem) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.zl-faq-a').style.maxHeight = null;
+      });
+
+      // Open clicked (if wasn't open)
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Sticky CTA — show after scrolling past hero
+  var sticky = document.getElementById('zl-sticky');
+  var hero = document.getElementById('zl-top');
+  if (sticky && hero) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > hero.offsetHeight) {
+        sticky.style.display = 'block';
+      } else {
+        sticky.style.display = 'none';
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ZipHers Landing",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    }
+  ]
+}
+{% endschema %}

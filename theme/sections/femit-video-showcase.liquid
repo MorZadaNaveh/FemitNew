@@ -1,0 +1,69 @@
+{%- style -%}
+  .femit-video-showcase-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-video-showcase-{{ section.id }} femit-section">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="femit-video-showcase__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  <div class="femit-video-showcase__wrap">
+    {%- if section.settings.video != blank -%}
+      {{ section.settings.video | video_tag: controls: true, image_size: '1200x', class: 'femit-video-showcase__video' }}
+    {%- elsif section.settings.video_url != blank -%}
+      {%- if section.settings.poster != blank -%}
+        <video class="femit-video-showcase__video" controls poster="{{ section.settings.poster | image_url: width: 1200 }}">
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        </video>
+      {%- else -%}
+        <video class="femit-video-showcase__video" controls poster="{{ 'femit-img-ziphers-step3.jpg' | asset_url }}">
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        </video>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-video-showcase__heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    text-align: center;
+    margin: 0 0 24px;
+  }
+
+  .femit-video-showcase__wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .femit-video-showcase__video {
+    width: 100%;
+    max-width: 48rem;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--femit-radius-lg);
+    box-shadow: var(--femit-shadow-ambient-hover);
+    background: var(--femit-surface-container-low);
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Video Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "ZipHers בפעולה" },
+    { "type": "video", "id": "video", "label": "Video (upload via Shopify Files)" },
+    { "type": "url", "id": "video_url", "label": "Or external video URL (used if no video uploaded)" },
+    { "type": "image_picker", "id": "poster", "label": "Poster image (for external video URL)" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 8 }
+  ],
+  "presets": [{ "name": "Femit Video Showcase" }]
+}
+{% endschema %}

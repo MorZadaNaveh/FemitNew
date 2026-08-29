@@ -1,0 +1,98 @@
+{%- style -%}
+  .femit-product-grid-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+
+  .femit-product-grid-{{ section.id }} .femit-product-grid__grid {
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-product-grid-{{ section.id }} .femit-product-grid__grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    }
+  }
+{%- endstyle -%}
+
+<div class="femit-product-grid-{{ section.id }} femit-section">
+  <script src="{{ 'femit-shop-filter.js' | asset_url }}" defer="defer"></script>
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- if collection.products.size > 0 -%}
+      <h2 class="femit-product-grid__active-title" data-active-title>{{ collection.title | default: 'כל המוצרים' }}</h2>
+      <div class="femit-product-grid__grid">
+        {%- for product in collection.products -%}
+          {% render 'femit-product-card', card_product: product %}
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <div class="femit-product-grid__pagination">
+          {%- render 'pagination', paginate: paginate -%}
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <p class="femit-product-grid__empty">{{ 'sections.collection_template.empty' | t }}</p>
+    {%- endif -%}
+  {%- endpaginate -%}
+</div>
+
+{%- stylesheet -%}
+  .femit-product-grid__active-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0 0 20px;
+  }
+
+  .femit-product-grid__grid {
+    display: grid;
+    gap: 24px 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-product-grid__grid {
+      gap: 40px 32px;
+    }
+  }
+
+  .femit-product-grid__pagination {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .femit-product-grid__empty {
+    text-align: center;
+    color: var(--femit-on-surface-variant);
+    padding: 48px 0;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Product Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "range", "id": "products_per_page", "min": 4, "max": 100, "step": 4, "label": "Products per page", "default": 16 },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "columns_desktop", "min": 2, "max": 5, "step": 1, "label": "Columns (desktop)", "default": 4 },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 8 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 48 }
+  ],
+  "presets": [
+    { "name": "Femit Product Grid" }
+  ]
+}
+{% endschema %}

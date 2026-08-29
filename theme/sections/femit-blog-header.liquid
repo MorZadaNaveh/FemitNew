@@ -1,0 +1,53 @@
+{%- style -%}
+  .femit-blog-header-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    text-align: center;
+  }
+{%- endstyle -%}
+
+<div class="femit-blog-header-{{ section.id }} femit-section">
+  {%- if section.settings.heading != blank -%}
+    <h1 class="femit-blog-header__heading">{{ section.settings.heading }}</h1>
+  {%- endif -%}
+  {%- if section.settings.subheading != blank -%}
+    <p class="femit-blog-header__subheading">{{ section.settings.subheading }}</p>
+  {%- endif -%}
+</div>
+
+{%- stylesheet -%}
+  .femit-blog-header__heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    margin: 0 0 12px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-blog-header__heading {
+      font-size: 34px;
+    }
+  }
+
+  .femit-blog-header__subheading {
+    font-size: 16px;
+    color: var(--femit-on-surface-variant);
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Blog Header",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "מגזין Femit: כל מה שחשוב לדעת" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "מאמרים, מחקרים וסיפורים אישיים על בריאות נשים, הורמונים ואורח חיים." },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 32 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 8 }
+  ],
+  "presets": [{ "name": "Femit Blog Header" }]
+}
+{% endschema %}

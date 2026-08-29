@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "femit_shop_header": {
+      "type": "femit-shop-header",
+      "blocks": {
+        "cat_menopause": {
+          "type": "category",
+          "settings": { "collection": "תמיכה-בגיל-המעבר-ובפוריות" }
+        },
+        "cat_period": {
+          "type": "category",
+          "settings": { "collection": "מוצרי-וסת" }
+        },
+        "cat_care": {
+          "type": "category",
+          "settings": { "collection": "ספרים-מומלצים" }
+        },
+        "cat_travel": {
+          "type": "category",
+          "settings": { "collection": "ציוד-לטיולים" }
+        }
+      },
+      "block_order": ["cat_travel", "cat_menopause", "cat_care", "cat_period"],
+      "settings": {
+        "heading": "חנות",
+        "subheading": "כלים וציוד תומכים לנשים, נבחרו בקפידה.",
+        "show_all_pill": true,
+        "all_label": "הכל",
+        "padding_top": 32,
+        "padding_bottom": 8
+      }
+    },
+    "product-grid": {
+      "type": "femit-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "padding_top": 8,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "femit_shop_header",
+    "product-grid"
+  ]
+}

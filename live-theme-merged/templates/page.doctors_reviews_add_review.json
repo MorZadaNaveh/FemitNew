@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_EDEBqJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GBVgEy": {
+          "type": "heading",
+          "settings": {
+            "heading": "טופס המלצה על רופאה",
+            "heading_size": "h1"
+          }
+        },
+        "text_k84dGA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>זה המקום שלך לומר תודה לרופאה שלך, וגם לעזור לאשה נוספת לקבל טיפול ראוי. על מי תרצי להמליץ?</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GBVgEy",
+        "text_k84dGA"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "add_doctor_review_form_ejfBce": {
+      "type": "doctors_reviews_add_review",
+      "name": "review form",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_EDEBqJ",
+    "add_doctor_review_form_ejfBce"
+  ]
+}

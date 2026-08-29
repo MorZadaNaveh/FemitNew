@@ -1,0 +1,213 @@
+{%- style -%}
+  .femit-hero-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-hero-{{ section.id }} femit-section">
+  <div class="femit-hero__inner">
+    <div class="femit-hero__content">
+      {%- if section.settings.heading != blank -%}
+        <h1 class="femit-hero__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <div class="femit-hero__subheading">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+      <div class="femit-hero__actions">
+        {%- if section.settings.primary_button_label != blank -%}
+          <a
+            {% if section.settings.primary_button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.primary_button_link }}"{% endif %}
+            class="femit-btn femit-btn--primary"
+          >{{ section.settings.primary_button_label | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.secondary_button_label != blank -%}
+          <a
+            {% if section.settings.secondary_button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.secondary_button_link }}"{% endif %}
+            class="femit-btn femit-btn--secondary"
+          >{{ section.settings.secondary_button_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="femit-hero__media">
+      <div class="femit-hero__media-blob" aria-hidden="true"></div>
+      {%- if section.settings.image != blank -%}
+        <img
+          class="femit-hero__image"
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+          sizes="(min-width: 750px) 50vw, 100vw"
+          loading="eager"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+        >
+      {%- else -%}
+        <img class="femit-hero__image" src="{{ 'femit-img-hero-friends.jpg' | asset_url }}" loading="eager" width="512" height="279" alt="{{ section.settings.heading | escape }}">
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-hero__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--femit-space-lg);
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-hero__inner {
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  .femit-hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--femit-space-md);
+  }
+
+  .femit-hero__heading {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    margin: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-hero__heading {
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .femit-hero__subheading {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--femit-on-surface-variant);
+    max-width: 32rem;
+  }
+
+  .femit-hero__actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .femit-hero__media {
+    flex: 1;
+    position: relative;
+    width: 100%;
+  }
+
+  .femit-hero__media-blob {
+    position: absolute;
+    inset: -16px;
+    background: var(--femit-tertiary-fixed);
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  .femit-hero__image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--femit-radius-lg);
+    box-shadow: var(--femit-shadow-ambient-hover);
+  }
+
+  .femit-hero__image--placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "סוף סוף, מישהי שרואה אותך"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>הבית שלך לבריאות, ידע וקהילה. אנחנו כאן כדי ללוות אותך בכל שלב, עם מידע אמין, מוצרים איכותיים ומרחב תומך.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button label",
+      "default": "התחילי כאן"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary button label",
+      "default": "גלי את הקהילה"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,289 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": false,
+        "filter_type": "vertical",
+        "enable_sorting": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_xH4UXV": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/gpt-image-2-1_ad739d92-9360-45bb-8285-b3812fc60c5d.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_k36fbR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EBVVMx": {
+          "type": "heading",
+          "settings": {
+            "heading": "גיל המעבר",
+            "heading_size": "h1"
+          }
+        },
+        "text_WNeXXJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>אם הגעת לכאן, כנראה שאת מתחילה להרגיש שינויים שאת לא בטוחה איך להסביר אותם.<br/>אולי זו עייפות, אולי גלי חום, ערפל מוחי, עצבנות או חוסר סבלנות שאת לא רגילה אליהם.<br/>לגיל המעבר יש עשרות סימפטומים ורובם כלל לא מדוברים. <br/>ריכזנו כאן דברים שיעזרו לך להבין, להכיר את הגוף שלך ואת השינויים שאת מרגישה קצת יותר טוב.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EBVVMx",
+        "text_WNeXXJ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "featured_product_JXNgQd": {
+      "type": "featured-product",
+      "blocks": {
+        "text_yghPKt": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_UYDyJK": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_9RyDdk": {
+          "type": "price",
+          "settings": {}
+        },
+        "quantity_selector_m9jeTc": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_4UFN6R": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "text_yghPKt",
+        "title_UYDyJK",
+        "price_9RyDdk",
+        "quantity_selector_m9jeTc",
+        "buy_buttons_4UFN6R"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "the-menopause-manifesto-book",
+        "color_scheme": "scheme-bcdb400d-77d1-4686-91d3-d4c7f695f9c6",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 60,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_eVcCX3": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_rMNYW9": {
+          "type": "heading",
+          "settings": {
+            "heading": "טאבו - כל מה שאת חייבת לדעת על גיל המעבר ולא היה לך את מי לשאול",
+            "heading_size": "h2"
+          }
+        },
+        "text_f9LB8g": {
+          "type": "text",
+          "settings": {
+            "text": "<p>אורלי כחלון ועדן תורג׳מן עשו מעשה אמיץ, וכשאף אחד ואף אחת עוד לא העזו לדבר על זה - הן הקימו עסק שמטרתו להעלות מודעות לגיל המעבר. לעזור לנשים להבין מה עובר עליהן. הן מעבירות הרצאות בארגונים וסדנאות לנשים דרך העיריה. אם עוד לא שמעתן עליהן - זה הזמן. </p>",
+            "text_style": "body"
+          }
+        },
+        "button_7gJTnT": {
+          "type": "button",
+          "settings": {
+            "button_label": "אני רוצה לקרוא עליהן עוד",
+            "button_link": "shopify://products/taboo-menopause",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rMNYW9",
+        "text_f9LB8g",
+        "button_7gJTnT"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/967268b319d126f662433d0b411ad77f.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_mUqVBL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xVr8jy": {
+          "type": "heading",
+          "settings": {
+            "heading": "חוות דעת על רופאות.ים",
+            "heading_size": "h1"
+          }
+        },
+        "button_QpWAPA": {
+          "type": "button",
+          "settings": {
+            "button_label": "הוסיפי חוות דעת על רופא.ה",
+            "button_link": "https://femit.co/pages/add-review",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xVr8jy",
+        "button_QpWAPA"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_eqanBD": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_WkixTY": {
+          "type": "heading",
+          "settings": {
+            "heading": "מאגר רופאות.ים לבריאות נשים",
+            "heading_size": "h2"
+          }
+        },
+        "text_zRUVkN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ריכזנו כאן רופאות ורופאים שיכולים לעזור לך להבין מה קורה בגוף במנופאוזה - גיל המעבר, וגם לפני כן, בפרי-מנפאוזה - טרום גיל המעבר, ולמצוא מענה שמתאים לך.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_6QLtJT": {
+          "type": "button",
+          "settings": {
+            "button_label": "למאגר המלא",
+            "button_link": "shopify://pages/doctors-reviews",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WkixTY",
+        "text_zRUVkN",
+        "button_6QLtJT"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Diverse-people-round-circle-seamless-pattern-1395008747_4950x4950_ac2fe5aa-6b13-4b38-9f20-318ef9269d2b.png",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-bcdb400d-77d1-4686-91d3-d4c7f695f9c6",
+        "color_scheme": "scheme-bcdb400d-77d1-4686-91d3-d4c7f695f9c6",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "image_banner_xH4UXV",
+    "rich_text_k36fbR",
+    "featured_product_JXNgQd",
+    "image_with_text_eVcCX3",
+    "rich_text_mUqVBL",
+    "image_with_text_eqanBD"
+  ]
+}

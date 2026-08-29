@@ -1,0 +1,159 @@
+{
+  "sections": {
+    "femit_menopause_hero": {
+      "type": "femit-menopause-hero",
+      "settings": {
+        "heading": "<p>ניווט בגיל המעבר עם <em>ביטחון</em>.</p>",
+        "subheading": "העצימי את עצמך עם מידע מדויק, קהילה תומכת ומוצרים מותאמים אישית שנועדו למסע שלך דרך טרום גיל המעבר ומעבר לו.",
+        "button_label": "חקרי משאבים",
+        "button_link": "#femit_article_bento",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "femit_cta_banner": {
+      "type": "femit-cta-banner",
+      "settings": {
+        "heading": "מצאי תמיכה מקצועית",
+        "subheading": "התחברי לאנשי מקצוע בתחום הבריאות ולקהילה שמבינה את הצרכים הספציפיים שלך.",
+        "button_label": "צרי קשר",
+        "button_link": "/pages/about",
+        "background_color": "#00657b",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "femit_featured_guide": {
+      "type": "femit-featured-guide",
+      "blocks": {
+        "point_1": { "type": "point", "settings": { "text": "ניהול תסמינים מבוסס ראיות" } },
+        "point_2": { "type": "point", "settings": { "text": "אסטרטגיות תזונה ותנועה" } },
+        "point_3": { "type": "point", "settings": { "text": "בריאות הנפש ואופטימיזציה של שינה" } }
+      },
+      "block_order": ["point_1", "point_2", "point_3"],
+      "settings": {
+        "product": "כל-מה-שאת-חייבת-לדעת-על-גיל-המעבר-ד-ר-ג-ן-גונטר",
+        "eyebrow": "קריאת חובה",
+        "heading": "המדריך המקיף לגיל המעבר",
+        "description": "המדריך הנחקר בקפידה שלנו מציע גישה הוליסטית להבנה וניהול של תסמיני גיל המעבר. משינויים הורמונליים ועד התאמות באורח החיים - כל הידע הדרוש לך כדי לשמור על הבריאות שלך.",
+        "padding_top": 8,
+        "padding_bottom": 40
+      }
+    },
+    "femit_menopause_products": {
+      "type": "femit-product-showcase",
+      "blocks": {
+        "p1": { "type": "product", "settings": { "product": "גביעונית-וסת-רוביקאפ" } },
+        "p2": { "type": "product", "settings": { "product": "תחתוני-וסת-כותנה" } },
+        "p3": { "type": "product", "settings": { "product": "דיסק-וסת-hello-period" } },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "טרום-וגיל-המעבר-כל-מה-שאת-חייבת-לדעת-ולא-היה-לך-את-מי-לשאול",
+            "custom_title": "שיתוף פעולה עם טאבו",
+            "custom_description": "ייעוץ והדרכה מקצועיים לגיל המעבר. 5% הנחה עם קוד קופון Femit."
+          }
+        },
+        "c1": {
+          "type": "collection",
+          "settings": {
+            "collection": "ספרים-מומלצים",
+            "title": "ספרים מומלצים",
+            "text": "קריאה נוספת שיכולה לעזור לך להבין ולהתמודד עם השינויים בתקופה הזו.",
+            "limit": 6
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "c1"],
+      "settings": {
+        "heading": "מוצרים שיכולים לעזור",
+        "subheading": "מוצרי וסת מומלצים ושיתוף פעולה עם מומחיות בתחום.",
+        "padding_top": 8,
+        "padding_bottom": 40
+      }
+    },
+    "femit_article_bento": {
+      "type": "femit-article-bento",
+      "blocks": {
+        "side_1": {
+          "type": "side_article",
+          "settings": {
+            "article": "news/טרום-גיל-המעבר-השלב-שאף-אחת-לא-מדברת-עליו-מספיק",
+            "tag_label": "פרי-מנופאוזה",
+            "icon": "calendar"
+          }
+        },
+        "side_2": {
+          "type": "side_article",
+          "settings": {
+            "article": "news/תזונה-בגיל-המעבר-מה-כדאי-להוסיף-לצלחת",
+            "tag_label": "תזונה",
+            "icon": "bag"
+          }
+        },
+        "side_3": {
+          "type": "side_article",
+          "settings": {
+            "article": "news/הורמונים-בגיל-המעבר-מה-קורה-בגוף-ולמה-זה-משנה",
+            "tag_label": "הורמונים",
+            "icon": "droplet"
+          }
+        }
+      },
+      "block_order": ["side_1", "side_2", "side_3"],
+      "settings": {
+        "heading": "תובנות וידע",
+        "subheading": "מאמרים שנאצרו בקפידה כדי לעזור לך להבין את המדע של הגוף שלך ועצות מעשיות לחיוניות יומיומית.",
+        "view_all_label": "צפו בכל המאמרים",
+        "view_all_link": "/blogs/news",
+        "main_article": "news/תסמיני-גיל-המעבר-מה-נורמלי-ומה-באמת-עוזר",
+        "main_article_tag": "תסמינים והתמודדות",
+        "padding_top": 40,
+        "padding_bottom": 8
+      }
+    },
+    "femit_workshops": {
+      "type": "femit-workshops",
+      "blocks": {
+        "workshop_1": {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "physical",
+            "badge_label": "סדנה ארגונית",
+            "title": "ניווט בגיל המעבר בעבודה",
+            "description": "סדנה ארגונית המתמקדת ביצירת סביבות תומכות וניהול תסמינים במהלך יום העבודה.",
+            "button_label": "בקשי מידע"
+          }
+        },
+        "workshop_2": {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "physical",
+            "badge_label": "ריטריט",
+            "title": "החיבור גוף-נפש",
+            "description": "מפגש אינטימי בסגנון ריטריט המתמקד במדיטציה, הפחתת מתחים ואיזון רגשי.",
+            "button_label": "צפי בלוח הזמנים"
+          }
+        },
+        "workshop_3": {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "physical",
+            "badge_label": "הרצאה",
+            "title": "שליטה בבריאות מטבולית",
+            "description": "צלילה עמוקה להתנגדות לאינסולין, ניהול משקל ואסטרטגיות בריאות יזומות לאחר גיל 40.",
+            "button_label": "צפי בלוח הזמנים"
+          }
+        }
+      },
+      "block_order": ["workshop_1", "workshop_2", "workshop_3"],
+      "settings": {
+        "heading": "סדנאות בהנחיית מומחים",
+        "subheading": "מפגשים אינטראקטיביים המיועדים לאנשים וארגונים כדי לטפח הבנה ותמיכה במהלך מעברי גיל המעבר.",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": ["femit_menopause_hero", "femit_cta_banner", "femit_featured_guide", "femit_menopause_products", "femit_article_bento", "femit_workshops"]
+}

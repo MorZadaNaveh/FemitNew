@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "femit_about_hero": {
+      "type": "femit-about-hero",
+      "settings": {
+        "heading": "היי, אני מור.",
+        "text": "<p>כשהקמתי את Femit, החזון שלי היה פשוט אבל עמוק: ליצור מרחב שבו נשים יכולות להתמקד באיך שהן מרגישות, ולא רק באיך שהן נראות.</p><p>המסע שלי התחיל מהחיפוש האישי אחרי איזון. הבנתי שבריאות היא לא רשימת מטלות נוקשה, אלא חוויה רכה, עוטפת, ומלאת חמלה. זה מה שאנחנו מבקשות להביא לכל אישה - כלים נגישים, תמיכה אמיתית, וקהילה שרואה אותך באמת.</p>",
+        "button_label": "הצטרפי לקהילה שלנו",
+        "padding_top": 40,
+        "padding_bottom": 24
+      }
+    },
+    "femit_values_grid": {
+      "type": "femit-feature-grid",
+      "blocks": {
+        "value_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "icon_background": "#b6ebff",
+            "icon_color": "#00657b",
+            "title": "אמפתיה קודם כל",
+            "description": "אנחנו מבינות את האתגרים האמיתיים של החיים ומציעות פתרונות שמשתלבים בשגרה, לא מעמיסים עליה."
+          }
+        },
+        "value_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "spa",
+            "icon_background": "#ffdf90",
+            "icon_color": "#755b00",
+            "title": "חיוניות וגמישות",
+            "description": "בריאות היא תנועה מתמדת. אנחנו חוגגות את האנרגיה שלך, בכל קצב ובכל צורה שהיא מגיעה."
+          }
+        },
+        "value_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "community",
+            "icon_background": "#fbdbde",
+            "icon_color": "#6e5659",
+            "title": "קהילה תומכת",
+            "description": "את לא לבד במסע הזה. בנינו מרחב בטוח לשיתוף, למידה, וצמיחה הדדית עם נשים כמוך."
+          }
+        }
+      },
+      "block_order": ["value_1", "value_2", "value_3"],
+      "settings": {
+        "heading": "הערכים שמובילים אותנו",
+        "subheading": "",
+        "background_color": "#fbf9f8",
+        "padding_top": 8,
+        "padding_bottom": 24
+      }
+    },
+    "femit_contact_heading": {
+      "type": "femit-blog-header",
+      "settings": {
+        "heading": "נשמח לשמוע ממך",
+        "subheading": "יש לך שאלה? רוצה לשתף? אנחנו כאן, מקשיבות ומחכות לפגוש אותך.",
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "contact_form": {
+      "type": "contact-form",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 16,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": ["femit_about_hero", "femit_values_grid", "femit_contact_heading", "contact_form"]
+}

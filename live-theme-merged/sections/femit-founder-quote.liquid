@@ -1,0 +1,171 @@
+{%- style -%}
+  .femit-founder-quote-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-founder-quote-{{ section.id }} femit-section">
+  <div class="femit-founder-quote__card">
+    <div class="femit-founder-quote__image-wrap">
+      {%- if section.settings.image != blank -%}
+        <img
+          class="femit-founder-quote__image"
+          src="{{ section.settings.image | image_url: width: 400 }}"
+          loading="lazy"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          alt="{{ section.settings.name | escape }}"
+        >
+      {%- else -%}
+        <img class="femit-founder-quote__image" src="{{ 'femit-img-founder.jpg' | asset_url }}" loading="lazy" width="459" height="512" alt="{{ section.settings.name | escape }}">
+      {%- endif -%}
+    </div>
+    <div class="femit-founder-quote__content">
+      <span class="femit-founder-quote__mark femit-founder-quote__mark--start" aria-hidden="true">{% render 'femit-icon', icon: 'quote' %}</span>
+      {%- if section.settings.quote != blank -%}
+        <div class="femit-founder-quote__text">{{ section.settings.quote }}</div>
+      {%- endif -%}
+      <span class="femit-founder-quote__mark femit-founder-quote__mark--end" aria-hidden="true">{% render 'femit-icon', icon: 'quote' %}</span>
+      {%- if section.settings.name != blank -%}
+        <div class="femit-founder-quote__name">{{ section.settings.name }}</div>
+      {%- endif -%}
+      {%- if section.settings.role != blank -%}
+        <div class="femit-founder-quote__role">{{ section.settings.role }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-founder-quote__card {
+    background: rgba(251, 219, 222, 0.3);
+    border-radius: 1.5rem;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-founder-quote__card {
+      flex-direction: row;
+      text-align: start;
+      padding: 48px;
+    }
+  }
+
+  .femit-founder-quote__image-wrap {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 4px solid var(--femit-surface);
+    box-shadow: var(--femit-shadow-ambient);
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-founder-quote__image-wrap {
+      width: 192px;
+      height: 192px;
+    }
+  }
+
+  .femit-founder-quote__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .femit-founder-quote__mark {
+    display: inline-block;
+    color: var(--femit-tertiary);
+    opacity: 0.5;
+  }
+
+  .femit-founder-quote__mark--start {
+    margin-bottom: 8px;
+  }
+
+  .femit-founder-quote__mark--end {
+    display: block;
+    width: fit-content;
+    margin-top: 8px;
+    margin-inline-start: auto;
+    transform: rotate(180deg);
+  }
+
+  .femit-founder-quote__mark svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .femit-founder-quote__text {
+    font-size: 18px;
+    line-height: 28px;
+    font-style: italic;
+    color: var(--femit-on-surface);
+    max-width: 42rem;
+    margin-bottom: 16px;
+  }
+
+  .femit-founder-quote__name {
+    font-weight: 600;
+    color: var(--femit-primary);
+  }
+
+  .femit-founder-quote__role {
+    font-size: 14px;
+    color: var(--femit-on-surface-variant);
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Founder Quote",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Founder photo" },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Quote",
+      "default": "<p>הקמתי את פמיט כי הרגשתי שחסר לנו מרחב שבו באמת רואים אותנו. לא עוד פתרונות גנריים או יחס קר, אלא בית אמיתי שמחבק את כל השינויים שאנחנו עוברות, עם ידע מקצועי וקהילה עוטפת.</p>"
+    },
+    { "type": "text", "id": "name", "label": "Name", "default": "מיכל לוי" },
+    { "type": "text", "id": "role", "label": "Role", "default": "מייסדת Femit" },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Founder Quote"
+    }
+  ]
+}
+{% endschema %}

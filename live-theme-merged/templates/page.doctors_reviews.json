@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_XPeWxQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_VRXE3P": {
+          "type": "heading",
+          "settings": {
+            "heading": "מאגר רופאות.ים לבריאות נשים",
+            "heading_size": "h1"
+          }
+        },
+        "text_xJWzpq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ריכזנו כאן מאגר של רופאות.ים לבריאות נשים, וספציפית בעמוד זה - גיל המעבר. <br/><br/>הסימפטומים הכי ״מפורסמים״ אמנם הם גלי חום או בעיות שינה, אבל יש עוד עשרות נוספים, והיכרות איתם, ועם הגוף המשתנה, יכולה לעשות הבדל גדול.<br/><br/>אז אם את מרגישה תופעות שלא הכרת לפני - כדאי להציץ.<br/><br/>המאגר מבוסס על מידע שנאסף ממקורות שונים וחוויות של נשים, ונועד לעזור לך למצוא כיוון ולהתחיל.<br/>אין כאן המלצה רפואית או התחייבות לטיב הטיפול, והבחירה ברופא או רופאה היא אישית ובאחריותך.<br/><br/>אם יש לך ניסיון עם רופא/ה או שאת עוסקת בתחום ורוצה להיכלל במאגר - <a href=\"/pages/contact\" target=\"_blank\" title=\"צרי קשר\">כתבי לנו</a>.<br/>אנחנו כאן לכל שאלה<br/>hello@femit.co · 055-2403082</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VRXE3P",
+        "text_xJWzpq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-bcdb400d-77d1-4686-91d3-d4c7f695f9c6",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "main": {
+      "type": "doctors-reviews",
+      "settings": {}
+    }
+  },
+  "order": [
+    "rich_text_XPeWxQ",
+    "main"
+  ]
+}

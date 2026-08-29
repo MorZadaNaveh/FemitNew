@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "femit_workshops": {
+      "type": "femit-workshops",
+      "blocks": {
+        "workshop_1": {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "physical",
+            "badge_label": "סדנה פיזית",
+            "title": "אמנות השחרור המנטלי",
+            "host": "דורית שרון",
+            "description": "סדנת יצירה והבעה רגשית להורדת עומס קוגניטיבי וחיבור לשמחה הפנימית.",
+            "coupon_code": "FREE25",
+            "button_label": "הרשמה אצל המנחה"
+          }
+        },
+        "workshop_2": {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "online",
+            "badge_label": "הרצאה אונליין",
+            "title": "תזונה תומכת אנרגיה",
+            "host": "יעל כהן, תזונאית קלינית",
+            "description": "איך לאכול כדי להרגיש חיוניות לאורך כל היום, במיוחד בשנים של שינויים הורמונליים.",
+            "coupon_code": "ENERGY15",
+            "button_label": "הרשמה אצל המנחה"
+          }
+        },
+        "workshop_3": {
+          "type": "workshop",
+          "settings": {
+            "badge_style": "physical",
+            "badge_label": "סדנה פיזית",
+            "title": "תנועה מודעת ביומיום",
+            "host": "ד\"ר מיכל לוי",
+            "description": "סדנה מעשית לשילוב תנועה טבעית ומרעננת בתוך סדר היום העמוס שלנו, ללא צורך בחדר כושר.",
+            "coupon_code": "AHUVA20",
+            "button_label": "הרשמה אצל המנחה"
+          }
+        }
+      },
+      "block_order": ["workshop_1", "workshop_2", "workshop_3"],
+      "settings": {
+        "heading": "סדנאות והרצאות לקהילה שלנו",
+        "subheading": "הזדמנויות ללמידה, צמיחה וחיבור מחדש. מצאו את הסדנה או ההרצאה הבאה שלכן וקבלו את ההטבה המיוחדת לחברות הקהילה.",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": ["femit_workshops"]
+}

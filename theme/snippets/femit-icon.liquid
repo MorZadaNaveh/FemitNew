@@ -1,0 +1,50 @@
+{%- comment -%}
+  Renders a small inline SVG icon.
+  Usage: {% render 'femit-icon', icon: block.settings.icon %}
+{%- endcomment -%}
+
+{%- case icon -%}
+  {%- when 'book' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+  {%- when 'chat' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  {%- when 'calendar' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 9.5h18"/></svg>
+  {%- when 'droplet' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5s7 7.6 7 12.3a7 7 0 0 1-14 0C5 10.1 12 2.5 12 2.5z"/></svg>
+  {%- when 'spa' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3.2"/><path d="M12 9.2V22M6 14a6 6 0 0 0 6 6M18 14a6 6 0 0 1-6 6"/></svg>
+  {%- when 'heart' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 8.6c0 5.4-8.8 10.9-8.8 10.9S3.2 14 3.2 8.6a4.9 4.9 0 0 1 8.8-3 4.9 4.9 0 0 1 8.8 3z"/></svg>
+  {%- when 'community' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.6"/><path d="M15.8 12.2a5.2 5.2 0 0 1 5.7 5.2"/></svg>
+  {%- when 'quote' -%}
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6C6.5 7.3 5 9.6 5 12.6c0 2.4 1.4 4 3.4 4 1.7 0 3-1.3 3-2.9 0-1.5-1.1-2.7-2.5-2.8.2-1.6 1.5-3 3.3-3.7L9.5 6zm9 0c-3 1.3-4.5 3.6-4.5 6.6 0 2.4 1.4 4 3.4 4 1.7 0 3-1.3 3-2.9 0-1.5-1.1-2.7-2.5-2.8.2-1.6 1.5-3 3.3-3.7L18.5 6z"/></svg>
+  {%- when 'arrow' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+  {%- when 'medical' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>
+  {%- when 'hiking' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18"/><path d="M5 19l5-14 3 7 2-4 4 11"/></svg>
+  {%- when 'ziphers' -%}
+    <img src="{{ 'femit-icon-ziphers-teal.png' | asset_url }}" alt="" loading="lazy" class="femit-icon-img femit-icon-img--default">
+    <img src="{{ 'femit-icon-ziphers-white.png' | asset_url }}" alt="" loading="lazy" class="femit-icon-img femit-icon-img--active">
+  {%- when 'filter' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10.5 18h3"/></svg>
+  {%- when 'sun' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
+  {%- when 'bag' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 13H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+  {%- when 'wind' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.5h13a2.8 2.8 0 1 0-2.8-2.8M2.5 14.5h16a2.8 2.8 0 1 1-2.8 2.8M2.5 19h9"/></svg>
+  {%- when 'accessibility' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5h14M12 8.5v13M8 21.5l4-6 4 6"/></svg>
+  {%- when 'eco' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8-1 14-6 16-16-10 1-15 6-16 16z"/><path d="M8 20c0-5 3-9 7-11"/></svg>
+  {%- when 'book-open' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C9.8 5 6.5 4.5 3 5v13c3.5-.5 6.8 0 9 1.5 2.2-1.5 5.5-2 9-1.5V5c-3.5-.5-6.8 0-9 1.5z"/><path d="M12 6.5V19.5"/></svg>
+  {%- when 'fan' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9.5"/><path d="M12 11.5 5 7"/><path d="M12 11.5 8.5 3.5"/><path d="M12 11.5 12 2.5"/><path d="M12 11.5 15.5 3.5"/><path d="M12 11.5 19 7"/><path d="M5 7a9 9 0 0 0 14 0"/></svg>
+  {%- when 'stop-hand' -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 11V6.2a1.3 1.3 0 0 1 2.6 0V11"/><path d="M10.1 11V4.7a1.3 1.3 0 0 1 2.6 0V11"/><path d="M12.7 11V5.5a1.3 1.3 0 0 1 2.6 0V12"/><path d="M15.3 12V8.3a1.3 1.3 0 0 1 2.6 0v6.4c0 3.6-2.2 6.3-5.9 6.3h-1.6c-1.6 0-2.7-.6-3.6-1.9L4.2 15c-.5-.7-.3-1.7.4-2.1.7-.4 1.6-.2 2.1.5l1.3 1.7"/></svg>
+{%- endcase -%}

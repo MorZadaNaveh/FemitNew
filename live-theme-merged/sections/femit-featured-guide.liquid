@@ -1,0 +1,197 @@
+{%- style -%}
+  .femit-featured-guide-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-featured-guide-{{ section.id }} femit-section">
+  {%- assign guide_product = section.settings.product -%}
+  <div class="femit-featured-guide__card femit-ambient-shadow">
+    <div class="femit-featured-guide__media">
+      {%- if guide_product != blank and guide_product.featured_image != blank -%}
+        <img
+          class="femit-featured-guide__image"
+          src="{{ guide_product.featured_image | image_url: width: 700 }}"
+          loading="lazy"
+          width="{{ guide_product.featured_image.width }}"
+          height="{{ guide_product.featured_image.height }}"
+          alt="{{ guide_product.title | escape }}"
+        >
+      {%- else -%}
+        <img class="femit-featured-guide__image" src="{{ 'femit-img-menopause-guide-book.jpg' | asset_url }}" loading="lazy" width="512" height="279" alt="{{ section.settings.heading | escape }}">
+      {%- endif -%}
+    </div>
+    <div class="femit-featured-guide__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="femit-featured-guide__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2 class="femit-featured-guide__heading">{{ section.settings.heading | default: guide_product.title }}</h2>
+      {%- if section.settings.description != blank -%}
+        <p class="femit-featured-guide__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="femit-featured-guide__list">
+          {%- for block in section.blocks -%}
+            <li class="femit-featured-guide__list-item" {{ block.shopify_attributes }}>
+              {% render 'femit-icon', icon: 'heart' %}
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      <div class="femit-featured-guide__actions">
+        {%- if guide_product != blank -%}
+          {%- if guide_product.variants.size == 1 and guide_product.selected_or_first_available_variant.available -%}
+            <form action="{{ routes.cart_add_url }}" method="post" class="femit-featured-guide__form">
+              <input type="hidden" name="id" value="{{ guide_product.selected_or_first_available_variant.id }}">
+              <button type="submit" class="femit-btn femit-btn--primary">
+                קני עכשיו - {{ guide_product.price | money }}
+              </button>
+            </form>
+          {%- else -%}
+            <a href="{{ guide_product.url }}" class="femit-btn femit-btn--primary">
+              קני עכשיו - {{ guide_product.price | money }}
+            </a>
+          {%- endif -%}
+          <a href="{{ guide_product.url }}" class="femit-btn femit-btn--secondary">למידע נוסף</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-featured-guide__card {
+    background: var(--femit-surface-container-lowest, #fff);
+    border-radius: var(--femit-radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-featured-guide__card {
+      flex-direction: row;
+      padding: 48px;
+      gap: 48px;
+    }
+  }
+
+  .femit-featured-guide__media {
+    flex: 1;
+  }
+
+  .femit-featured-guide__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--femit-radius-md);
+  }
+
+  .femit-featured-guide__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .femit-featured-guide__eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--femit-primary);
+  }
+
+  .femit-featured-guide__heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0;
+  }
+
+  .femit-featured-guide__description {
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+
+  .femit-featured-guide__list {
+    list-style: none;
+    margin: 8px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .femit-featured-guide__list-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--femit-on-surface-variant);
+  }
+
+  .femit-featured-guide__list-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--femit-primary);
+    flex-shrink: 0;
+  }
+
+  .femit-featured-guide__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .femit-featured-guide__form {
+    margin: 0;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Featured Guide",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product to feature" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "קריאת חובה" },
+    { "type": "text", "id": "heading", "label": "Heading (defaults to product title)", "default": "המדריך המקיף לגיל המעבר" },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "המדריך הנחקר בקפידה שלנו מציע גישה הוליסטית להבנה וניהול של תסמיני גיל המעבר. משינויים הורמונליים ועד התאמות באורח החיים - כל הידע הדרוש לך כדי לשמור על הבריאות שלך."
+    },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Checklist point",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Featured Guide",
+      "blocks": [
+        { "type": "point", "settings": { "text": "ניהול תסמינים מבוסס ראיות" } },
+        { "type": "point", "settings": { "text": "אסטרטגיות תזונה ותנועה" } },
+        { "type": "point", "settings": { "text": "בריאות הנפש ואופטימיזציה של שינה" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

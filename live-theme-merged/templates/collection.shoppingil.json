@@ -1,0 +1,237 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "image_banner_QHeekM": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_W9mJEy": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_rbjjUg": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_UkyHUQ": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_W9mJEy",
+        "text_rbjjUg",
+        "buttons_UkyHUQ"
+      ],
+      "custom_css": [
+        ".banner__content .banner__heading,.banner__content .banner__text {color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);}",
+        "@media screen and (max-width: 749px) {.slideshow__text, .banner__content {position: relative; top: 74px; }}",
+        "@media screen and (min-width: 750px) {.slideshow__text, .banner__content {position: relative; top: 36px; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/7_1dd318d6-dba3-4b5f-adb8-5fb3c80fff56.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "accent-2",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": false,
+        "filter_type": "vertical",
+        "enable_sorting": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_CgjTDj": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_XL8697": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "ziphers"
+          }
+        },
+        "featured_collection_GwxXgG": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "period"
+          }
+        },
+        "featured_collection_DzpTaj": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "fertility"
+          }
+        },
+        "featured_collection_eFHQTb": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pregnancy-and-birth"
+          }
+        },
+        "featured_collection_eXbUyY": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sexuality"
+          }
+        },
+        "featured_collection_bf6dxC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "menopause"
+          }
+        },
+        "featured_collection_83gtV9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "books"
+          }
+        },
+        "featured_collection_cLaUrR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "games"
+          }
+        },
+        "featured_collection_WA4t3N": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "lectures"
+          }
+        },
+        "featured_collection_RBD8hB": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fight-violence-against-women"
+          }
+        },
+        "featured_collection_iUr4tb": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "finance"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_XL8697",
+        "featured_collection_GwxXgG",
+        "featured_collection_DzpTaj",
+        "featured_collection_eFHQTb",
+        "featured_collection_eXbUyY",
+        "featured_collection_bf6dxC",
+        "featured_collection_83gtV9",
+        "featured_collection_cLaUrR",
+        "featured_collection_WA4t3N",
+        "featured_collection_RBD8hB",
+        "featured_collection_iUr4tb"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 6,
+        "color_scheme": "inverse",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_xj8Ncw": {
+      "type": "featured-collection",
+      "custom_css": [
+        "@media (min-width: 1024px) {.grid {justify-content: center; }}",
+        ".title {color: #202020; text-align: center;}",
+        ".card__information .card__heading {min-height: 3.5em; /* גובה מינימלי לכותרת */ display: flex; align-items: flex-start; justify-content: center; text-align: center;}",
+        ".card__information .card__heading {min-height: 3.5em; /* גובה מינימלי לכותרת */ display: flex; align-items: flex-start; justify-content: center; text-align: center;}",
+        ".title {color: #1287a4; text-align: center;}"
+      ],
+      "settings": {
+        "collection": "shoppingil",
+        "products_to_show": 25,
+        "title": "{{ section.settings.collection.title }}",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "inverse",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "image_banner_QHeekM",
+    "product-grid",
+    "collection_list_CgjTDj",
+    "featured_collection_xj8Ncw"
+  ]
+}
