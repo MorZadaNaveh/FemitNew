@@ -5,27 +5,29 @@
 {%- endstyle -%}
 
 <div class="femit-bundle-showcase-{{ section.id }} femit-section">
-  <div class="femit-bundle-showcase__header">
-    {%- if section.settings.badge_text != blank -%}
-      <span class="femit-bundle-showcase__badge">
-        {% render 'femit-icon', icon: 'bag' %}
-        {{ section.settings.badge_text }}
-      </span>
-    {%- endif -%}
-    {%- if section.settings.heading != blank -%}
-      <h2 class="femit-bundle-showcase__heading">{{ section.settings.heading }}</h2>
-    {%- endif -%}
-    {%- if section.settings.subheading != blank -%}
-      <p class="femit-bundle-showcase__subheading">{{ section.settings.subheading }}</p>
+  <div class="femit-bundle-showcase__header-row">
+    <div class="femit-bundle-showcase__header">
+      {%- if section.settings.badge_text != blank -%}
+        <span class="femit-bundle-showcase__badge">
+          {% render 'femit-icon', icon: 'bag' %}
+          {{ section.settings.badge_text }}
+        </span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="femit-bundle-showcase__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="femit-bundle-showcase__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.view_all_link != blank -%}
+      <a href="{{ section.settings.view_all_link }}" class="femit-bundle-showcase__view-all">
+        {% render 'femit-icon', icon: 'arrow' %}
+        {{ section.settings.view_all_label | default: 'לכל המארזים בחנות' }}
+      </a>
     {%- endif -%}
   </div>
-
-  {%- if section.settings.view_all_link != blank -%}
-    <a href="{{ section.settings.view_all_link }}" class="femit-bundle-showcase__view-all">
-      {% render 'femit-icon', icon: 'arrow' %}
-      {{ section.settings.view_all_label | default: 'לכל המארזים בחנות' }}
-    </a>
-  {%- endif -%}
 
   <div class="femit-bundle-showcase__grid">
     {%- for block in section.blocks -%}
@@ -51,10 +53,10 @@
           {%- endif -%}
           <div class="femit-bundle-showcase__footer">
             <span class="femit-bundle-showcase__price">
+              <span class="femit-bundle-showcase__price-current">{{ p.price_min | money }}</span>
               {%- if p.compare_at_price_min > p.price_min -%}
                 <s class="femit-bundle-showcase__price-compare">{{ p.compare_at_price_min | money }}</s>
               {%- endif -%}
-              {{ p.price_min | money }}
             </span>
             <a href="{{ p.url }}" class="femit-btn femit-btn--primary femit-bundle-showcase__button">
               {{ block.settings.button_label | default: 'לבחירת מרכיבים והתאמה' }}
@@ -68,13 +70,19 @@
 </div>
 
 {%- stylesheet -%}
+  .femit-bundle-showcase__header-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
   .femit-bundle-showcase__header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    max-width: 46rem;
-    margin-inline-start: auto;
   }
 
   .femit-bundle-showcase__badge {
@@ -103,11 +111,13 @@
 
   @media screen and (min-width: 750px) {
     .femit-bundle-showcase__heading {
-      font-size: 34px;
+      font-size: 28px;
+      white-space: nowrap;
     }
   }
 
   .femit-bundle-showcase__subheading {
+    max-width: 46rem;
     font-size: 15px;
     line-height: 22px;
     color: var(--femit-on-surface-variant);
@@ -118,7 +128,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    margin-top: 16px;
+    flex-shrink: 0;
     font-size: 14px;
     font-weight: 600;
     color: var(--femit-primary);
@@ -236,18 +246,23 @@
   }
 
   .femit-bundle-showcase__price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .femit-bundle-showcase__price-current {
     font-size: 17px;
     font-weight: 700;
     color: var(--femit-primary);
-    white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .femit-bundle-showcase__price-compare {
     font-size: 13px;
     font-weight: 400;
     color: var(--femit-on-surface-variant);
-    margin-inline-end: 6px;
   }
 {%- endstylesheet -%}
 
