@@ -41,6 +41,7 @@
     },
     "image_banner_xH4UXV": {
       "type": "image-banner",
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/2_c94a5a9b-f8a3-41d5-81c7-6bb6e97f420e.png",
@@ -58,6 +59,7 @@
     },
     "rich_text_k36fbR": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "heading_EBVVMx": {
           "type": "heading",
@@ -101,6 +103,19 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
+      }
+    },
+    "femit_ziphers_collection_hero": {
+      "type": "femit-fullbleed-hero",
+      "settings": {
+        "image": "shopify://shop_images/2_c94a5a9b-f8a3-41d5-81c7-6bb6e97f420e.png",
+        "image_size": "medium",
+        "heading": "<p>נשים בטבע: פתרונות ייחודים לנשים <em>מטיילות</em></p>",
+        "subheading": "מכירה את זה שאת בטיול בטבע, צריכה להתפנות ואז מחפשת ומחפשת מקום להתחבא או פשוט מתאפקת? בדיוק בשביל זה מכנסי ZipHers כאן! עם רוכסן נסתר באזור המפשעה שמאפשר לך להתפנות בנוחות, בפשטות ובקלילות. בואי לנסות ולהנות מחווית טיול אחרת",
+        "button_label": "",
+        "button_link": "",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "rich_text_93L7Lm": {
@@ -447,6 +462,7 @@
     "product-grid",
     "image_banner_xH4UXV",
     "rich_text_k36fbR",
+    "femit_ziphers_collection_hero",
     "rich_text_93L7Lm",
     "video_9E9Tjg",
     "rich_text_Vga8Mp",

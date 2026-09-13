@@ -23,7 +23,7 @@
     <div class="femit-menopause-hero__media">
       {%- if section.settings.image != blank -%}
         <img
-          class="femit-menopause-hero__image"
+          class="femit-menopause-hero__image femit-menopause-hero__image--{{ section.settings.image_size }}"
           src="{{ section.settings.image | image_url: width: 1200 }}"
           loading="eager"
           width="{{ section.settings.image.width }}"
@@ -31,7 +31,7 @@
           alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
         >
       {%- else -%}
-        <img class="femit-menopause-hero__image" src="{{ 'femit-img-menopause-hero.jpg' | asset_url }}" loading="eager" width="512" height="286" alt="{{ section.settings.heading | escape }}">
+        <img class="femit-menopause-hero__image femit-menopause-hero__image--{{ section.settings.image_size }}" src="{{ 'femit-img-menopause-hero.jpg' | asset_url }}" loading="eager" width="512" height="286" alt="{{ section.settings.heading | escape }}">
       {%- endif -%}
     </div>
   </div>
@@ -107,15 +107,43 @@
 
   .femit-menopause-hero__image {
     width: 100%;
-    height: 340px;
     object-fit: cover;
     border-radius: var(--femit-radius-lg);
     box-shadow: var(--femit-shadow-ambient-hover);
   }
 
+  .femit-menopause-hero__image--small {
+    height: 220px;
+  }
+
+  .femit-menopause-hero__image--medium {
+    height: 340px;
+  }
+
+  .femit-menopause-hero__image--large {
+    height: 460px;
+  }
+
+  .femit-menopause-hero__image--auto {
+    height: auto;
+    object-fit: contain;
+  }
+
   @media screen and (min-width: 750px) {
-    .femit-menopause-hero__image {
+    .femit-menopause-hero__image--small {
+      height: 360px;
+    }
+
+    .femit-menopause-hero__image--medium {
       height: 520px;
+    }
+
+    .femit-menopause-hero__image--large {
+      height: 680px;
+    }
+
+    .femit-menopause-hero__image--auto {
+      height: auto;
     }
   }
 {%- endstylesheet -%}
@@ -140,6 +168,18 @@
       "default": "העצימי את עצמך עם מידע מדויק, קהילה תומכת ומוצרים מותאמים אישית שנועדו למסע שלך דרך טרום גיל המעבר ומעבר לו."
     },
     { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Image size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" },
+        { "value": "auto", "label": "Adjust to image" }
+      ],
+      "default": "medium"
+    },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "חקרי משאבים" },
     { "type": "url", "id": "button_link", "label": "Button link" },
     { "type": "header", "content": "Padding" },
