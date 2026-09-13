@@ -69,6 +69,20 @@
         "padding_bottom": 48
       }
     },
+    "femit_bundle_showcase": {
+      "type": "femit-bundle-showcase",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "badge_text": "ערכות ומארזים נבחרים",
+        "heading": "<p>מארזים נבחרים: <em>שילובים</em> שעובדים מעולה יחד</p>",
+        "subheading": "ערכות שחיברנו בקפידה מתוך ניסיון, עם 10% הנחה בכל מארז.",
+        "view_all_link": "",
+        "view_all_label": "לכל המארזים בחנות",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "femit_doctor_cta": {
       "type": "femit-cta-banner",
       "settings": {
@@ -163,6 +177,7 @@
   "order": [
     "femit_hero",
     "femit_feature_grid",
+    "femit_bundle_showcase",
     "femit_doctor_cta",
     "femit_shop_highlights",
     "femit_community_cta",

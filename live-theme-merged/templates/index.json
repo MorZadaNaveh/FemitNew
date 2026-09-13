@@ -73,6 +73,60 @@
         "padding_bottom": 48
       }
     },
+    "femit_bundle_showcase": {
+      "type": "femit-bundle-showcase",
+      "blocks": {
+        "bundle_1": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-אינטימיות",
+            "icon": "heart",
+            "icon_background": "#b6ebff",
+            "icon_color": "#00657b",
+            "description": "ויברטור איכותי מבית סטיספייר, בשילוב חומר סיכוך איכותי לחוויה מושלמת.",
+            "bullet_1": "ויברטור סטיספייר לבחירה (2 דגמים)",
+            "bullet_2": "חומר סיכוך ID Glide 500 מ״ל",
+            "bullet_3": "10% הנחה מרכישה נפרדת"
+          }
+        },
+        "bundle_2": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-גיל-המעבר-ספר-ומניפה",
+            "icon": "fan",
+            "icon_background": "#fbdbde",
+            "icon_color": "#6e5659",
+            "description": "כל הידע שאת צריכה לגיל המעבר, בשילוב פתרון נוח לגלי חום.",
+            "bullet_1": "הספר המלא לגיל המעבר - ד״ר ג׳ן גונטר",
+            "bullet_2": "מניפה קומפקטית לרגעי גלי חום",
+            "bullet_3": "10% הנחה מרכישה נפרדת"
+          }
+        },
+        "bundle_3": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-טיולים",
+            "icon": "hiking",
+            "icon_background": "#ffdf90",
+            "icon_color": "#755b00",
+            "description": "כל מה שצריך כדי לצאת לדרך בראש שקט וללא דאגות.",
+            "bullet_1": "מכנסי טיולים ZipHers לבחירה",
+            "bullet_2": "תחתוני ZipHers",
+            "bullet_3": "משפך להטלת שתן בעמידה"
+          }
+        }
+      },
+      "block_order": ["bundle_1", "bundle_2", "bundle_3"],
+      "settings": {
+        "badge_text": "ערכות ומארזים נבחרים",
+        "heading": "<p>מארזים נבחרים: <em>שילובים</em> שעובדים מעולה יחד</p>",
+        "subheading": "ערכות שחיברנו בקפידה מתוך ניסיון, עם 10% הנחה בכל מארז.",
+        "view_all_link": "",
+        "view_all_label": "לכל המארזים בחנות",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "femit_doctor_cta": {
       "type": "femit-cta-banner",
       "settings": {
@@ -173,6 +227,7 @@
   "order": [
     "femit_hero",
     "femit_feature_grid",
+    "femit_bundle_showcase",
     "femit_doctor_cta",
     "femit_shop_highlights",
     "femit_community_cta",

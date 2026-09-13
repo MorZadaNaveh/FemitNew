@@ -1,0 +1,319 @@
+{%- style -%}
+  .femit-bundle-showcase-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-bundle-showcase-{{ section.id }} femit-section">
+  <div class="femit-bundle-showcase__header">
+    {%- if section.settings.badge_text != blank -%}
+      <span class="femit-bundle-showcase__badge">
+        {% render 'femit-icon', icon: 'bag' %}
+        {{ section.settings.badge_text }}
+      </span>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="femit-bundle-showcase__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="femit-bundle-showcase__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.view_all_link != blank -%}
+    <a href="{{ section.settings.view_all_link }}" class="femit-bundle-showcase__view-all">
+      {% render 'femit-icon', icon: 'arrow' %}
+      {{ section.settings.view_all_label | default: 'לכל המארזים בחנות' }}
+    </a>
+  {%- endif -%}
+
+  <div class="femit-bundle-showcase__grid">
+    {%- for block in section.blocks -%}
+      {%- assign p = block.settings.product -%}
+      {%- assign card_icon = block.settings.icon | default: 'spa' -%}
+      {%- assign icon_bg = block.settings.icon_background | default: '#ffdf90' -%}
+      {%- assign icon_color = block.settings.icon_color | default: '#755b00' -%}
+      {%- if p != blank -%}
+        <article class="femit-bundle-showcase__card femit-ambient-shadow" {{ block.shopify_attributes }}>
+          <span class="femit-icon-circle femit-bundle-showcase__icon" style="background: {{ icon_bg }}; color: {{ icon_color }};">
+            {% render 'femit-icon', icon: card_icon %}
+          </span>
+          <h3 class="femit-bundle-showcase__title">{{ block.settings.custom_title | default: p.title }}</h3>
+          {%- if block.settings.description != blank -%}
+            <p class="femit-bundle-showcase__description">{{ block.settings.description }}</p>
+          {%- endif -%}
+          {%- if block.settings.bullet_1 != blank or block.settings.bullet_2 != blank or block.settings.bullet_3 != blank -%}
+            <ul class="femit-bundle-showcase__bullets">
+              {%- if block.settings.bullet_1 != blank -%}<li>{{ block.settings.bullet_1 }}</li>{%- endif -%}
+              {%- if block.settings.bullet_2 != blank -%}<li>{{ block.settings.bullet_2 }}</li>{%- endif -%}
+              {%- if block.settings.bullet_3 != blank -%}<li>{{ block.settings.bullet_3 }}</li>{%- endif -%}
+            </ul>
+          {%- endif -%}
+          <div class="femit-bundle-showcase__footer">
+            <span class="femit-bundle-showcase__price">
+              {%- if p.compare_at_price_min > p.price_min -%}
+                <s class="femit-bundle-showcase__price-compare">{{ p.compare_at_price_min | money }}</s>
+              {%- endif -%}
+              {{ p.price_min | money }}
+            </span>
+            <a href="{{ p.url }}" class="femit-btn femit-btn--primary femit-bundle-showcase__button">
+              {{ block.settings.button_label | default: 'לבחירת מרכיבים והתאמה' }}
+              {% render 'femit-icon', icon: 'arrow' %}
+            </a>
+          </div>
+        </article>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-bundle-showcase__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 46rem;
+    margin-inline-start: auto;
+  }
+
+  .femit-bundle-showcase__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--femit-secondary-container);
+    color: var(--femit-on-secondary-container);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: var(--femit-radius-full);
+  }
+
+  .femit-bundle-showcase__badge svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .femit-bundle-showcase__heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-bundle-showcase__heading {
+      font-size: 34px;
+    }
+  }
+
+  .femit-bundle-showcase__subheading {
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+
+  .femit-bundle-showcase__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--femit-primary);
+    text-decoration: none;
+  }
+
+  .femit-bundle-showcase__view-all svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .femit-bundle-showcase__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-bundle-showcase__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+  }
+
+  .femit-bundle-showcase__card {
+    background: var(--femit-surface-container-lowest, #fff);
+    border-radius: var(--femit-radius-lg);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .femit-bundle-showcase__icon {
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--femit-radius-lg);
+    background: var(--femit-secondary-container);
+    color: var(--femit-on-secondary-container);
+  }
+
+  .femit-bundle-showcase__icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .femit-bundle-showcase__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0;
+  }
+
+  .femit-bundle-showcase__description {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+
+  .femit-bundle-showcase__bullets {
+    list-style: none;
+    margin: 0;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--femit-outline-variant, #e3e3e3);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .femit-bundle-showcase__bullets li {
+    font-size: 13px;
+    color: var(--femit-on-surface-variant);
+    position: relative;
+    padding-inline-start: 14px;
+  }
+
+  .femit-bundle-showcase__bullets li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--femit-primary);
+  }
+
+  .femit-bundle-showcase__footer {
+    margin-top: auto;
+    padding-top: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .femit-bundle-showcase__button {
+    padding: 9px 14px;
+    font-size: 12px;
+    gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .femit-bundle-showcase__button svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .femit-bundle-showcase__price {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--femit-primary);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .femit-bundle-showcase__price-compare {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--femit-on-surface-variant);
+    margin-inline-end: 6px;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Bundle Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "ערכות ומארזים נבחרים" },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Wrap a word in italics from the editor to highlight it in teal",
+      "default": "<p>מארזים נבחרים: <em>שילובים</em> שעובדים מעולה יחד</p>"
+    },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "ערכות שחיברנו בקפידה מתוך ניסיון, עם 10% הנחה בכל מארז." },
+    { "type": "url", "id": "view_all_link", "label": "\"View all\" link (leave blank to hide)" },
+    { "type": "text", "id": "view_all_label", "label": "\"View all\" label", "default": "לכל המארזים בחנות" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "bundle",
+      "name": "Bundle",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Bundle product" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "spa", "label": "Spa" },
+            { "value": "eco", "label": "Eco" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "book", "label": "Book" },
+            { "value": "book-open", "label": "Book (open)" },
+            { "value": "hiking", "label": "Hiking" },
+            { "value": "medical", "label": "Medical" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "fan", "label": "Fan" },
+            { "value": "ziphers", "label": "ZipHers" },
+            { "value": "sun", "label": "Sun" },
+            { "value": "community", "label": "Community" }
+          ],
+          "default": "spa"
+        },
+        { "type": "color", "id": "icon_background", "label": "Icon background color", "default": "#ffdf90" },
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#755b00" },
+        { "type": "text", "id": "custom_title", "label": "Custom title (optional, defaults to product title)" },
+        { "type": "textarea", "id": "description", "label": "Short description" },
+        { "type": "text", "id": "bullet_1", "label": "Bullet 1" },
+        { "type": "text", "id": "bullet_2", "label": "Bullet 2" },
+        { "type": "text", "id": "bullet_3", "label": "Bullet 3" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "לבחירת מרכיבים והתאמה" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Bundle Showcase",
+      "blocks": [{ "type": "bundle" }, { "type": "bundle" }, { "type": "bundle" }]
+    }
+  ]
+}
+{% endschema %}
