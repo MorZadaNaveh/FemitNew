@@ -1,0 +1,161 @@
+{%- comment -%}
+  Renders extra line-item-property dropdowns (sizes/colors that don't affect
+  price) and moves them into the product's native add-to-cart form via JS,
+  so they submit as order properties alongside the real variant selection.
+{%- endcomment -%}
+
+{%- style -%}
+  .femit-bundle-options-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+{%- if section.settings.show_discount_badge and section.settings.discount_badge_text != blank -%}
+  <span class="femit-bundle-options__badge" data-femit-discount-badge hidden>{{ section.settings.discount_badge_text }}</span>
+{%- endif -%}
+
+<div class="femit-bundle-options-{{ section.id }} femit-section" data-femit-bundle-options>
+  {%- if section.settings.heading != blank -%}
+    <h3 class="femit-bundle-options__heading">{{ section.settings.heading }}</h3>
+  {%- endif -%}
+
+  <div class="femit-bundle-options__fields" data-femit-bundle-options-fields>
+    <div class="femit-bundle-options__field" data-pants-size-field>
+      <label class="femit-bundle-options__label" for="FemitPantsSize-{{ section.id }}">{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}</label>
+      <select class="femit-bundle-options__select" id="FemitPantsSize-{{ section.id }}" name="properties[{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}]" data-pants-size-select></select>
+    </div>
+
+    <div class="femit-bundle-options__field">
+      <label class="femit-bundle-options__label" for="FemitUnderwearSize-{{ section.id }}">{{ section.settings.underwear_size_label | default: 'מידת תחתונים' }}</label>
+      <select class="femit-bundle-options__select" id="FemitUnderwearSize-{{ section.id }}" name="properties[{{ section.settings.underwear_size_label | default: 'מידת תחתונים' }}]">
+        {%- assign underwear_sizes = section.settings.underwear_sizes | split: ',' -%}
+        {%- for size in underwear_sizes -%}
+          <option value="{{ size | strip }}">{{ size | strip }}</option>
+        {%- endfor -%}
+      </select>
+    </div>
+
+    <div class="femit-bundle-options__field">
+      <label class="femit-bundle-options__label" for="FemitFunnelColor-{{ section.id }}">{{ section.settings.funnel_color_label | default: 'צבע משפך' }}</label>
+      <select class="femit-bundle-options__select" id="FemitFunnelColor-{{ section.id }}" name="properties[{{ section.settings.funnel_color_label | default: 'צבע משפך' }}]">
+        {%- assign funnel_colors = section.settings.funnel_colors | split: ',' -%}
+        {%- for color in funnel_colors -%}
+          <option value="{{ color | strip }}">{{ color | strip }}</option>
+        {%- endfor -%}
+      </select>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" data-femit-pants-size-map>
+  {
+    {%- assign rows = '' | split: '' -%}
+    {%- for i in (1..4) -%}
+      {%- assign label_key = 'pants_type_' | append: i | append: '_label' -%}
+      {%- assign sizes_key = 'pants_type_' | append: i | append: '_sizes' -%}
+      {%- assign type_label = section.settings[label_key] -%}
+      {%- assign type_sizes = section.settings[sizes_key] -%}
+      {%- if type_label != blank -%}
+        {%- assign sizes_array = type_sizes | split: ',' -%}
+        "{{ type_label | strip | escape }}": [
+          {%- for size in sizes_array -%}
+            "{{ size | strip | escape }}"{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]{% unless forloop.last %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  }
+</script>
+
+<script src="{{ 'femit-bundle-options.js' | asset_url }}" defer="defer"></script>
+
+{%- stylesheet -%}
+  .femit-bundle-options__heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0 0 12px;
+  }
+
+  .femit-bundle-options__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .femit-bundle-options__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .femit-bundle-options__label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+  }
+
+  .femit-bundle-options__select {
+    padding: 10px 14px;
+    border-radius: var(--femit-radius-sm, 8px);
+    border: 1px solid var(--femit-outline-variant, #e3e3e3);
+    background: var(--femit-surface-container-lowest, #fff);
+    font-size: 14px;
+    color: var(--femit-on-surface);
+  }
+
+  /* Once JS relocates these fields into the native product form, drop the
+     section's own spacing so it doesn't leave an empty gap behind. */
+  .femit-bundle-options-moved {
+    padding: 0 !important;
+  }
+
+  .femit-bundle-options__badge {
+    position: absolute;
+    top: 8px;
+    inset-inline-end: 8px;
+    z-index: 2;
+    background: var(--femit-secondary-container);
+    color: var(--femit-on-secondary-container);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--femit-radius-full);
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Bundle Options",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "התאמה אישית למארז" },
+    { "type": "header", "content": "Discount badge (shown on the product image)" },
+    { "type": "checkbox", "id": "show_discount_badge", "label": "Show discount badge", "default": true },
+    { "type": "text", "id": "discount_badge_text", "label": "Badge text", "default": "10% הנחה" },
+    { "type": "header", "content": "Pants size (depends on selected pants type)" },
+    { "type": "text", "id": "pants_size_label", "label": "Pants size field label", "default": "מידת מכנסיים" },
+    { "type": "text", "id": "pants_type_1_label", "label": "Pants type 1 - exact option value", "default": "מכנסי טייץ ארוכים" },
+    { "type": "text", "id": "pants_type_1_sizes", "label": "Pants type 1 - available sizes (comma separated)", "default": "M, L, XL" },
+    { "type": "text", "id": "pants_type_2_label", "label": "Pants type 2 - exact option value", "default": "מכנסי טייץ קצרים" },
+    { "type": "text", "id": "pants_type_2_sizes", "label": "Pants type 2 - available sizes (comma separated)", "default": "XS, S, M, L, XL, 2XL" },
+    { "type": "text", "id": "pants_type_3_label", "label": "Pants type 3 - exact option value", "default": "מכנסי שטח ארוכים" },
+    { "type": "text", "id": "pants_type_3_sizes", "label": "Pants type 3 - available sizes (comma separated)", "default": "M, L, XL" },
+    { "type": "text", "id": "pants_type_4_label", "label": "Pants type 4 - exact option value", "default": "מכנסי שטח קצרים" },
+    { "type": "text", "id": "pants_type_4_sizes", "label": "Pants type 4 - available sizes (comma separated)", "default": "XS, S, M, L, XL, 2XL" },
+    { "type": "header", "content": "Underwear size" },
+    { "type": "text", "id": "underwear_size_label", "label": "Underwear size field label", "default": "מידת תחתונים" },
+    { "type": "text", "id": "underwear_sizes", "label": "Available sizes (comma separated)", "default": "XS, S, M, L, XL, 2XL" },
+    { "type": "header", "content": "Funnel color" },
+    { "type": "text", "id": "funnel_color_label", "label": "Funnel color field label", "default": "צבע משפך" },
+    { "type": "text", "id": "funnel_colors", "label": "Available colors (comma separated)", "default": "סגול, ורוד, כתום" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 16 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 16 }
+  ],
+  "presets": [
+    { "name": "Femit Bundle Options" }
+  ]
+}
+{% endschema %}
