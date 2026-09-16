@@ -14,7 +14,7 @@
             href="/collections/all"
             data-filter-collection="all"
             data-filter-title="{{ section.settings.all_label }}"
-            class="femit-shop-header__icon-pill femit-ambient-shadow{% if collection.handle == 'all' or collection.handle == blank %} femit-shop-header__icon-pill--active{% endif %}"
+            class="femit-shop-header__icon-pill{% if collection.handle == 'all' or collection.handle == blank %} femit-shop-header__icon-pill--active{% endif %}"
           >
             <span class="femit-icon-circle femit-shop-header__icon-circle">{% render 'femit-icon', icon: 'sun' %}</span>
             <span class="femit-shop-header__icon-label">{{ section.settings.all_label }}</span>
@@ -35,7 +35,7 @@
               href="{{ block.settings.collection.url }}"
               data-filter-collection="{{ block.settings.collection.handle }}"
               data-filter-title="{{ block.settings.label | default: block.settings.collection.title }}"
-              class="femit-shop-header__icon-pill femit-ambient-shadow{% if collection.handle == block.settings.collection.handle %} femit-shop-header__icon-pill--active{% endif %}"
+              class="femit-shop-header__icon-pill{% if collection.handle == block.settings.collection.handle %} femit-shop-header__icon-pill--active{% endif %}"
               {{ block.shopify_attributes }}
             >
               <span class="femit-icon-circle femit-shop-header__icon-circle">{% render 'femit-icon', icon: block.settings.icon %}</span>
