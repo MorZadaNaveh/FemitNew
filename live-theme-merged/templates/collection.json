@@ -18,9 +18,13 @@
         "cat_travel": {
           "type": "category",
           "settings": { "collection": "ציוד-לטיולים" }
+        },
+        "cat_bundles": {
+          "type": "category",
+          "settings": { "collection": "מארזים", "icon": "community" }
         }
       },
-      "block_order": ["cat_travel", "cat_menopause", "cat_care", "cat_period"],
+      "block_order": ["cat_travel", "cat_menopause", "cat_care", "cat_period", "cat_bundles"],
       "settings": {
         "heading": "חנות",
         "subheading": "כלים וציוד תומכים לנשים, נבחרו בקפידה.",
@@ -28,6 +32,47 @@
         "all_label": "הכל",
         "padding_top": 32,
         "padding_bottom": 8
+      }
+    },
+    "femit_bundle_panel": {
+      "type": "femit-bundle-panel",
+      "blocks": {
+        "bundle_1": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-וסת",
+            "description": "נוחות עדינה ורכיבים טבעיים ונקיים לימים הרגישים.",
+            "bullet_1": "תחתוניות כותנה אורגנית נושמת",
+            "bullet_2": "גביעונית וסת רוביקאפ או דיסק וסת Hello Period, לבחירתך"
+          }
+        },
+        "bundle_2": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-ספרים-מילים-הורגות-וכלואות",
+            "description": "שני ספרים חשובים על אלימות כלפי נשים בזוגיות.",
+            "bullet_1": "מילים הורגות - ניני גוטספלד-מנוח",
+            "bullet_2": "כלואות - ד״ר אילנה קוורטין"
+          }
+        },
+        "bundle_3": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-ספרים-לבחירה",
+            "description": "בחרי כל שילוב של ספרים וקלפי משחק שמתאים לך.",
+            "bullet_1": "מיתוס היופי / חדר משלך / אז איך קוראים לך עכשיו?",
+            "bullet_2": "אפשרות לשלב קלפי משחק QueenG"
+          }
+        }
+      },
+      "block_order": ["bundle_1", "bundle_2", "bundle_3"],
+      "settings": {
+        "heading": "מארזים מיוחדים",
+        "subheading": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז",
+        "bundles_collection": "מארזים",
+        "view_all_label": "לכל המארזים",
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "product-grid": {
@@ -41,6 +86,7 @@
   },
   "order": [
     "femit_shop_header",
+    "femit_bundle_panel",
     "product-grid"
   ]
 }

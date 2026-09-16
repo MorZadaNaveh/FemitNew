@@ -1,0 +1,374 @@
+{%- style -%}
+  .femit-bundle-panel-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="femit-bundle-panel-{{ section.id }} femit-section">
+  <div class="femit-bundle-panel__box">
+    <div class="femit-bundle-panel__header-row">
+      <div class="femit-bundle-panel__titles">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="femit-bundle-panel__heading">
+            {% render 'femit-icon', icon: 'archive' %}
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="femit-bundle-panel__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- assign bundles_collection = section.settings.bundles_collection -%}
+      {%- if bundles_collection != blank -%}
+        <a href="{{ bundles_collection.url }}" class="femit-bundle-panel__view-all">
+          {{ section.settings.view_all_label | default: 'לכל המארזים' }} ({{ bundles_collection.all_products_count }})
+          {% render 'femit-icon', icon: 'arrow' %}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="femit-bundle-panel__grid">
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- if p != blank -%}
+          <article class="femit-bundle-panel__card femit-ambient-shadow" {{ block.shopify_attributes }}>
+            <div class="femit-bundle-panel__media femit-bundle-panel__media--{{ section.settings.image_height | default: 'medium' }}">
+              {%- if p.featured_image != blank -%}
+                <img
+                  class="femit-bundle-panel__image"
+                  src="{{ p.featured_image | image_url: width: 600 }}"
+                  loading="lazy"
+                  width="{{ p.featured_image.width }}"
+                  height="{{ p.featured_image.height }}"
+                  alt="{{ p.featured_image.alt | default: p.title | escape }}"
+                >
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'femit-bundle-panel__image femit-bundle-panel__image--placeholder' }}
+              {%- endif -%}
+            </div>
+            <div class="femit-bundle-panel__body">
+              <h3 class="femit-bundle-panel__title">{{ block.settings.custom_title | default: p.title }}</h3>
+              {%- if block.settings.description != blank -%}
+                <p class="femit-bundle-panel__description">{{ block.settings.description }}</p>
+              {%- endif -%}
+              {%- if block.settings.bullet_1 != blank or block.settings.bullet_2 != blank or block.settings.bullet_3 != blank -%}
+                <p class="femit-bundle-panel__bullets-label">במארז:</p>
+                <ul class="femit-bundle-panel__bullets">
+                  {%- if block.settings.bullet_1 != blank -%}<li>{{ block.settings.bullet_1 }}</li>{%- endif -%}
+                  {%- if block.settings.bullet_2 != blank -%}<li>{{ block.settings.bullet_2 }}</li>{%- endif -%}
+                  {%- if block.settings.bullet_3 != blank -%}<li>{{ block.settings.bullet_3 }}</li>{%- endif -%}
+                </ul>
+              {%- endif -%}
+              <div class="femit-bundle-panel__footer">
+                <div class="femit-bundle-panel__price-row">
+                  <span class="femit-bundle-panel__price">
+                    <span class="femit-bundle-panel__price-current">{{ p.price_min | money }}</span>
+                    {%- if p.compare_at_price_min > p.price_min -%}
+                      <s class="femit-bundle-panel__price-compare">{{ p.compare_at_price_min | money }}</s>
+                    {%- endif -%}
+                  </span>
+                  {%- if p.compare_at_price_min > p.price_min -%}
+                    {%- assign savings = p.compare_at_price_min | minus: p.price_min -%}
+                    <span class="femit-bundle-panel__savings">חיסכון של {{ savings | money }}</span>
+                  {%- endif -%}
+                </div>
+                <a href="{{ p.url }}" class="femit-btn femit-btn--primary femit-bundle-panel__button">
+                  {{ block.settings.button_label | default: 'לפרטי המארז וההתאמה' }}
+                  {% render 'femit-icon', icon: 'arrow' %}
+                </a>
+              </div>
+            </div>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{%- stylesheet -%}
+  .femit-bundle-panel__box {
+    background: var(--femit-surface-container-low, #f5f3f3);
+    border-radius: var(--femit-radius-lg);
+    padding: 24px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-bundle-panel__box {
+      padding: 32px;
+    }
+  }
+
+  .femit-bundle-panel__header-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .femit-bundle-panel__titles {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .femit-bundle-panel__heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0;
+  }
+
+  .femit-bundle-panel__heading svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .femit-bundle-panel__subheading {
+    font-size: 14px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
+  }
+
+  .femit-bundle-panel__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--femit-primary);
+    text-decoration: none;
+  }
+
+  .femit-bundle-panel__view-all svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .femit-bundle-panel__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-bundle-panel__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .femit-bundle-panel__card {
+    background: var(--femit-surface-container-lowest, #fff);
+    border-radius: var(--femit-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .femit-bundle-panel__media {
+    background: var(--femit-surface-container-low);
+  }
+
+  .femit-bundle-panel__media--small {
+    aspect-ratio: 3 / 1;
+  }
+
+  .femit-bundle-panel__media--medium {
+    aspect-ratio: 2 / 1;
+  }
+
+  .femit-bundle-panel__media--large {
+    aspect-ratio: 4 / 3;
+  }
+
+  .femit-bundle-panel__media--auto {
+    aspect-ratio: auto;
+  }
+
+  .femit-bundle-panel__media--auto .femit-bundle-panel__image {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .femit-bundle-panel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .femit-bundle-panel__image--placeholder {
+    padding: 40px;
+    opacity: 0.5;
+  }
+
+  .femit-bundle-panel__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .femit-bundle-panel__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--femit-on-surface);
+    margin: 0 0 6px;
+  }
+
+  .femit-bundle-panel__description {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--femit-on-surface-variant);
+    margin: 0 0 12px;
+  }
+
+  .femit-bundle-panel__bullets-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--femit-on-surface);
+    margin: 0 0 6px;
+  }
+
+  .femit-bundle-panel__bullets {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .femit-bundle-panel__bullets li {
+    font-size: 13px;
+    color: var(--femit-on-surface-variant);
+    position: relative;
+    padding-inline-start: 14px;
+  }
+
+  .femit-bundle-panel__bullets li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--femit-primary);
+  }
+
+  .femit-bundle-panel__footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--femit-outline-variant, #e3e3e3);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .femit-bundle-panel__price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .femit-bundle-panel__price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .femit-bundle-panel__price-current {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--femit-primary);
+  }
+
+  .femit-bundle-panel__price-compare {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--femit-on-surface-variant);
+  }
+
+  .femit-bundle-panel__savings {
+    background: #ffdf90;
+    color: #755b00;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--femit-radius-full);
+    white-space: nowrap;
+  }
+
+  .femit-bundle-panel__button {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .femit-bundle-panel__button svg {
+    width: 14px;
+    height: 14px;
+  }
+{%- endstylesheet -%}
+
+{% schema %}
+{
+  "name": "Femit Bundle Panel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "מארזים מיוחדים" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז" },
+    { "type": "collection", "id": "bundles_collection", "label": "Bundles collection (for \"view all\" link + count)" },
+    { "type": "text", "id": "view_all_label", "label": "\"View all\" label", "default": "לכל המארזים" },
+    {
+      "type": "select",
+      "id": "image_height",
+      "label": "Image height",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" },
+        { "value": "auto", "label": "Adjust to image" }
+      ],
+      "default": "medium"
+    },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 24 }
+  ],
+  "blocks": [
+    {
+      "type": "bundle",
+      "name": "Bundle",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Bundle product" },
+        { "type": "text", "id": "custom_title", "label": "Custom title (optional, defaults to product title)" },
+        { "type": "textarea", "id": "description", "label": "Short description" },
+        { "type": "text", "id": "bullet_1", "label": "Bullet 1" },
+        { "type": "text", "id": "bullet_2", "label": "Bullet 2" },
+        { "type": "text", "id": "bullet_3", "label": "Bullet 3" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "לפרטי המארז וההתאמה" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Femit Bundle Panel",
+      "blocks": [{ "type": "bundle" }, { "type": "bundle" }, { "type": "bundle" }]
+    }
+  ]
+}
+{% endschema %}

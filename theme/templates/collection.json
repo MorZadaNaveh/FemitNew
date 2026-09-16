@@ -30,6 +30,18 @@
         "padding_bottom": 8
       }
     },
+    "femit_bundle_panel": {
+      "type": "femit-bundle-panel",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "heading": "מארזים מיוחדים",
+        "subheading": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז",
+        "view_all_label": "לכל המארזים",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
     "product-grid": {
       "type": "femit-product-grid",
       "settings": {
@@ -41,6 +53,7 @@
   },
   "order": [
     "femit_shop_header",
+    "femit_bundle_panel",
     "product-grid"
   ]
 }
