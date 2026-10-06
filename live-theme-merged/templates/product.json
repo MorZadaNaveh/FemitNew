@@ -34,7 +34,6 @@
         },
         "variant_picker_N9FMNW": {
           "type": "variant_picker",
-          "disabled": true,
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"

@@ -46,7 +46,7 @@
               >
             {%- else -%}
               <span class="femit-icon-circle femit-topic-index__badge-icon" style="background: rgba(255,255,255,0.35); color: {{ text_color }};">
-                {% render 'femit-icon', icon: block.settings.icon | default: 'community' %}
+                {% render 'femit-icon', icon: block.settings.icon, default: 'community' %}
               </span>
             {%- endif -%}
           </div>
@@ -221,3 +221,14 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'femit-icon', icon: block.settings.icon | default: 'community'
+    %}"
+  to: "{% render 'femit-icon', icon: block.settings.icon, default: 'community' %}"
+  position: 1934..2008
+{% endcomment %}

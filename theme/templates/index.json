@@ -30,7 +30,7 @@
           "type": "feature",
           "settings": {
             "icon": "fan",
-            "icon_background": "#fbdbde",
+            "icon_background": "#e58fa3",
             "icon_color": "#6e5659",
             "title": "גיל המעבר",
             "description": "בריאות פיזית, תזונה מותאמת, וחיזוק הכוח לשנים הבאות.",
@@ -41,7 +41,7 @@
           "type": "feature",
           "settings": {
             "icon": "hiking",
-            "icon_background": "#ffdf90",
+            "icon_background": "#efc75e",
             "icon_color": "#755b00",
             "title": "Femit בטבע",
             "description": "טיולים, הרצאות חוץ, וחיבור לטבע ולקהילה (כולל פתרונות נוחים כמו ZipHers).",
@@ -52,15 +52,19 @@
           "type": "feature",
           "settings": {
             "icon": "heart",
-            "icon_background": "#b6ebff",
-            "icon_color": "#00657b",
+            "icon_background": "#a99ac8",
+            "icon_color": "#4f3a78",
             "title": "אינטימיות וחיבור",
             "description": "העמקת מיניות, מערכות יחסים, והיכרות מחודשת עם הגוף שלך.",
             "link": "/pages/sexuality"
           }
         }
       },
-      "block_order": ["feature_1", "feature_2", "feature_3"],
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
       "settings": {
         "heading": "שלושת המפתחות של Femit",
         "subheading": "כל מה שאת צריכה כדי לפרוח בשלב הזה של החיים.",
@@ -71,8 +75,6 @@
     },
     "femit_bundle_showcase": {
       "type": "femit-bundle-showcase",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "badge_text": "ערכות ומארזים נבחרים",
         "heading": "<p>מארזים נבחרים: <em>שילובים</em> שעובדים מעולה יחד</p>",
@@ -111,9 +113,9 @@
         "split_1": {
           "type": "split",
           "settings": {
+            "image": "shopify://shop_images/fanned-out-book-pages-against-a-pink-background.jpg",
             "title": "ספרים מומלצים",
             "subtitle": "ידע זה כוח. הספרייה המקצועית שלנו.",
-            "image": "shopify://shop_images/fanned-out-book-pages-against-a-pink-background.jpg",
             "link_label": "גלי עוד",
             "link": "/collections/ספרים-מומלצים"
           }
@@ -141,7 +143,12 @@
           }
         }
       },
-      "block_order": ["featured_1", "split_1", "icon_1", "icon_2"],
+      "block_order": [
+        "featured_1",
+        "split_1",
+        "icon_1",
+        "icon_2"
+      ],
       "settings": {
         "heading": "החנות שלנו",
         "subheading": "המוצרים הנבחרים ביותר שיעשו לך טוב",

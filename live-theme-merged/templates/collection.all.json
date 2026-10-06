@@ -211,31 +211,45 @@
           "type": "bundle",
           "settings": {
             "product": "ערכת-וסת",
+            "custom_title": "",
             "description": "נוחות עדינה ורכיבים טבעיים ונקיים לימים הרגישים.",
             "bullet_1": "תחתוניות כותנה אורגנית נושמת",
-            "bullet_2": "גביעונית וסת רוביקאפ או דיסק וסת Hello Period, לבחירתך"
+            "bullet_2": "גביעונית וסת רוביקאפ או דיסק וסת Hello Period, לבחירתך",
+            "bullet_3": "",
+            "button_label": "לפרטי המארז וההתאמה"
           }
         },
         "bundle_2": {
           "type": "bundle",
           "settings": {
             "product": "ערכת-ספרים-מילים-הורגות-וכלואות",
+            "custom_title": "",
             "description": "שני ספרים חשובים על אלימות כלפי נשים בזוגיות.",
             "bullet_1": "מילים הורגות - ניני גוטספלד-מנוח",
-            "bullet_2": "כלואות - ד״ר אילנה קוורטין"
+            "bullet_2": "כלואות - ד״ר אילנה קוורטין",
+            "bullet_3": "",
+            "button_label": "לפרטי המארז וההתאמה"
           }
         },
         "bundle_3": {
           "type": "bundle",
           "settings": {
             "product": "ערכת-ספרים-לבחירה",
+            "custom_title": "",
             "description": "בחרי כל שילוב של ספרים וקלפי משחק שמתאים לך.",
             "bullet_1": "מיתוס היופי / חדר משלך / אז איך קוראים לך עכשיו?",
-            "bullet_2": "אפשרות לשלב קלפי משחק QueenG"
+            "bullet_2": "אפשרות לשלב קלפי משחק QueenG",
+            "bullet_3": "",
+            "button_label": "לפרטי המארז וההתאמה"
           }
         }
       },
-      "block_order": ["bundle_1", "bundle_2", "bundle_3"],
+      "block_order": [
+        "bundle_1",
+        "bundle_2",
+        "bundle_3"
+      ],
+      "disabled": true,
       "settings": {
         "heading": "מארזים מיוחדים",
         "subheading": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז",

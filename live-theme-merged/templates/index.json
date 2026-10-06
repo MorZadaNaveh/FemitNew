@@ -12,9 +12,9 @@
     "femit_hero": {
       "type": "femit-hero",
       "settings": {
-        "heading": "סוף סוף, מישהי שרואה אותך",
-        "subheading": "<p>הבית שלך לבריאות, לחוויות ולאינטימיות בגיל 40+. אנחנו כאן כדי ללוות אותך בכל שלב, עם מידע אמין, מוצרים איכותיים ומרחב תומך.</p>",
-        "image": "shopify://shop_images/ChatGPT_Image_Aug_18_2026_01_36_51_PM.png",
+        "heading": "נשי. מדעי. אקולוגי. הבית שלך לבריאות ולרווחה בגילאי 40+.",
+        "subheading": "<p>אנחנו כאן כדי ללוות אותך בכל שלב, עם מידע אמין, מוצרים שתואמים לצרכים שלך ומרחב תומך.</p>",
+        "image": "shopify://shop_images/image10.png",
         "primary_button_label": "התחילי כאן",
         "primary_button_link": "/pages/resource-hub",
         "secondary_button_label": "לחנות",
@@ -30,7 +30,7 @@
           "type": "feature",
           "settings": {
             "icon": "fan",
-            "icon_background": "#fbdbde",
+            "icon_background": "#e58fa3",
             "icon_color": "#6e5659",
             "title": "גיל המעבר",
             "description": "בריאות פיזית, תזונה מותאמת, וחיזוק הכוח לשנים הבאות.",
@@ -41,9 +41,9 @@
           "type": "feature",
           "settings": {
             "icon": "hiking",
-            "icon_background": "#ffdf90",
+            "icon_background": "#efc75e",
             "icon_color": "#755b00",
-            "title": "Femit בטבע",
+            "title": "טיולים",
             "description": "טיולים, הרצאות חוץ, וחיבור לטבע ולקהילה (כולל פתרונות נוחים כמו ZipHers).",
             "link": "/pages/travel"
           }
@@ -52,9 +52,9 @@
           "type": "feature",
           "settings": {
             "icon": "heart",
-            "icon_background": "#b6ebff",
-            "icon_color": "#00657b",
-            "title": "אינטימיות וחיבור",
+            "icon_background": "#a99ac8",
+            "icon_color": "#4f3a78",
+            "title": "אינטימיות",
             "description": "העמקת מיניות, מערכות יחסים, והיכרות מחודשת עם הגוף שלך.",
             "link": "/pages/sexuality"
           }
@@ -66,8 +66,8 @@
         "feature_3"
       ],
       "settings": {
-        "heading": "שלושת המפתחות של Femit",
-        "subheading": "כל מה שאת צריכה כדי לפרוח בשלב הזה של החיים.",
+        "heading": "העולמות של Femit",
+        "subheading": "עם מה תרצי להתחיל?",
         "background_color": "#f5f3f3",
         "padding_top": 48,
         "padding_bottom": 48
@@ -81,12 +81,14 @@
           "settings": {
             "product": "ערכת-אינטימיות",
             "icon": "heart",
-            "icon_background": "#b6ebff",
-            "icon_color": "#00657b",
+            "icon_background": "#a99ac8",
+            "icon_color": "#4f3a78",
+            "custom_title": "",
             "description": "ויברטור איכותי מבית סטיספייר, בשילוב חומר סיכוך איכותי לחוויה מושלמת.",
             "bullet_1": "ויברטור סטיספייר לבחירה (2 דגמים)",
             "bullet_2": "חומר סיכוך ID Glide 500 מ״ל",
-            "bullet_3": "10% הנחה מרכישה נפרדת"
+            "bullet_3": "10% הנחה מרכישה נפרדת",
+            "button_label": "לבחירת מרכיבים והתאמה"
           }
         },
         "bundle_2": {
@@ -94,29 +96,38 @@
           "settings": {
             "product": "ערכת-גיל-המעבר-ספר-ומניפה",
             "icon": "fan",
-            "icon_background": "#fbdbde",
+            "icon_background": "#e58fa3",
             "icon_color": "#6e5659",
+            "custom_title": "",
             "description": "כל הידע שאת צריכה לגיל המעבר, בשילוב פתרון נוח לגלי חום.",
             "bullet_1": "הספר המלא לגיל המעבר - ד״ר ג׳ן גונטר",
             "bullet_2": "מניפה קומפקטית לרגעי גלי חום",
-            "bullet_3": "10% הנחה מרכישה נפרדת"
+            "bullet_3": "10% הנחה מרכישה נפרדת",
+            "button_label": "לבחירת מרכיבים והתאמה"
           }
         },
         "bundle_3": {
           "type": "bundle",
           "settings": {
-            "product": "ערכת-טיולים",
+            "product": "ziphers-bundle",
             "icon": "hiking",
-            "icon_background": "#ffdf90",
+            "icon_background": "#efc75e",
             "icon_color": "#755b00",
+            "custom_title": "",
             "description": "כל מה שצריך כדי לצאת לדרך בראש שקט וללא דאגות.",
             "bullet_1": "מכנסי טיולים ZipHers לבחירה",
             "bullet_2": "תחתוני ZipHers",
-            "bullet_3": "משפך להטלת שתן בעמידה"
+            "bullet_3": "משפך להטלת שתן בעמידה",
+            "button_label": "לבחירת מרכיבים והתאמה"
           }
         }
       },
-      "block_order": ["bundle_1", "bundle_2", "bundle_3"],
+      "block_order": [
+        "bundle_1",
+        "bundle_2",
+        "bundle_3"
+      ],
+      "disabled": true,
       "settings": {
         "badge_text": "ערכות ומארזים נבחרים",
         "heading": "<p>מארזים נבחרים: <em>שילובים</em> שעובדים מעולה יחד</p>",
@@ -146,9 +157,9 @@
           "type": "featured",
           "settings": {
             "image": "shopify://shop_images/gpt-image-2-1_769b779f-28fb-49ef-b2f5-e32f4f571460.png",
-            "badge": "לכל שלב בחיים",
-            "title": "תמיכה בגיל המעבר ובפוריות",
-            "subtitle": "מוצרים ומידע לנשים 35+, איפה שלא תהיו בדרך",
+            "badge": "גיל המעבר",
+            "title": "מוצרים ומידע לנשים בגילאי 40+",
+            "subtitle": "",
             "link": "shopify://collections/menopause"
           }
         },
@@ -162,8 +173,19 @@
             "link": "shopify://collections/books"
           }
         },
+        "split_hqNbQV": {
+          "type": "split",
+          "settings": {
+            "image": "shopify://shop_images/63.png",
+            "title": "טיולים",
+            "subtitle": "ידע זה כוח. הספרייה המקצועית שלנו.",
+            "link_label": "גלי עוד",
+            "link": "shopify://collections/ziphers"
+          }
+        },
         "icon_1": {
           "type": "icon",
+          "disabled": true,
           "settings": {
             "icon": "droplet",
             "icon_background": "#efeded",
@@ -175,6 +197,7 @@
         },
         "icon_2": {
           "type": "icon",
+          "disabled": true,
           "settings": {
             "icon": "hiking",
             "icon_background": "#efeded",
@@ -188,6 +211,7 @@
       "block_order": [
         "featured_1",
         "split_1",
+        "split_hqNbQV",
         "icon_1",
         "icon_2"
       ],
@@ -216,7 +240,7 @@
       "type": "femit-founder-quote",
       "settings": {
         "image": "shopify://shop_images/0.21.jpg",
-        "quote": "<p>הקמתי את פמית כי הרגשתי שחסר לנו מרחב שבו באמת רואים אותנו. כל פעם שגיליתי במקרה על מוצר  שלא הכרתי (ידעת שיש דיסק וסת?) או על מחקר חדש ומרתק - תהיתי איך אין מקום אחד שמרכז את זה. Femit הוא בית לבריאות נשים, מקום שמזכיר לנו לדאוג לבריאות שלנו, לרווחה הנפשית שלנו, ומחבק את השינויים שאנחנו עוברות, עם ידע מקצועי וקהילה עוטפת.</p>",
+        "quote": "<p>הקמתי את פמית כי הרגשתי שחסר לנו מרחב שלנו.&nbsp;</p><p>מכל מקום קופצות עלינו פרסומות שמתמקדות באיך אנחנו נראות, ואף לא מקום אחד שמתמקד באיך אנחנו מרגישות.</p><p>Femit היא בדיוק זה.&nbsp;<br/>פלטפורמה למרחב נשי עם התמקדות בבריאות, מדע ואקולוגיה.<br/><br/>הצטרפי אלינו.</p>",
         "name": "מור זאדה נווה",
         "role": "מייסדת Femit",
         "padding_top": 48,

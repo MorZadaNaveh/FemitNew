@@ -1,9 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "femit_ziphers_hero": {
       "type": "femit-fullbleed-hero",
       "settings": {
-        "height": 560,
         "heading": "<p>נשים בטבע: פתרונות ייחודיים לנשים <em>מטיילות</em></p>",
         "subheading": "מכירה את זה שאת בטיול בטבע, צריכה להתפנות ואז מחפשת מקום להתחבא או פשוט מתאפקת? בדיוק בשביל זה מכנסי ZipHers כאן. עם רוכסן נסתר באזור המפשעה שמאפשר לך להתפנות בנוחות, בפשטות ובקלילות.",
         "button_label": "בואי לנסות",
@@ -17,18 +25,28 @@
       "blocks": {
         "step_1": {
           "type": "step",
-          "settings": { "caption": "רוכסן לפתיחה נוחה מקדימה" }
+          "settings": {
+            "caption": "רוכסן לפתיחה נוחה מקדימה"
+          }
         },
         "step_2": {
           "type": "step",
-          "settings": { "caption": "הרוכסן נפתח גם מאחור" }
+          "settings": {
+            "caption": "הרוכסן נפתח גם מאחור"
+          }
         },
         "step_3": {
           "type": "step",
-          "settings": { "caption": "תחתונים תואמים לנוחות מירבית" }
+          "settings": {
+            "caption": "תחתונים תואמים לנוחות מירבית"
+          }
         }
       },
-      "block_order": ["step_1", "step_2", "step_3"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "heading": "ראי איך זה עובד",
         "padding_top": 40,
@@ -47,13 +65,49 @@
     "femit_ziphers_why": {
       "type": "femit-icon-reasons",
       "blocks": {
-        "r1": { "type": "reason", "settings": { "icon": "sun", "label": "הגנת SPF-40" } },
-        "r2": { "type": "reason", "settings": { "icon": "bag", "label": "כיסים עמוקים ונוחים" } },
-        "r3": { "type": "reason", "settings": { "icon": "wind", "label": "בד נושם" } },
-        "r4": { "type": "reason", "settings": { "icon": "accessibility", "label": "מותן גבוה" } },
-        "r5": { "type": "reason", "settings": { "icon": "eco", "label": "ידידותי לסביבה" } }
+        "r1": {
+          "type": "reason",
+          "settings": {
+            "icon": "sun",
+            "label": "הגנת SPF-40"
+          }
+        },
+        "r2": {
+          "type": "reason",
+          "settings": {
+            "icon": "bag",
+            "label": "כיסים עמוקים ונוחים"
+          }
+        },
+        "r3": {
+          "type": "reason",
+          "settings": {
+            "icon": "wind",
+            "label": "בד נושם"
+          }
+        },
+        "r4": {
+          "type": "reason",
+          "settings": {
+            "icon": "accessibility",
+            "label": "מותן גבוה"
+          }
+        },
+        "r5": {
+          "type": "reason",
+          "settings": {
+            "icon": "eco",
+            "label": "ידידותי לסביבה"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3", "r4", "r5"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
       "settings": {
         "heading": "למה ZipHers?",
         "subheading": "קלילות ופשטות כשאת צריכה להתפנות, יחד עם חומרים איכותיים לטיולים ארוכים.",
@@ -65,14 +119,51 @@
     "femit_ziphers_products": {
       "type": "femit-product-showcase",
       "blocks": {
-        "p1": { "type": "product", "settings": { "product": "מכנסי-שטח-ארוכים-ziphers" } },
-        "p2": { "type": "product", "settings": { "product": "מכנסי-שטח-קצרים-של-ziphers" } },
-        "p3": { "type": "product", "settings": { "product": "מכנסי-טייץ-ארוכים-ziphers" } },
-        "p4": { "type": "product", "settings": { "product": "מכנסי-טייץ-קצרים-ziphers" } },
-        "p5": { "type": "product", "settings": { "product": "תחתוני-ziphers" } },
-        "p6": { "type": "product", "settings": { "product": "משפך-להטלת-שתן-בעמידה-לנשים" } }
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-שטח-ארוכים-ziphers"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-שטח-קצרים-של-ziphers"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-טייץ-ארוכים-ziphers"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "מכנסי-טייץ-קצרים-ziphers"
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "תחתוני-ziphers"
+          }
+        },
+        "p6": {
+          "type": "product",
+          "settings": {
+            "product": "משפך-להטלת-שתן-בעמידה-לנשים"
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
       "settings": {
         "heading": "הקולקציה",
         "subheading": "",
@@ -112,7 +203,12 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
       "settings": {
         "heading": "שאלות נפוצות",
         "padding_top": 40,

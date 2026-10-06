@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "femit_shop_header": {
@@ -5,22 +14,35 @@
       "blocks": {
         "cat_menopause": {
           "type": "category",
-          "settings": { "collection": "תמיכה-בגיל-המעבר-ובפוריות" }
+          "settings": {
+            "collection": "תמיכה-בגיל-המעבר-ובפוריות"
+          }
         },
         "cat_period": {
           "type": "category",
-          "settings": { "collection": "מוצרי-וסת" }
+          "settings": {
+            "collection": "מוצרי-וסת"
+          }
         },
         "cat_care": {
           "type": "category",
-          "settings": { "collection": "ספרים-מומלצים" }
+          "settings": {
+            "collection": "ספרים-מומלצים"
+          }
         },
         "cat_travel": {
           "type": "category",
-          "settings": { "collection": "ציוד-לטיולים" }
+          "settings": {
+            "collection": "ציוד-לטיולים"
+          }
         }
       },
-      "block_order": ["cat_travel", "cat_menopause", "cat_care", "cat_period"],
+      "block_order": [
+        "cat_travel",
+        "cat_menopause",
+        "cat_care",
+        "cat_period"
+      ],
       "settings": {
         "heading": "חנות",
         "subheading": "כלים וציוד תומכים לנשים, נבחרו בקפידה.",
@@ -32,8 +54,6 @@
     },
     "femit_bundle_panel": {
       "type": "femit-bundle-panel",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "heading": "מארזים מיוחדים",
         "subheading": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז",

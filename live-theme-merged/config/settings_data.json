@@ -10,7 +10,7 @@
 {
   "current": {
     "logo_width": 300,
-    "favicon": "shopify://shop_images/femit_video_2.png",
+    "favicon": "shopify://shop_images/femit_3_6b3509a3-68b5-4494-9dd2-5b612de45e0a.png",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
@@ -111,7 +111,7 @@
     "brand_image_width": 100,
     "social_facebook_link": "https://www.facebook.com/femit.store",
     "social_instagram_link": "https://www.instagram.com/femitco/",
-    "social_youtube_link": "https://www.youtube.com/@Femitco",
+    "social_youtube_link": "",
     "social_tiktok_link": "",
     "social_twitter_link": "",
     "social_snapchat_link": "",
@@ -175,11 +175,6 @@
       "pagefly-page-builder": {
         "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
-        "settings": {}
-      },
-      "1710008633607995074": {
-        "type": "shopify://apps/tydal-reviews/blocks/app-embed/5f785e18-66cc-4519-8181-565d1cce1705",
-        "disabled": true,
         "settings": {}
       },
       "2567389343055140935": {

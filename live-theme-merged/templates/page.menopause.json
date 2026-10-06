@@ -15,6 +15,7 @@
         "heading": "<p>ניווט בגיל המעבר עם <em>ביטחון</em>.</p>",
         "subheading": "מידע מדויק, קהילה תומכת ומוצרים מותאמים אישית שנועדו למסע שלך דרך טרום גיל המעבר ומעבר לו.",
         "image": "shopify://shop_images/woman-smiles-in-candy-shop.jpg",
+        "image_size": "small",
         "button_label": "",
         "button_link": "#femit_article_bento",
         "padding_top": 40,
@@ -27,7 +28,7 @@
         "heading": "מחפשת הכוונה מקצועית?",
         "subheading": "מאגר רופאים ורופאות לגיל המעבר. אל תישארי לבד עם התסמינים.",
         "button_label": "חיפוש רופא/ה לגיל המעבר",
-        "button_link": "/pages/about",
+        "button_link": "shopify://pages/doctors-reviews",
         "background_color": "#00657b",
         "padding_top": 32,
         "padding_bottom": 32
@@ -108,8 +109,8 @@
           "type": "collection",
           "settings": {
             "collection": "period",
-            "title": "פרי-מנופאוזה",
-            "text": "בתקופת הפרי-מנופאוזה אנחנו עדיין מקבלות וסת, היא רק יכולה להפתיע ולאחר, ולעיתים גם להקדים, יכולה להיות עם יותר דימום או פחות. אבל היא כאן, וזה עוד יכול לקחת תקופה. בואי לגלות מוצרי וסת רב-פעמיים, נוחים, בריאים, אקולוגיים.",
+            "title": "",
+            "text": "",
             "limit": 6
           }
         }
@@ -122,8 +123,11 @@
         "c1"
       ],
       "settings": {
-        "heading": "מוצרים שיכולים לעזור",
-        "subheading": "מוצרי וסת מומלצים ושיתוף פעולה עם מומחיות בתחום.",
+        "heading": "פרי-מנופאוזה",
+        "subheading": "בתקופת הפרי-מנופאוזה אנחנו עדיין מקבלות וסת, היא רק יכולה להפתיע ולאחר, ולעיתים גם להקדים, יכולה להיות עם יותר דימום או פחות. אבל היא כאן, וזה עוד יכול לקחת תקופה. בואי לגלות מוצרי וסת רב-פעמיים, נוחים, בריאים, אקולוגיים.",
+        "products_per_row_desktop": 3,
+        "products_per_row_mobile": "2",
+        "max_products": 24,
         "padding_top": 8,
         "padding_bottom": 40
       }
@@ -167,6 +171,7 @@
         "view_all_label": "צפו בכל המאמרים",
         "view_all_link": "/blogs/articles",
         "main_article": "articles/תסמיני-גיל-המעבר-מה-נורמלי-ומה-באמת-עוזר",
+        "main_image": "shopify://shop_images/Inner-self-and-mindfulness-concept.-Woman-holding-a-growing-tree_-mental-health_-self-care-or-gardening.-Vector-illustration-in-flat-style-2152739603_4356x3673_1.png",
         "main_article_tag": "תסמינים והתמודדות",
         "padding_top": 40,
         "padding_bottom": 8
@@ -226,7 +231,7 @@
       "settings": {
         "heading": "סדנאות בהנחיית מומחים",
         "subheading": "מפגשים אינטראקטיביים המיועדים לאנשים וארגונים כדי לטפח הבנה ותמיכה במהלך מעברי גיל המעבר.",
-        "padding_top": 40,
+        "padding_top": 48,
         "padding_bottom": 48
       }
     }

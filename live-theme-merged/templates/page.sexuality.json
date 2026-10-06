@@ -58,6 +58,7 @@
         },
         "p5": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "room_of_ones_own",
             "custom_title": "",
@@ -74,8 +75,11 @@
       ],
       "settings": {
         "heading": "המוצרים שלנו",
-        "subheading": "נבחרו בקפידה לתמיכה בהנאה, בריאות ובחיבור לעצמך.",
-        "padding_top": 8,
+        "subheading": "לתמיכה בהנאה, בריאות ובחיבור לעצמך.",
+        "products_per_row_desktop": 4,
+        "products_per_row_mobile": "2",
+        "max_products": 24,
+        "padding_top": 48,
         "padding_bottom": 8
       }
     },
@@ -100,8 +104,8 @@
         "view_all_label": "צפו בכל המאמרים",
         "view_all_link": "shopify://blogs/articles",
         "main_article": "articles/clitoris",
-        "main_article_tag": "מיניות",
-        "padding_top": 40,
+        "main_article_tag": "מבט מבפנים",
+        "padding_top": 60,
         "padding_bottom": 48
       }
     }
