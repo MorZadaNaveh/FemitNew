@@ -244,20 +244,32 @@
             "bullet_3": "",
             "button_label": "לפרטי המארז וההתאמה"
           }
+        },
+        "bundle_4": {
+          "type": "bundle",
+          "settings": {
+            "product": "ziphers-bundle",
+            "custom_title": "",
+            "description": "כל מה שצריך כדי לצאת לדרך בראש שקט וללא דאגות.",
+            "bullet_1": "מכנסי טיולים ZipHers לבחירה",
+            "bullet_2": "תחתוני ZipHers",
+            "bullet_3": "משפך להטלת שתן בעמידה",
+            "button_label": "לבחירת המארז שלך"
+          }
         }
       },
       "block_order": [
         "bundle_1",
         "bundle_2",
-        "bundle_3"
+        "bundle_3",
+        "bundle_4"
       ],
-      "disabled": true,
       "settings": {
-        "heading": "מארזים מיוחדים",
+        "heading": "המארזים שלנו",
         "subheading": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז",
         "bundles_collection": "מארזים",
         "view_all_label": "לכל המארזים",
-        "image_height": "large",
+        "image_height": "medium",
         "padding_top": 24,
         "padding_bottom": 24
       }
