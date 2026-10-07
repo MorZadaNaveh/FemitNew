@@ -2,6 +2,12 @@
   .femit-bundle-panel-{{ section.id }} {
     padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
   }
+
+  @media screen and (min-width: 750px) {
+    .femit-bundle-panel-{{ section.id }} .femit-bundle-panel__grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop | default: 3 }}, 1fr);
+    }
+  }
 {%- endstyle -%}
 
 <div class="femit-bundle-panel-{{ section.id }} femit-section">
@@ -355,6 +361,16 @@
         { "value": "auto", "label": "Adjust to image" }
       ],
       "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Columns per row (desktop)",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
     },
     { "type": "header", "content": "Padding" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 24 },

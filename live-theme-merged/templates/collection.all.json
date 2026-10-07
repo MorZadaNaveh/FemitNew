@@ -195,7 +195,7 @@
       "settings": {
         "heading": "",
         "subheading": "",
-        "show_all_pill": true,
+        "show_all_pill": false,
         "all_label": "הכל",
         "pill_style": "icon",
         "show_filters": false,
@@ -267,9 +267,10 @@
       "settings": {
         "heading": "המארזים שלנו",
         "subheading": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז",
-        "bundles_collection": "מארזים",
+        "bundles_collection": "",
         "view_all_label": "לכל המארזים",
         "image_height": "medium",
+        "columns_desktop": "4",
         "padding_top": 24,
         "padding_bottom": 24
       }

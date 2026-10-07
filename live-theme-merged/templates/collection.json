@@ -1,35 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "femit_shop_header": {
       "type": "femit-shop-header",
+      "disabled": true,
       "blocks": {
+        "cat_travel": {
+          "type": "category",
+          "settings": {
+            "collection": "ציוד-לטיולים",
+            "label": "",
+            "icon": "community"
+          }
+        },
         "cat_menopause": {
           "type": "category",
-          "settings": { "collection": "תמיכה-בגיל-המעבר-ובפוריות" }
-        },
-        "cat_period": {
-          "type": "category",
-          "settings": { "collection": "מוצרי-וסת" }
+          "settings": {
+            "collection": "תמיכה-בגיל-המעבר-ובפוריות",
+            "label": "",
+            "icon": "community"
+          }
         },
         "cat_care": {
           "type": "category",
-          "settings": { "collection": "ספרים-מומלצים" }
+          "settings": {
+            "collection": "ספרים-מומלצים",
+            "label": "",
+            "icon": "community"
+          }
         },
-        "cat_travel": {
+        "cat_period": {
           "type": "category",
-          "settings": { "collection": "ציוד-לטיולים" }
+          "settings": {
+            "collection": "מוצרי-וסת",
+            "label": "",
+            "icon": "community"
+          }
         },
         "cat_bundles": {
           "type": "category",
-          "settings": { "collection": "מארזים", "icon": "community" }
+          "settings": {
+            "collection": "מארזים",
+            "label": "",
+            "icon": "community"
+          }
         }
       },
-      "block_order": ["cat_travel", "cat_menopause", "cat_care", "cat_period", "cat_bundles"],
+      "block_order": [
+        "cat_travel",
+        "cat_menopause",
+        "cat_care",
+        "cat_period",
+        "cat_bundles"
+      ],
       "settings": {
         "heading": "חנות",
         "subheading": "כלים וציוד תומכים לנשים, נבחרו בקפידה.",
         "show_all_pill": true,
         "all_label": "הכל",
+        "pill_style": "text",
+        "show_filters": true,
+        "filters_label": "סינון",
+        "apply_label": "החל סינון",
+        "clear_label": "נקה הכל",
         "padding_top": 32,
         "padding_bottom": 8
       }
@@ -41,36 +82,50 @@
           "type": "bundle",
           "settings": {
             "product": "ערכת-וסת",
+            "custom_title": "",
             "description": "נוחות עדינה ורכיבים טבעיים ונקיים לימים הרגישים.",
             "bullet_1": "תחתוניות כותנה אורגנית נושמת",
-            "bullet_2": "גביעונית וסת רוביקאפ או דיסק וסת Hello Period, לבחירתך"
+            "bullet_2": "גביעונית וסת רוביקאפ או דיסק וסת Hello Period, לבחירתך",
+            "bullet_3": "",
+            "button_label": "לפרטי המארז וההתאמה"
           }
         },
         "bundle_2": {
           "type": "bundle",
           "settings": {
             "product": "ערכת-ספרים-מילים-הורגות-וכלואות",
+            "custom_title": "",
             "description": "שני ספרים חשובים על אלימות כלפי נשים בזוגיות.",
             "bullet_1": "מילים הורגות - ניני גוטספלד-מנוח",
-            "bullet_2": "כלואות - ד״ר אילנה קוורטין"
+            "bullet_2": "כלואות - ד״ר אילנה קוורטין",
+            "bullet_3": "",
+            "button_label": "לפרטי המארז וההתאמה"
           }
         },
         "bundle_3": {
           "type": "bundle",
           "settings": {
             "product": "ערכת-ספרים-לבחירה",
+            "custom_title": "",
             "description": "בחרי כל שילוב של ספרים וקלפי משחק שמתאים לך.",
             "bullet_1": "מיתוס היופי / חדר משלך / אז איך קוראים לך עכשיו?",
-            "bullet_2": "אפשרות לשלב קלפי משחק QueenG"
+            "bullet_2": "אפשרות לשלב קלפי משחק QueenG",
+            "bullet_3": "",
+            "button_label": "לפרטי המארז וההתאמה"
           }
         }
       },
-      "block_order": ["bundle_1", "bundle_2", "bundle_3"],
+      "block_order": [
+        "bundle_1",
+        "bundle_2",
+        "bundle_3"
+      ],
       "settings": {
         "heading": "מארזים מיוחדים",
         "subheading": "שילובים מומלצים שנבחרו בקפידה, עם 10% הנחה בכל מארז",
-        "bundles_collection": "מארזים",
+        "bundles_collection": "",
         "view_all_label": "לכל המארזים",
+        "image_height": "medium",
         "padding_top": 24,
         "padding_bottom": 24
       }
@@ -79,6 +134,8 @@
       "type": "femit-product-grid",
       "settings": {
         "products_per_page": 16,
+        "columns_desktop": 3,
+        "columns_mobile": "2",
         "padding_top": 8,
         "padding_bottom": 48
       }
