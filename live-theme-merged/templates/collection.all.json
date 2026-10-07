@@ -140,6 +140,7 @@
         },
         "cat_period": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "collection": "period",
             "label": "",
@@ -173,6 +174,7 @@
         },
         "cat_bundles": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "collection": "מארזים",
             "label": "",
@@ -182,12 +184,12 @@
       },
       "block_order": [
         "cat_menopause",
-        "cat_sexuality",
         "cat_ziphers",
-        "cat_period",
+        "cat_sexuality",
         "cat_books",
-        "cat_lectures",
         "cat_safe_space",
+        "cat_period",
+        "cat_lectures",
         "cat_bundles"
       ],
       "settings": {
@@ -262,6 +264,55 @@
     },
     "femit_product_grid_filtered": {
       "type": "femit-product-grid",
+      "blocks": {
+        "cat_menopause": {
+          "type": "category",
+          "settings": {
+            "collection": "menopause",
+            "title": "גיל המעבר",
+            "subtitle": ""
+          }
+        },
+        "cat_ziphers": {
+          "type": "category",
+          "settings": {
+            "collection": "ziphers",
+            "title": "ציוד לטיולים",
+            "subtitle": ""
+          }
+        },
+        "cat_sexuality": {
+          "type": "category",
+          "settings": {
+            "collection": "sexuality",
+            "title": "אינטימיות וחיבור",
+            "subtitle": ""
+          }
+        },
+        "cat_books": {
+          "type": "category",
+          "settings": {
+            "collection": "books",
+            "title": "ספרים מומלצים",
+            "subtitle": ""
+          }
+        },
+        "cat_safe_space": {
+          "type": "category",
+          "settings": {
+            "collection": "מרחב-בטוח",
+            "title": "מרחב בטוח",
+            "subtitle": ""
+          }
+        }
+      },
+      "block_order": [
+        "cat_menopause",
+        "cat_ziphers",
+        "cat_sexuality",
+        "cat_books",
+        "cat_safe_space"
+      ],
       "settings": {
         "products_per_page": 60,
         "columns_desktop": 3,

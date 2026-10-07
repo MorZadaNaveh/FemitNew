@@ -1,9 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
   var chips = document.querySelectorAll('[data-filter-collection]');
+  if (!chips.length) return;
+
+  function setActiveChip(chip) {
+    var activeClass = chip.classList.contains('femit-shop-header__icon-pill')
+      ? 'femit-shop-header__icon-pill--active'
+      : 'femit-shop-header__pill--active';
+    chips.forEach(function (c) {
+      c.classList.remove('femit-shop-header__pill--active');
+      c.classList.remove('femit-shop-header__icon-pill--active');
+    });
+    chip.classList.add(activeClass);
+  }
+
+  var groups = document.querySelectorAll('[data-category-group]');
+
+  if (groups.length) {
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function (e) {
+        e.preventDefault();
+        var handle = chip.getAttribute('data-filter-collection');
+        setActiveChip(chip);
+        groups.forEach(function (group) {
+          var show = !handle || handle === 'all' || group.getAttribute('data-category-group') === handle;
+          group.style.display = show ? '' : 'none';
+        });
+      });
+    });
+    return;
+  }
+
   var grid = document.querySelector('.femit-product-grid__grid');
   var activeTitle = document.querySelector('[data-active-title]');
 
-  if (!chips.length || !grid) return;
+  if (!grid) return;
 
   var cards = grid.querySelectorAll('[data-collections]');
 
@@ -36,16 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var handle = chip.getAttribute('data-filter-collection');
       var title = chip.getAttribute('data-filter-title') || chip.textContent.trim();
 
-      var activeClass = chip.classList.contains('femit-shop-header__icon-pill')
-        ? 'femit-shop-header__icon-pill--active'
-        : 'femit-shop-header__pill--active';
-
-      chips.forEach(function (c) {
-        c.classList.remove('femit-shop-header__pill--active');
-        c.classList.remove('femit-shop-header__icon-pill--active');
-      });
-      chip.classList.add(activeClass);
-
+      setActiveChip(chip);
       applyFilter(handle);
 
       if (activeTitle) activeTitle.textContent = title;

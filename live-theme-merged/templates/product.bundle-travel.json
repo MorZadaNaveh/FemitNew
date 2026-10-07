@@ -121,6 +121,28 @@
     },
     "femit_bundle_options": {
       "type": "femit-bundle-options",
+      "blocks": {
+        "underwear_xs": { "type": "underwear_choice", "settings": { "value": "XS" } },
+        "underwear_s": { "type": "underwear_choice", "settings": { "value": "S" } },
+        "underwear_m": { "type": "underwear_choice", "settings": { "value": "M" } },
+        "underwear_l": { "type": "underwear_choice", "settings": { "value": "L" } },
+        "underwear_xl": { "type": "underwear_choice", "settings": { "value": "XL" } },
+        "underwear_2xl": { "type": "underwear_choice", "settings": { "value": "2XL" } },
+        "funnel_purple": { "type": "funnel_choice", "settings": { "value": "סגול" } },
+        "funnel_pink": { "type": "funnel_choice", "settings": { "value": "ורוד" } },
+        "funnel_orange": { "type": "funnel_choice", "settings": { "value": "כתום" } }
+      },
+      "block_order": [
+        "underwear_xs",
+        "underwear_s",
+        "underwear_m",
+        "underwear_l",
+        "underwear_xl",
+        "underwear_2xl",
+        "funnel_purple",
+        "funnel_pink",
+        "funnel_orange"
+      ],
       "settings": {
         "heading": "התאמה אישית למארז",
         "pants_size_label": "מידת מכנסיים",
@@ -133,9 +155,9 @@
         "pants_type_4_label": "מכנסי שטח קצרים",
         "pants_type_4_sizes": "XS, S, M, L, XL, 2XL",
         "underwear_size_label": "מידת תחתונים",
-        "underwear_sizes": "XS, S, M, L, XL, 2XL",
+        "underwear_product": "ziphers-panties",
         "funnel_color_label": "צבע משפך",
-        "funnel_colors": "סגול, ורוד, כתום",
+        "funnel_product": "urination-device",
         "padding_top": 16,
         "padding_bottom": 16
       }

@@ -16,24 +16,48 @@
 
 <div class="femit-product-grid-{{ section.id }} femit-section">
   <script src="{{ 'femit-shop-filter.js' | asset_url }}" defer="defer"></script>
-  {%- paginate collection.products by section.settings.products_per_page -%}
-    {%- if collection.products.size > 0 -%}
-      <h2 class="femit-product-grid__active-title" data-active-title>{{ collection.title | default: 'כל המוצרים' }}</h2>
-      <div class="femit-product-grid__grid">
-        {%- for product in collection.products -%}
-          {% render 'femit-product-card', card_product: product %}
-        {%- endfor -%}
-      </div>
-
-      {%- if paginate.pages > 1 -%}
-        <div class="femit-product-grid__pagination">
-          {%- render 'pagination', paginate: paginate -%}
+  {%- if section.blocks.size > 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.settings.collection != blank -%}
+        <div class="femit-product-grid__category" data-category-group="{{ block.settings.collection.handle }}" {{ block.shopify_attributes }}>
+          <div class="femit-product-grid__category-header">
+            <h2 class="femit-product-grid__active-title">{{ block.settings.title | default: block.settings.collection.title }}</h2>
+            {%- if block.settings.subtitle != blank -%}
+              <p class="femit-product-grid__category-subtitle">{{ block.settings.subtitle }}</p>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.collection.products.size > 0 -%}
+            <div class="femit-product-grid__grid">
+              {%- for product in block.settings.collection.products -%}
+                {% render 'femit-product-card', card_product: product %}
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <p class="femit-product-grid__empty">{{ 'sections.collection_template.empty' | t }}</p>
+          {%- endif -%}
         </div>
       {%- endif -%}
-    {%- else -%}
-      <p class="femit-product-grid__empty">{{ 'sections.collection_template.empty' | t }}</p>
-    {%- endif -%}
-  {%- endpaginate -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- paginate collection.products by section.settings.products_per_page -%}
+      {%- if collection.products.size > 0 -%}
+        <h2 class="femit-product-grid__active-title" data-active-title>{{ collection.title | default: 'כל המוצרים' }}</h2>
+        <div class="femit-product-grid__grid">
+          {%- for product in collection.products -%}
+            {% render 'femit-product-card', card_product: product %}
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <div class="femit-product-grid__pagination">
+            {%- render 'pagination', paginate: paginate -%}
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <p class="femit-product-grid__empty">{{ 'sections.collection_template.empty' | t }}</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  {%- endif -%}
 </div>
 
 {%- stylesheet -%}
@@ -42,6 +66,24 @@
     font-weight: 700;
     color: var(--femit-on-surface);
     margin: 0 0 20px;
+  }
+
+  .femit-product-grid__category + .femit-product-grid__category {
+    margin-top: 48px;
+  }
+
+  .femit-product-grid__category-header {
+    margin-bottom: 20px;
+  }
+
+  .femit-product-grid__category-header .femit-product-grid__active-title {
+    margin-bottom: 4px;
+  }
+
+  .femit-product-grid__category-subtitle {
+    font-size: 14px;
+    color: var(--femit-on-surface-variant);
+    margin: 0;
   }
 
   .femit-product-grid__grid {
@@ -90,6 +132,17 @@
     { "type": "header", "content": "Padding" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 8 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category group",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "title", "label": "Title (optional, defaults to collection title)" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle (optional)" }
+      ]
+    }
   ],
   "presets": [
     { "name": "Femit Product Grid" }
