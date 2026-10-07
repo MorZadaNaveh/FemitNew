@@ -195,7 +195,7 @@
       "settings": {
         "heading": "",
         "subheading": "",
-        "show_all_pill": false,
+        "show_all_pill": true,
         "all_label": "הכל",
         "pill_style": "icon",
         "show_filters": false,
@@ -254,7 +254,19 @@
             "bullet_1": "מכנסי טיולים ZipHers לבחירה",
             "bullet_2": "תחתוני ZipHers",
             "bullet_3": "משפך להטלת שתן בעמידה",
-            "button_label": "לבחירת המארז שלך"
+            "button_label": "לבחירה"
+          }
+        },
+        "bundle_5": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-אינטימיות",
+            "custom_title": "",
+            "description": "ויברטור איכותי מבית סטיספייר, בשילוב חומר סיכוך איכותי לחוויה מושלמת.",
+            "bullet_1": "ויברטור סטיספייר לבחירה (3 דגמים)",
+            "bullet_2": "חומר סיכוך לבחירת גודל",
+            "bullet_3": "",
+            "button_label": "לבחירה"
           }
         }
       },
@@ -262,7 +274,8 @@
         "bundle_1",
         "bundle_2",
         "bundle_3",
-        "bundle_4"
+        "bundle_4",
+        "bundle_5"
       ],
       "settings": {
         "heading": "המארזים שלנו",

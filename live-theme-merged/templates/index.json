@@ -12,7 +12,7 @@
     "femit_hero": {
       "type": "femit-hero",
       "settings": {
-        "heading": "נשי. מדעי. אקולוגי. הבית שלך לבריאות ולרווחה בגילאי 40+.",
+        "heading": "נשי. מדעי. אקולוגי. הבית שלך לבריאות ולרווחה בגילאי 40+",
         "subheading": "<p>אנחנו כאן כדי ללוות אותך בכל שלב, עם מידע אמין, מוצרים שתואמים לצרכים שלך ומרחב תומך.</p>",
         "image": "shopify://shop_images/image10.png",
         "primary_button_label": "התחילי כאן",
@@ -76,21 +76,6 @@
     "femit_bundle_showcase": {
       "type": "femit-bundle-showcase",
       "blocks": {
-        "bundle_1": {
-          "type": "bundle",
-          "settings": {
-            "product": "ערכת-אינטימיות",
-            "icon": "heart",
-            "icon_background": "#a99ac8",
-            "icon_color": "#4f3a78",
-            "custom_title": "",
-            "description": "ויברטור איכותי מבית סטיספייר, בשילוב חומר סיכוך איכותי לחוויה מושלמת.",
-            "bullet_1": "ויברטור סטיספייר לבחירה (2 דגמים)",
-            "bullet_2": "חומר סיכוך ID Glide 500 מ״ל",
-            "bullet_3": "10% הנחה מרכישה נפרדת",
-            "button_label": "לבחירת מרכיבים והתאמה"
-          }
-        },
         "bundle_2": {
           "type": "bundle",
           "settings": {
@@ -123,7 +108,6 @@
         }
       },
       "block_order": [
-        "bundle_1",
         "bundle_2",
         "bundle_3"
       ],
@@ -144,7 +128,7 @@
         "heading": "מחפשת הכוונה רפואית?",
         "subheading": "מאגר המומחיות שלנו כולל רופאות מובילות המתמחות בגיל המעבר ורפואת נשים מותאמת אישית.",
         "button_label": "חיפוש רופאות גיל המעבר",
-        "button_link": "/pages/menopause",
+        "button_link": "shopify://pages/doctors-reviews",
         "background_color": "#00657b",
         "padding_top": 40,
         "padding_bottom": 40
@@ -178,7 +162,7 @@
           "settings": {
             "image": "shopify://shop_images/63.png",
             "title": "טיולים",
-            "subtitle": "ידע זה כוח. הספרייה המקצועית שלנו.",
+            "subtitle": "זה הזמן שלנו גם לעצמנו.",
             "link_label": "גלי עוד",
             "link": "shopify://collections/ziphers"
           }
@@ -240,7 +224,7 @@
       "type": "femit-founder-quote",
       "settings": {
         "image": "shopify://shop_images/0.21.jpg",
-        "quote": "<p>הקמתי את פמית כי הרגשתי שחסר לנו מרחב שלנו.&nbsp;</p><p>מכל מקום קופצות עלינו פרסומות שמתמקדות באיך אנחנו נראות, ואף לא מקום אחד שמתמקד באיך אנחנו מרגישות.</p><p>Femit היא בדיוק זה.&nbsp;<br/>פלטפורמה למרחב נשי עם התמקדות בבריאות, מדע ואקולוגיה.<br/><br/>הצטרפי אלינו.</p>",
+        "quote": "<p>הקמתי את פמית כי הרגשתי שחסר לנו מרחב שלנו.&nbsp;</p><p>מכל מקום קופצות עלינו פרסומות שמתמקדות באיך אנחנו נראות, ואף לא מקום אחד שמתמקד באיך אנחנו מרגישות.</p><p>Femit נולדה בדיוק בשביל זה.&nbsp;<br/>פלטפורמה למרחב נשי עם התמקדות בבריאות, מדע ואקולוגיה.<br/><br/>הצטרפי אלינו.</p>",
         "name": "מור זאדה נווה",
         "role": "מייסדת Femit",
         "padding_top": 48,
