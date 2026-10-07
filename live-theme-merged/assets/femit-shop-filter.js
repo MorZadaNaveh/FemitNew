@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   var groups = document.querySelectorAll('[data-category-group]');
+  var bundlePanels = document.querySelectorAll('[data-bundle-panel]');
 
-  if (groups.length) {
+  if (groups.length || bundlePanels.length) {
     chips.forEach(function (chip) {
       chip.addEventListener('click', function (e) {
         e.preventDefault();
@@ -24,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
         groups.forEach(function (group) {
           var show = !handle || handle === 'all' || group.getAttribute('data-category-group') === handle;
           group.style.display = show ? '' : 'none';
+        });
+        bundlePanels.forEach(function (panel) {
+          var bundlesHandle = panel.getAttribute('data-bundle-panel');
+          var show = !handle || handle === 'all' || handle === bundlesHandle;
+          panel.style.display = show ? '' : 'none';
         });
       });
     });

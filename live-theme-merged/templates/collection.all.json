@@ -174,11 +174,10 @@
         },
         "cat_bundles": {
           "type": "category",
-          "disabled": true,
           "settings": {
             "collection": "מארזים",
             "label": "",
-            "icon": "bag"
+            "icon": "archive"
           }
         }
       },
