@@ -329,6 +329,18 @@
         "padding_bottom": 60
       }
     },
+    "femit_ziphers_bundle": {
+      "type": "femit-cta-banner",
+      "settings": {
+        "heading": "למה לבחור?",
+        "subheading": "קחי מכנסיים, תחתונים ומשפך ביחד ב-10% הנחה",
+        "button_label": "לבחירה",
+        "button_link": "shopify://products/ziphers-bundle",
+        "background_color": "#00657b",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
     "collapsible_content_YVH9ax": {
       "type": "collapsible-content",
       "blocks": {
@@ -469,6 +481,7 @@
     "multicolumn_YCULcY",
     "177736606900ae567b",
     "featured_collection_NBcbci",
+    "femit_ziphers_bundle",
     "collapsible_content_YVH9ax",
     "rich_text_FGMFFf"
   ]
