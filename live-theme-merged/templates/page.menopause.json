@@ -96,7 +96,7 @@
       ],
       "settings": {
         "heading": "לרגעי גלי חום",
-        "subheading": "מניפה קלה ואלגנטית לשאת בתיק, לרגעים שמגיעים בלי התראה.",
+        "subheading": "מניפה קלה ואלגנטית לשאת בתיק",
         "products_per_row_desktop": 2,
         "products_per_row_mobile": "2",
         "max_products": 24,
@@ -118,7 +118,6 @@
     },
     "femit_menopause_products": {
       "type": "femit-product-showcase",
-      "disabled": true,
       "blocks": {
         "p1": {
           "type": "product",
@@ -169,6 +168,7 @@
         "p4",
         "c1"
       ],
+      "disabled": true,
       "settings": {
         "heading": "פרי-מנופאוזה",
         "subheading": "בתקופת הפרי-מנופאוזה אנחנו עדיין מקבלות וסת, היא רק יכולה להפתיע ולאחר, ולעיתים גם להקדים, יכולה להיות עם יותר דימום או פחות. אבל היא כאן, וזה עוד יכול לקחת תקופה. בואי לגלות מוצרי וסת רב-פעמיים, נוחים, בריאים, אקולוגיים.",
@@ -214,7 +214,7 @@
       ],
       "settings": {
         "heading": "תובנות וידע",
-        "subheading": "מאמרים שנאצרו בקפידה כדי לעזור לך להבין את המדע של הגוף שלך ועצות מעשיות לחיוניות יומיומית.",
+        "subheading": "מאמרים על בריאות נשים, מדע ואקולוגיה.",
         "view_all_label": "צפו בכל המאמרים",
         "view_all_link": "/blogs/articles",
         "main_article": "articles/תסמיני-גיל-המעבר-מה-נורמלי-ומה-באמת-עוזר",
@@ -290,7 +290,6 @@
     "femit_fan_products",
     "femit_fan_bundle",
     "femit_menopause_products",
-
     "femit_article_bento",
     "femit_workshops"
   ]
