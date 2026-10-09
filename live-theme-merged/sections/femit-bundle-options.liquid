@@ -31,7 +31,7 @@
     {%- if section.settings.show_pants_size -%}
       <div class="femit-bundle-options__field" data-pants-size-field>
         <label class="femit-bundle-options__label" for="FemitPantsSize-{{ section.id }}">{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}</label>
-        <select class="femit-bundle-options__select" id="FemitPantsSize-{{ section.id }}" name="properties[{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}]" data-pants-size-select></select>
+        <select class="femit-bundle-options__select" id="FemitPantsSize-{{ section.id }}" name="properties[{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}]" data-pants-size-select autocomplete="off"></select>
       </div>
     {%- endif -%}
 
@@ -39,7 +39,7 @@
     {%- if underwear_blocks.size > 0 -%}
       <div class="femit-bundle-options__field">
         <label class="femit-bundle-options__label" for="FemitUnderwearSize-{{ section.id }}">{{ section.settings.underwear_size_label | default: 'מידת תחתונים' }}</label>
-        <select class="femit-bundle-options__select" id="FemitUnderwearSize-{{ section.id }}" name="properties[{{ section.settings.underwear_size_label | default: 'מידת תחתונים' }}]">
+        <select class="femit-bundle-options__select" id="FemitUnderwearSize-{{ section.id }}" name="properties[{{ section.settings.underwear_size_label | default: 'מידת תחתונים' }}]" autocomplete="off">
           {%- assign underwear_size_position = 0 -%}
           {%- if section.settings.underwear_product != blank -%}
             {%- for opt in section.settings.underwear_product.options_with_values -%}
@@ -74,7 +74,7 @@
     {%- if funnel_blocks.size > 0 -%}
       <div class="femit-bundle-options__field">
         <label class="femit-bundle-options__label" for="FemitFunnelColor-{{ section.id }}">{{ section.settings.funnel_color_label | default: 'צבע משפך' }}</label>
-        <select class="femit-bundle-options__select" id="FemitFunnelColor-{{ section.id }}" name="properties[{{ section.settings.funnel_color_label | default: 'צבע משפך' }}]">
+        <select class="femit-bundle-options__select" id="FemitFunnelColor-{{ section.id }}" name="properties[{{ section.settings.funnel_color_label | default: 'צבע משפך' }}]" autocomplete="off">
           {%- assign funnel_color_position = 0 -%}
           {%- if section.settings.funnel_product != blank -%}
             {%- for opt in section.settings.funnel_product.options_with_values -%}
@@ -109,7 +109,7 @@
     {%- if color_blocks.size > 0 -%}
       <div class="femit-bundle-options__field" data-conditional-field data-option-name="{{ section.settings.color_option_name }}" data-option-value="{{ section.settings.color_option_value }}" hidden>
         <label class="femit-bundle-options__label" for="FemitColor-{{ section.id }}">{{ section.settings.color_label | default: 'צבע' }}</label>
-        <select class="femit-bundle-options__select" id="FemitColor-{{ section.id }}" name="properties[{{ section.settings.color_label | default: 'צבע' }}]">
+        <select class="femit-bundle-options__select" id="FemitColor-{{ section.id }}" name="properties[{{ section.settings.color_label | default: 'צבע' }}]" autocomplete="off">
           {%- assign color_position = 0 -%}
           {%- if section.settings.color_product != blank -%}
             {%- for opt in section.settings.color_product.options_with_values -%}
