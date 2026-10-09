@@ -104,6 +104,34 @@
         "padding_bottom": 24
       }
     },
+    "femit_fan_bundle": {
+      "type": "femit-bundle-panel",
+      "blocks": {
+        "bundle_1": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-גיל-המעבר-ספר-ומניפה",
+            "custom_title": "",
+            "description": "ספר ההדרכה המקיף לגיל המעבר + מניפה לרגעי גלי חום, לבחירתך.",
+            "bullet_1": "כל מה שאת חייבת לדעת על גיל המעבר - ד״ר ג׳ן גונטר",
+            "bullet_2": "מניפה וינטג' או קלאסית, לבחירתך",
+            "bullet_3": "",
+            "button_label": "לבחירה"
+          }
+        }
+      },
+      "block_order": [
+        "bundle_1"
+      ],
+      "settings": {
+        "heading": "למה לבחור?",
+        "subheading": "קחי את שתיהן ביחד ב-10% הנחה",
+        "image_height": "medium",
+        "columns_desktop": "3",
+        "padding_top": 8,
+        "padding_bottom": 24
+      }
+    },
     "femit_menopause_products": {
       "type": "femit-product-showcase",
       "blocks": {
@@ -275,6 +303,7 @@
     "femit_cta_banner",
     "femit_featured_guide",
     "femit_fan_products",
+    "femit_fan_bundle",
     "femit_menopause_products",
     "femit_article_bento",
     "femit_workshops"
