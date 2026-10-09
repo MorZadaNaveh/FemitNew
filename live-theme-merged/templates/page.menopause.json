@@ -118,6 +118,7 @@
     },
     "femit_menopause_products": {
       "type": "femit-product-showcase",
+      "disabled": true,
       "blocks": {
         "p1": {
           "type": "product",

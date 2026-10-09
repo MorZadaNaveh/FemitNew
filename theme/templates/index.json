@@ -12,7 +12,7 @@
     "femit_hero": {
       "type": "femit-hero",
       "settings": {
-        "heading": "סוף סוף, מישהי שרואה אותך",
+        "heading_line_1": "סוף סוף, מישהי שרואה אותך",
         "subheading": "<p>הבית שלך לבריאות, לחוויות ולאינטימיות בגיל 40+. אנחנו כאן כדי ללוות אותך בכל שלב, עם מידע אמין, מוצרים איכותיים ומרחב תומך.</p>",
         "image": "shopify://shop_images/AB6AXuCOLoBlFeq7ZMzrmGv07TIUMAfc5q6xHXP_ej3ZAwPXa0WoCDrx-l6aj7R_0B9-PRlCAlH3fqzDf-pjapYpvDGVANJUzzm0PM5FpAd-BppZJzQtQrkd0jUR_1NFcRT-3QbTHvFx7EPHrk1sR8WRL-B94dWMmpN7FI6rw_hFpL6G1HEkjQO.jpg",
         "primary_button_label": "התחילי כאן",

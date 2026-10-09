@@ -7,8 +7,14 @@
 <div class="femit-hero-{{ section.id }} femit-section">
   <div class="femit-hero__inner">
     <div class="femit-hero__content">
-      {%- if section.settings.heading != blank -%}
-        <h1 class="femit-hero__heading">{{ section.settings.heading }}</h1>
+      {%- if section.settings.heading_line_1 != blank -%}
+        <h1 class="femit-hero__heading">{{ section.settings.heading_line_1 }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="femit-hero__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading_line_2 != blank -%}
+        <p class="femit-hero__heading femit-hero__heading--continued">{{ section.settings.heading_line_2 }}</p>
       {%- endif -%}
       {%- if section.settings.subheading != blank -%}
         <div class="femit-hero__subheading">{{ section.settings.subheading }}</div>
@@ -87,6 +93,23 @@
     }
   }
 
+  .femit-hero__heading--continued {
+    margin: 0;
+  }
+
+  .femit-hero__subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #d46f88;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .femit-hero__subtitle {
+      font-size: 18px;
+    }
+  }
+
   .femit-hero__subheading {
     font-size: 18px;
     line-height: 28px;
@@ -142,9 +165,19 @@
   "settings": [
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading",
+      "id": "heading_line_1",
+      "label": "Heading (part 1)",
       "default": "סוף סוף, מישהי שרואה אותך"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle (between the two heading parts, optional)"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading (part 2, optional)"
     },
     {
       "type": "richtext",
