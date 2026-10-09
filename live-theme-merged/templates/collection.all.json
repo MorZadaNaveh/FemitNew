@@ -122,6 +122,14 @@
             "icon": "fan"
           }
         },
+        "cat_ziphers": {
+          "type": "category",
+          "settings": {
+            "collection": "ziphers",
+            "label": "",
+            "icon": "hiking"
+          }
+        },
         "cat_sexuality": {
           "type": "category",
           "settings": {
@@ -130,12 +138,20 @@
             "icon": "heart"
           }
         },
-        "cat_ziphers": {
+        "cat_books": {
           "type": "category",
           "settings": {
-            "collection": "ziphers",
+            "collection": "books",
             "label": "",
-            "icon": "hiking"
+            "icon": "book-open"
+          }
+        },
+        "cat_safe_space": {
+          "type": "category",
+          "settings": {
+            "collection": "מרחב-בטוח",
+            "label": "",
+            "icon": "stop-hand"
           }
         },
         "cat_period": {
@@ -147,14 +163,6 @@
             "icon": "droplet"
           }
         },
-        "cat_books": {
-          "type": "category",
-          "settings": {
-            "collection": "books",
-            "label": "",
-            "icon": "book-open"
-          }
-        },
         "cat_lectures": {
           "type": "category",
           "disabled": true,
@@ -162,14 +170,6 @@
             "collection": "lectures",
             "label": "",
             "icon": "calendar"
-          }
-        },
-        "cat_safe_space": {
-          "type": "category",
-          "settings": {
-            "collection": "מרחב-בטוח",
-            "label": "",
-            "icon": "stop-hand"
           }
         },
         "cat_bundles": {
@@ -208,38 +208,14 @@
     "femit_bundle_panel": {
       "type": "femit-bundle-panel",
       "blocks": {
-        "bundle_1": {
+        "bundle_7": {
           "type": "bundle",
           "settings": {
-            "product": "ערכת-וסת",
+            "product": "ערכת-גיל-המעבר-ספר-ומניפה",
             "custom_title": "",
-            "description": "נוחות עדינה ורכיבים טבעיים ונקיים לימים הרגישים.",
-            "bullet_1": "תחתוניות כותנה אורגנית נושמת",
-            "bullet_2": "גביעונית וסת רוביקאפ או דיסק וסת Hello Period, לבחירתך",
-            "bullet_3": "",
-            "button_label": "לפרטי המארז וההתאמה"
-          }
-        },
-        "bundle_2": {
-          "type": "bundle",
-          "settings": {
-            "product": "ערכת-ספרים-מילים-הורגות-וכלואות",
-            "custom_title": "",
-            "description": "שני ספרים חשובים על אלימות כלפי נשים בזוגיות.",
-            "bullet_1": "מילים הורגות - ניני גוטספלד-מנוח",
-            "bullet_2": "כלואות - ד״ר אילנה קוורטין",
-            "bullet_3": "",
-            "button_label": "לפרטי המארז וההתאמה"
-          }
-        },
-        "bundle_3": {
-          "type": "bundle",
-          "settings": {
-            "product": "ערכת-ספרים-לבחירה",
-            "custom_title": "",
-            "description": "בחרי כל שילוב של ספרים וקלפי משחק שמתאים לך.",
-            "bullet_1": "מיתוס היופי / חדר משלך / אז איך קוראים לך עכשיו?",
-            "bullet_2": "אפשרות לשלב קלפי משחק QueenG",
+            "description": "ספר מדריך מקיף לגיל המעבר בשילוב מניפה לרגעי גלי חום.",
+            "bullet_1": "כל מה שאת חייבת לדעת על גיל המעבר - ד״ר ג׳ן גונטר",
+            "bullet_2": "מניפה וינטג' או קלאסית, לבחירתך",
             "bullet_3": "",
             "button_label": "לבחירה"
           }
@@ -256,14 +232,14 @@
             "button_label": "לבחירה"
           }
         },
-        "bundle_5": {
+        "bundle_3": {
           "type": "bundle",
           "settings": {
-            "product": "ערכת-אינטימיות",
+            "product": "ערכת-ספרים-לבחירה",
             "custom_title": "",
-            "description": "ויברטור איכותי מבית סטיספייר, בשילוב חומר סיכוך איכותי לחוויה מושלמת.",
-            "bullet_1": "ויברטור סטיספייר לבחירה (3 דגמים)",
-            "bullet_2": "חומר סיכוך לבחירת גודל",
+            "description": "בחרי כל שילוב של ספרים וקלפי משחק שמתאים לך.",
+            "bullet_1": "מיתוס היופי / חדר משלך / אז איך קוראים לך עכשיו?",
+            "bullet_2": "אפשרות לשלב קלפי משחק QueenG",
             "bullet_3": "",
             "button_label": "לבחירה"
           }
@@ -273,34 +249,33 @@
           "settings": {
             "product": "ערכת-עצמאות",
             "custom_title": "",
-            "description": "ערכה למי שבוחרת בעצמה - הנאה, חיבור מחדש ועצמאות אישית.",
+            "description": "הנאה, חיבור מחדש ועצמאות אישית.",
             "bullet_1": "ויברטור יונק סטיספייר פרו 2 - בחרי צבע",
             "bullet_2": "חדר משלך - וירג׳יניה וולף",
             "bullet_3": "אז איך קוראים לך עכשיו? - מיכל רום",
             "button_label": "לבחירה"
           }
         },
-        "bundle_7": {
+        "bundle_5": {
           "type": "bundle",
+          "disabled": true,
           "settings": {
-            "product": "ערכת-גיל-המעבר-ספר-ומניפה",
+            "product": "ערכת-אינטימיות",
             "custom_title": "",
-            "description": "ספר מדריך מקיף לגיל המעבר בשילוב מניפה לרגעי גלי חום.",
-            "bullet_1": "כל מה שאת חייבת לדעת על גיל המעבר - ד״ר ג׳ן גונטר",
-            "bullet_2": "מניפה וינטג' או קלאסית, לבחירתך",
+            "description": "ויברטור איכותי מבית סטיספייר, בשילוב חומר סיכוך איכותי לחוויה מושלמת.",
+            "bullet_1": "ויברטור סטיספייר לבחירה (3 דגמים)",
+            "bullet_2": "חומר סיכוך לבחירת גודל",
             "bullet_3": "",
             "button_label": "לבחירה"
           }
         }
       },
       "block_order": [
-        "bundle_1",
-        "bundle_2",
-        "bundle_3",
+        "bundle_7",
         "bundle_4",
-        "bundle_5",
+        "bundle_3",
         "bundle_6",
-        "bundle_7"
+        "bundle_5"
       ],
       "settings": {
         "heading": "המארזים שלנו",
