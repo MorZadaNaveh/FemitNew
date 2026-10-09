@@ -77,6 +77,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   updateConditionalFields();
 
+  // Discount badge text override: swaps to a pre-order message when the
+  // selected variant option matches one of a configured list of values
+  // (e.g. the short-pants pre-order variants), restores the default otherwise.
+  function updatePreorderBadge() {
+    if (!badge) return;
+    var optionName = badge.getAttribute('data-preorder-option-name');
+    var valuesRaw = badge.getAttribute('data-preorder-option-values');
+    var preorderText = badge.getAttribute('data-preorder-text');
+    var defaultText = badge.getAttribute('data-default-text');
+    if (!optionName || !valuesRaw || !preorderText) return;
+    var values = valuesRaw.split(',').map(function (v) { return v.trim(); });
+    var current = currentOptionValue(optionName);
+    badge.textContent = (current && values.indexOf(current) !== -1) ? preorderText : defaultText;
+  }
+  updatePreorderBadge();
+
   // Dawn's variant-picker re-renders its own markup (new DOM nodes) after
   // each selection via the section rendering API, so listeners bound to a
   // specific input go stale after the first change. Delegate on `document`
@@ -88,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
       populatePantsSizes(event.target.value);
     }
     updateConditionalFields();
+    updatePreorderBadge();
   });
 
   // Move the fields into the real product form so they submit as

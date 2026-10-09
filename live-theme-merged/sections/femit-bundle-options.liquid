@@ -11,7 +11,15 @@
 {%- endstyle -%}
 
 {%- if section.settings.show_discount_badge and section.settings.discount_badge_text != blank -%}
-  <span class="femit-bundle-options__badge" data-femit-discount-badge hidden>{{ section.settings.discount_badge_text }}</span>
+  <span
+    class="femit-bundle-options__badge"
+    data-femit-discount-badge
+    data-default-text="{{ section.settings.discount_badge_text | escape }}"
+    data-preorder-text="{{ section.settings.preorder_badge_text | escape }}"
+    data-preorder-option-name="{{ section.settings.preorder_option_name }}"
+    data-preorder-option-values="{{ section.settings.preorder_option_values | escape }}"
+    hidden
+  >{{ section.settings.discount_badge_text }}</span>
 {%- endif -%}
 
 <div class="femit-bundle-options-{{ section.id }} femit-section" data-femit-bundle-options>
@@ -221,6 +229,9 @@
     { "type": "header", "content": "Discount badge (shown on the product image)" },
     { "type": "checkbox", "id": "show_discount_badge", "label": "Show discount badge", "default": true },
     { "type": "text", "id": "discount_badge_text", "label": "Badge text", "default": "10% הנחה" },
+    { "type": "text", "id": "preorder_badge_text", "label": "Badge text override (pre-order values)" },
+    { "type": "text", "id": "preorder_option_name", "label": "Watched option name for pre-order override (exact)" },
+    { "type": "text", "id": "preorder_option_values", "label": "Option values that trigger the override (comma separated, exact)" },
     { "type": "header", "content": "Pants size (depends on selected pants type)" },
     { "type": "checkbox", "id": "show_pants_size", "label": "Show pants size field", "default": false },
     { "type": "text", "id": "pants_size_label", "label": "Pants size field label", "default": "מידת מכנסיים" },
