@@ -267,6 +267,30 @@
             "bullet_3": "",
             "button_label": "לבחירה"
           }
+        },
+        "bundle_6": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-עצמאות",
+            "custom_title": "",
+            "description": "ערכה למי שבוחרת בעצמה - הנאה, חיבור מחדש ועצמאות אישית.",
+            "bullet_1": "ויברטור יונק סטיספייר פרו 2 - בחרי צבע",
+            "bullet_2": "חדר משלך - וירג׳יניה וולף",
+            "bullet_3": "אז איך קוראים לך עכשיו? - מיכל רום",
+            "button_label": "לבחירה"
+          }
+        },
+        "bundle_7": {
+          "type": "bundle",
+          "settings": {
+            "product": "ערכת-גיל-המעבר-ספר-ומניפה",
+            "custom_title": "",
+            "description": "ספר מדריך מקיף לגיל המעבר בשילוב מניפה לרגעי גלי חום.",
+            "bullet_1": "כל מה שאת חייבת לדעת על גיל המעבר - ד״ר ג׳ן גונטר",
+            "bullet_2": "מניפה וינטג' או קלאסית, לבחירתך",
+            "bullet_3": "",
+            "button_label": "לבחירה"
+          }
         }
       },
       "block_order": [
@@ -274,7 +298,9 @@
         "bundle_2",
         "bundle_3",
         "bundle_4",
-        "bundle_5"
+        "bundle_5",
+        "bundle_6",
+        "bundle_7"
       ],
       "settings": {
         "heading": "המארזים שלנו",

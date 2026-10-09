@@ -5,7 +5,7 @@
 
   @media screen and (min-width: 750px) {
     .femit-bundle-panel-{{ section.id }} .femit-bundle-panel__grid {
-      grid-template-columns: repeat({{ section.settings.columns_desktop | default: 3 }}, 1fr);
+      --femit-bundle-columns: {{ section.settings.columns_desktop | default: 3 }};
     }
   }
 {%- endstyle -%}
@@ -165,14 +165,19 @@
   }
 
   .femit-bundle-panel__grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
   }
 
+  .femit-bundle-panel__card {
+    flex: 0 1 100%;
+  }
+
   @media screen and (min-width: 750px) {
-    .femit-bundle-panel__grid {
-      grid-template-columns: repeat(3, 1fr);
+    .femit-bundle-panel__card {
+      flex: 0 1 calc((100% - (var(--femit-bundle-columns, 3) - 1) * 20px) / var(--femit-bundle-columns, 3));
     }
   }
 
