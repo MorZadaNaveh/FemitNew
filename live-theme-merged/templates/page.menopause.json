@@ -70,6 +70,40 @@
         "padding_bottom": 40
       }
     },
+    "femit_fan_products": {
+      "type": "femit-product-showcase",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "מניפה-וינטג",
+            "custom_title": "",
+            "custom_description": ""
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "מניפה-במבוק-קלאסית",
+            "custom_title": "",
+            "custom_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2"
+      ],
+      "settings": {
+        "heading": "לרגעי גלי חום",
+        "subheading": "מניפה קלה ואלגנטית לשאת בתיק, לרגעים שמגיעים בלי התראה.",
+        "products_per_row_desktop": 2,
+        "products_per_row_mobile": "2",
+        "max_products": 24,
+        "padding_top": 8,
+        "padding_bottom": 24
+      }
+    },
     "femit_menopause_products": {
       "type": "femit-product-showcase",
       "blocks": {
@@ -240,6 +274,7 @@
     "femit_menopause_hero",
     "femit_cta_banner",
     "femit_featured_guide",
+    "femit_fan_products",
     "femit_menopause_products",
     "femit_article_bento",
     "femit_workshops"
