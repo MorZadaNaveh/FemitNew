@@ -55,7 +55,7 @@
           "type": "custom_liquid",
           "disabled": true,
           "settings": {
-            "custom_liquid": "<div style=\"text-align: center;\">\n  <form method=\"post\" action=\"/cart/add\" onsubmit=\"return updateQuantity(this)\">\n    <input type=\"hidden\" name=\"id\" id=\"variant-id\" value=\"{{ product.selected_or_first_available_variant.id }}\">\n    <input type=\"hidden\" name=\"quantity\" value=\"1\" id=\"custom-cart-quantity\">\n    <button type=\"submit\" class=\"full-width-cart-button\">\n      הוספה לסל\n    </button>\n  </form>\n</div>\n\n<style>\n  .full-width-cart-button {\n    width: 100%;\n    background-color: #2b5e63;\n    color: white;\n    padding: 14px 0;\n    font-size: 16px;\n    font-weight: 600;\n    border: none;\n    border-radius: 12px;\n    cursor: pointer;\n    box-shadow: 0 2px 6px rgba(0,0,0,0.1);\n    transition: background-color 0.3s ease;\n  }\n\n  .full-width-cart-button:hover {\n    background-color: #234a4f;\n  }\n</style>\n\n<script>\n  function updateQuantity(form) {\n    const actualQtyInput = document.querySelector('input[name=\"quantity\"]:not(#custom-cart-quantity)');\n    const hiddenQtyInput = document.getElementById('custom-cart-quantity');\n    if (actualQtyInput && hiddenQtyInput) {\n      hiddenQtyInput.value = actualQtyInput.value;\n    }\n    return true;\n  }\n\n  document.addEventListener('DOMContentLoaded', function () {\n    const variantSelector = document.querySelectorAll('select[name^=\"options\"]');\n    const variantsJson = {{ product.variants | json }};\n    const variantIdInput = document.getElementById('variant-id');\n\n    variantSelector.forEach(select => {\n      select.addEventListener('change', function () {\n        const selectedOptions = Array.from(variantSelector).map(s => s.value);\n        const matchingVariant = variantsJson.find(variant =>\n          variant.options.every((opt, i) => opt === selectedOptions[i])\n        );\n        if (matchingVariant) {\n          variantIdInput.value = matchingVariant.id;\n        }\n      });\n    });\n  });\n</script>"
+            "custom_liquid": ""
           }
         },
         "collapsible_tab_arhhbB": {
@@ -122,43 +122,23 @@
     "femit_bundle_options": {
       "type": "femit-bundle-options",
       "blocks": {
-        "underwear_xs": { "type": "underwear_choice", "settings": { "value": "XS" } },
-        "underwear_s": { "type": "underwear_choice", "settings": { "value": "S" } },
-        "underwear_m": { "type": "underwear_choice", "settings": { "value": "M" } },
-        "underwear_l": { "type": "underwear_choice", "settings": { "value": "L" } },
-        "underwear_xl": { "type": "underwear_choice", "settings": { "value": "XL" } },
-        "underwear_2xl": { "type": "underwear_choice", "settings": { "value": "2XL" } },
-        "funnel_purple": { "type": "funnel_choice", "settings": { "value": "סגול" } },
-        "funnel_pink": { "type": "funnel_choice", "settings": { "value": "ורוד" } },
-        "funnel_orange": { "type": "funnel_choice", "settings": { "value": "כתום" } }
+        "color_natural": { "type": "color_choice", "settings": { "value": "טבעי" } },
+        "color_purple": { "type": "color_choice", "settings": { "value": "סגול" } },
+        "color_black": { "type": "color_choice", "settings": { "value": "שחור" } }
       },
       "block_order": [
-        "underwear_xs",
-        "underwear_s",
-        "underwear_m",
-        "underwear_l",
-        "underwear_xl",
-        "underwear_2xl",
-        "funnel_purple",
-        "funnel_pink",
-        "funnel_orange"
+        "color_natural",
+        "color_purple",
+        "color_black"
       ],
       "settings": {
         "heading": "התאמה אישית למארז",
-        "show_pants_size": true,
-        "pants_size_label": "מידת מכנסיים",
-        "pants_type_1_label": "מכנסי טייץ ארוכים",
-        "pants_type_1_sizes": "M, L, XL",
-        "pants_type_2_label": "מכנסי טייץ קצרים",
-        "pants_type_2_sizes": "XS, S, M, L, XL, 2XL",
-        "pants_type_3_label": "מכנסי שטח ארוכים",
-        "pants_type_3_sizes": "M, L, XL",
-        "pants_type_4_label": "מכנסי שטח קצרים",
-        "pants_type_4_sizes": "XS, S, M, L, XL, 2XL",
-        "underwear_size_label": "מידת תחתונים",
-        "underwear_product": "ziphers-panties",
-        "funnel_color_label": "צבע משפך",
-        "funnel_product": "urination-device",
+        "show_pants_size": false,
+        "color_label": "צבע המניפה",
+        "color_option_name": "סוג מניפה",
+        "color_option_value": "וינטג'",
+        "color_product": "מניפה-וינטג",
+        "color_product_option_name": "צבע",
         "padding_top": 16,
         "padding_bottom": 16
       }

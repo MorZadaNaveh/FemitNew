@@ -20,10 +20,12 @@
   {%- endif -%}
 
   <div class="femit-bundle-options__fields" data-femit-bundle-options-fields>
-    <div class="femit-bundle-options__field" data-pants-size-field>
-      <label class="femit-bundle-options__label" for="FemitPantsSize-{{ section.id }}">{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}</label>
-      <select class="femit-bundle-options__select" id="FemitPantsSize-{{ section.id }}" name="properties[{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}]" data-pants-size-select></select>
-    </div>
+    {%- if section.settings.show_pants_size -%}
+      <div class="femit-bundle-options__field" data-pants-size-field>
+        <label class="femit-bundle-options__label" for="FemitPantsSize-{{ section.id }}">{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}</label>
+        <select class="femit-bundle-options__select" id="FemitPantsSize-{{ section.id }}" name="properties[{{ section.settings.pants_size_label | default: 'מידת מכנסיים' }}]" data-pants-size-select></select>
+      </div>
+    {%- endif -%}
 
     {%- assign underwear_blocks = section.blocks | where: 'type', 'underwear_choice' -%}
     {%- if underwear_blocks.size > 0 -%}
@@ -76,6 +78,41 @@
             {%- if section.settings.funnel_product != blank and funnel_color_position > 0 -%}
               {%- for v in section.settings.funnel_product.variants -%}
                 {%- case funnel_color_position -%}
+                  {%- when 1 -%}{%- assign v_value = v.option1 -%}
+                  {%- when 2 -%}{%- assign v_value = v.option2 -%}
+                  {%- when 3 -%}{%- assign v_value = v.option3 -%}
+                {%- endcase -%}
+                {%- if v_value == block.settings.value -%}
+                  {%- assign choice_variant = v -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+            <option value="{{ block.settings.value }}"{% if choice_variant != blank and choice_variant.available == false %} disabled{% endif %} {{ block.shopify_attributes }}>
+              {{- block.settings.value -}}
+              {%- if choice_variant != blank and choice_variant.inventory_quantity <= 0 -%} (אזל מהמלאי){%- endif -%}
+            </option>
+          {%- endfor -%}
+        </select>
+      </div>
+    {%- endif -%}
+
+    {%- assign color_blocks = section.blocks | where: 'type', 'color_choice' -%}
+    {%- if color_blocks.size > 0 -%}
+      <div class="femit-bundle-options__field" data-conditional-field data-option-name="{{ section.settings.color_option_name }}" data-option-value="{{ section.settings.color_option_value }}" hidden>
+        <label class="femit-bundle-options__label" for="FemitColor-{{ section.id }}">{{ section.settings.color_label | default: 'צבע' }}</label>
+        <select class="femit-bundle-options__select" id="FemitColor-{{ section.id }}" name="properties[{{ section.settings.color_label | default: 'צבע' }}]">
+          {%- assign color_position = 0 -%}
+          {%- if section.settings.color_product != blank -%}
+            {%- for opt in section.settings.color_product.options_with_values -%}
+              {%- if opt.name == section.settings.color_product_option_name -%}{%- assign color_position = forloop.index -%}{%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+          {%- for block in color_blocks -%}
+            {%- assign choice_variant = blank -%}
+            {%- if section.settings.color_product != blank and color_position > 0 -%}
+              {%- for v in section.settings.color_product.variants -%}
+                {%- case color_position -%}
                   {%- when 1 -%}{%- assign v_value = v.option1 -%}
                   {%- when 2 -%}{%- assign v_value = v.option2 -%}
                   {%- when 3 -%}{%- assign v_value = v.option3 -%}
@@ -185,6 +222,7 @@
     { "type": "checkbox", "id": "show_discount_badge", "label": "Show discount badge", "default": true },
     { "type": "text", "id": "discount_badge_text", "label": "Badge text", "default": "10% הנחה" },
     { "type": "header", "content": "Pants size (depends on selected pants type)" },
+    { "type": "checkbox", "id": "show_pants_size", "label": "Show pants size field", "default": false },
     { "type": "text", "id": "pants_size_label", "label": "Pants size field label", "default": "מידת מכנסיים" },
     { "type": "text", "id": "pants_type_1_label", "label": "Pants type 1 - exact option value", "default": "מכנסי טייץ ארוכים" },
     { "type": "text", "id": "pants_type_1_sizes", "label": "Pants type 1 - available sizes (comma separated)", "default": "M, L, XL" },
@@ -200,6 +238,12 @@
     { "type": "header", "content": "Funnel color" },
     { "type": "text", "id": "funnel_color_label", "label": "Funnel color field label", "default": "צבע משפך" },
     { "type": "product", "id": "funnel_product", "label": "Funnel product (live stock source)" },
+    { "type": "header", "content": "Conditional color choice" },
+    { "type": "text", "id": "color_label", "label": "Color field label", "default": "צבע" },
+    { "type": "text", "id": "color_option_name", "label": "Watched option name (exact, e.g. סוג מניפה)" },
+    { "type": "text", "id": "color_option_value", "label": "Option value that reveals this field (exact, e.g. וינטג')" },
+    { "type": "product", "id": "color_product", "label": "Color product (live stock source)" },
+    { "type": "text", "id": "color_product_option_name", "label": "Color product's option name (exact, e.g. צבע)", "default": "צבע" },
     { "type": "header", "content": "Padding" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 16 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 16 }
@@ -217,6 +261,13 @@
       "name": "Funnel color choice",
       "settings": [
         { "type": "text", "id": "value", "label": "Color value (must match a real color on the funnel product)" }
+      ]
+    },
+    {
+      "type": "color_choice",
+      "name": "Color choice",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Color value (must match a real color on the color product)" }
       ]
     }
   ],
